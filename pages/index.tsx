@@ -32,7 +32,7 @@ export default function Home() {
               fontWeight="bold"
               w="fit-content"
             >
-              Bienvenidos al Espacio San Martín
+              Espacio San Martín
             </Heading>
           </motion.div>
           <Intro />
