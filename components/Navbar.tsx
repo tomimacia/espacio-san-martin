@@ -1,5 +1,5 @@
-import LogoNavbar from "@/public/LogoNavbar.jpg";
 import BannerNavbar from "@/public/BannerNavbar.jpg";
+import LogoNavbar from "@/public/LogoNavbar.jpg";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -8,7 +8,6 @@ import {
   IconButton,
   Stack,
   useBreakpointValue,
-  useColorMode,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -63,8 +62,7 @@ export default function Navbar() {
             width={220}
             style={{
               objectFit: "contain",
-              border:'5px solid white',
-              borderRadius:'10px'
+              borderRadius: "10px",
             }}
             height={220}
             src={BannerNavbar.src}
