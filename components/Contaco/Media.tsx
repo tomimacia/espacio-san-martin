@@ -1,11 +1,9 @@
+import { mediaType } from "@/types/types";
 import { Box, Flex } from "@chakra-ui/layout";
 import Link from "next/link";
 import React from "react";
 import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
-type mediaType = {
-  dir: "row" | "column";
-  size: number | undefined;
-};
+
 const Media = ({ dir, size }: mediaType) => {
   const SocialItems = [
     {

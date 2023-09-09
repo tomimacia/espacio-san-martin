@@ -51,3 +51,16 @@ export type NewBoxType = {
   Day: String;
   Time: String;
 };
+export type mediaType = {
+  dir: "row" | "column";
+  size: number | undefined;
+};
+type locationType = {
+  sede: string;
+  direccion: string;
+  localidad: string;
+  iframe: string;
+};
+export type mapaType = {
+  location: locationType;
+};

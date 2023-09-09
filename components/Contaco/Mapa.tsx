@@ -1,14 +1,7 @@
+import { mapaType } from "@/types/types";
 import { AspectRatio, Flex, Heading, Text } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
-type locationType = {
-  sede: string;
-  direccion: string;
-  localidad: string;
-  iframe: string;
-};
-type mapaType = {
-  location: locationType;
-};
+
 export const Mapa = ({ location }: mapaType) => {
   const { sede, direccion, localidad, iframe } = location;
   const variants = {
@@ -50,7 +43,7 @@ export const Mapa = ({ location }: mapaType) => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            />
           </AspectRatio>
         </Flex>
       </motion.div>
