@@ -9,7 +9,7 @@ import { Flex } from "@chakra-ui/react";
 const Contacto = () => {
   return (
     <Layout headTitle="Contacto" pageTitle="Contacto">
-      <Flex flexDir="column" gap={10} px={[2, 4, 6, 8, 10]}>
+      <Flex flexDir="column" gap={[10,20]} px={[2, 4, 6, 8, 10]}>
         <Flex
           justify="space-between"
           gap={10}
@@ -18,9 +18,7 @@ const Contacto = () => {
           <RedesSociales />
           <Horarios />
         </Flex>
-        <Flex flexDir={{ base: "column", md: "row" }} justify="space-between">
-          <Turnos />
-        </Flex>
+        <Turnos />
         <Ubicación />
         <Formulario />
       </Flex>
