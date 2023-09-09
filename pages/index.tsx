@@ -31,6 +31,7 @@ export default function Home() {
               opacity={1}
               fontWeight="bold"
               w="fit-content"
+              fontFamily="raleway"
             >
               Espacio San Martín
             </Heading>

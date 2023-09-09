@@ -2,7 +2,6 @@ import {
   Button,
   Flex,
   Heading,
-  Spinner,
   Text,
   Textarea,
   useToast,
@@ -79,7 +78,7 @@ export const Formulario = () => {
         ¿Tenés alguna duda o querés formar parte de nuestro equipo?
       </Heading>
       <Heading size="lg">Contáctanos!</Heading>
-      <form ref={form} onSubmit={onSubmit}>
+      <form ref={form} onSubmit={() => console.log("onSubmit")}>
         <Flex flexDir="column" gap={3}>
           {InputsData.map((data) => {
             const { name, title, placeholder, type } = data;
@@ -110,7 +109,7 @@ export const Formulario = () => {
             maxW="200px"
             mt={5}
             bg="blue.400"
-            isLoading={loadingForm}            
+            isLoading={loadingForm}
           >
             Enviar
           </Button>

@@ -16,7 +16,6 @@ const Contacto = () => {
           flexDir={{ base: "column-reverse", md: "row" }}
         >
           <RedesSociales />
-
           <Horarios />
         </Flex>
         <Flex flexDir={{ base: "column", md: "row" }} justify="space-between">

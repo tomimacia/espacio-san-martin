@@ -16,6 +16,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ColorModeSwitch from "./ColorModeSwitch";
 import { NavLink } from "./NavLink";
+import Media from "./Contaco/Media";
 const Links = [
   { title: "Cursos", href: "/Cursos" },
   { title: "Sobre Nosotros", href: "/Nosotros" },
@@ -50,13 +51,7 @@ export default function Navbar() {
         justify="center"
         px={0}
       >
-        <Flex
-          justifyContent="center"
-          w="100%"
-          maxW="1450px"
-          px={[0, 2, 3, 5]}
-          justify="space-between"
-        >
+        <Flex w="100%" maxW="65%" justify="space-around" gap={10}>
           <Image
             alt="depierre-logo"
             width={220}
@@ -67,7 +62,9 @@ export default function Navbar() {
             height={220}
             src={BannerNavbar.src}
           />
-
+          <Flex borderRadius="10px">
+            <Media dir="row" size={25} />
+          </Flex>
           {/* <Flex minW="50%">
             <Flex justify="space-around" fontSize={[14,14,15,16,17]} flexDir="column">
               <Text>Lun a vie de 9:00 a 17:00 Hs.</Text>
