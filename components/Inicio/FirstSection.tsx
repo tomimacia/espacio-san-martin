@@ -10,9 +10,9 @@ const FirstSection = () => {
   });
 
   return (
-    <Flex px={5} w="100%" paddingY={14}>
+    <Flex px={[0,2,3,5]} w="100%" paddingY={14}>
       <Flex gap={3} fontSize={[20, 22, 23, 25]} pos="relative" align="center">
-        <Flex w="140px" minW="95px">
+        <Flex w={["80px","140px"]} minW="95px">
           <AnimatePresence mode="wait">
             <motion.h3
               key={textTitle.title}
@@ -33,9 +33,9 @@ const FirstSection = () => {
           animate={{ x: [-15, 0, -15] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >
-          <ChevronRightIcon />
+          <ChevronRightIcon display={["none","flex"]} />
         </motion.div>
-        <Flex ml={5}>
+        <Flex ml={[1,2,4,5]}>
           <Typewriter
             onInit={(typewriter) => {
               const PAUSE_TIME = 2100;
