@@ -53,7 +53,7 @@ const Note = ({ curso }: NoteType) => {
   );
 };
 const Nosotros = () => {
-  const noteSize = useBreakpointValue(["100%", "48%"]);
+  const noteSize = useBreakpointValue(["100%", "100%", "48%", "48%"]);
   const variants = {
     initial: {
       opacity: 0,

@@ -45,7 +45,7 @@ export default function Navbar() {
       x: -10,
     },
   };
-  const imageNavbarSize = useBreakpointValue([60, 95]);
+  const imageNavbarSize = useBreakpointValue([55, 60, 65, 95]);
   return (
     <Box position="relative" zIndex={10} pos="fixed" as="nav" w="100%">
       <Flex
@@ -79,7 +79,11 @@ export default function Navbar() {
           <Media dir="row" size={25} />
         </Flex>
       </Flex>
-      <Box ref={domNode} bg="whiteAlpha.400" style={{ backdropFilter: "blur(10px)" }}>
+      <Box
+        ref={domNode}
+        bg="whiteAlpha.400"
+        style={{ backdropFilter: "blur(10px)" }}
+      >
         <Flex
           mx="auto"
           maxW="1500px"
@@ -112,6 +116,8 @@ export default function Navbar() {
               size={"md"}
               icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
               aria-label={"Open Menu"}
+              bg="blackAlpha.300"
+              border="1px solid gray"
               display={{ md: "none" }}
               onClick={isOpen ? onClose : onOpen}
             />
@@ -136,7 +142,7 @@ export default function Navbar() {
               variants={variants}
               initial="initial"
               animate="enter"
-              exit="exit"              
+              exit="exit"
             >
               <Box pl={3} pb={4} display={{ md: "none" }}>
                 <Stack w="50%" as="nav" spacing={4}>
