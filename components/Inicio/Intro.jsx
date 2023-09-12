@@ -9,7 +9,7 @@ import {
 import JuanHD from "@/public/JuanHD.jpg";
 import { motion } from "framer-motion";
 const Intro = () => {
-  const title = "Tu destino para el crecimiento personal y profesional";
+  const title = "Tu destino para el crecimiento personal y social";
   const gradientColor = useColorModeValue("brandLight", "brandDark");
   return (
     <Flex
