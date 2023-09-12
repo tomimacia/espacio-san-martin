@@ -6,7 +6,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import JuanHD from "@/public/JuanHD.jpg";
+import JuanHD from "@/public/JuanPerfil.jpg";
 import { motion } from "framer-motion";
 const Intro = () => {
   const title = "Tu destino para el crecimiento personal y social";
