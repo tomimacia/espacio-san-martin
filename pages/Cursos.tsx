@@ -30,7 +30,7 @@ const Note = ({ curso }: NoteType) => {
   const { image, title, description } = curso;
 
   return (
-    <Card border="1px solid gray">
+    <Card w="100%" border="1px solid gray">
       <CardHeader>
         <Flex>
           <Flex flex="1" gap="4" alignItems="center">
@@ -113,7 +113,7 @@ const Nosotros = () => {
           {<br />}
           Actualmente contamos con los siguientes <strong>cursos</strong>:
         </Text>
-        <Flex p={4} gap={3} flexWrap="wrap">
+        <Flex p={4} mt={5} gap={3} flexWrap="wrap">
           {Cursos.map((c, ind) => {
             return (
               <motion.div
