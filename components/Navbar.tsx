@@ -79,7 +79,7 @@ export default function Navbar() {
           <Media dir="row" size={25} />
         </Flex>
       </Flex>
-      <Box bg="whiteAlpha.400" style={{ backdropFilter: "blur(10px)" }}>
+      <Box ref={domNode} bg="whiteAlpha.400" style={{ backdropFilter: "blur(10px)" }}>
         <Flex
           mx="auto"
           maxW="1500px"
@@ -136,8 +136,7 @@ export default function Navbar() {
               variants={variants}
               initial="initial"
               animate="enter"
-              exit="exit"
-              ref={domNode}
+              exit="exit"              
             >
               <Box pl={3} pb={4} display={{ md: "none" }}>
                 <Stack w="50%" as="nav" spacing={4}>

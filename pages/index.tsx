@@ -60,7 +60,7 @@ export default function Home() {
           </Flex>
         </motion.div>
       </Flex>
-      <Flex p={5} my={[8,12,16,20]}>
+      <Flex p={5} my={[8, 12, 16, 20]}>
         <Noticias noticias={Notas} />
       </Flex>
     </Layout>
