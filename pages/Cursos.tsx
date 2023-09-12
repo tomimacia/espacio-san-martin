@@ -1,11 +1,22 @@
 import Layout from "@/components/Layouts/Article";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import Image from "next/image";
+import Barberia from "@/public/Iconos/estilista.png";
+import Legal from "@/public/Iconos/legal.png";
 import Libro from "@/public/Iconos/libro.png";
 import Profesor from "@/public/Iconos/profesor.png";
 import Teatro from "@/public/Iconos/teatro.png";
-import Barberia from "@/public/Iconos/estilista.png";
-import Legal from "@/public/Iconos/legal.png";
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Flex,
+  Heading,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { motion } from "framer-motion";
 type CursoType = {
   image: string;
@@ -17,24 +28,32 @@ type NoteType = {
 };
 const Note = ({ curso }: NoteType) => {
   const { image, title, description } = curso;
+
   return (
-    <Flex
-      cursor="pointer"
-      p={2}
-      gap={3}
-      borderRadius="10px"
-      border="1px solid gray"
-      _hover={{border: "1px solid black"}}
-    >
-      <Image src={image} alt={title} height={60} width={60} />
-      <Flex p={1} flexDir="column">
-        <Heading size="sm">{title}</Heading>
+    <Card border="1px solid gray">
+      <CardHeader>
+        <Flex>
+          <Flex flex="1" gap="4" alignItems="center">
+            <Avatar name={title} src={image} />
+            <Box>
+              <Heading size="sm">{title}</Heading>
+            </Box>
+          </Flex>
+        </Flex>
+      </CardHeader>
+      <CardBody>
         <Text>{description}</Text>
-      </Flex>
-    </Flex>
+      </CardBody>
+      <CardFooter>
+        <Button m="auto" size="sm" bg="blue.300">
+          Ver mas
+        </Button>
+      </CardFooter>
+    </Card>
   );
 };
 const Nosotros = () => {
+  const noteSize = useBreakpointValue(["100%", "48%"]);
   const variants = {
     initial: {
       opacity: 0,
@@ -53,37 +72,39 @@ const Nosotros = () => {
     {
       image: Profesor.src,
       title: "Acompañante terapéutico",
-      description: "Una descriptcion un poco mas larga",
+      description:
+        "Formación en Acompañamiento Terapéutico: Apoyando a Pacientes y Familias",
     },
     {
       image: Barberia.src,
       title: "Barbería ",
-      description: "Una descriptcion un poco mas larga",
+      description: "Domina el arte de la barbería con nosotros",
     },
     {
       image: Libro.src,
       title: "Capacitación post escolar",
-      description: "Una descriptcion un poco mas larga",
+      description: "Prepárate para el éxito en tu carrera profesional",
     },
     {
       image: Teatro.src,
       title: "Teatro",
-      description: "Una descriptcion un poco mas larga",
+      description: "Explora tu talento en el escenario",
     },
     {
       image: Legal.src,
       title: "Asesoría legal gratuita",
-      description: "Una descriptcion un poco mas larga",
+      description:
+        "Resuelve problemas legales con asesoramiento profesional gratuito",
     },
     {
       image: Libro.src,
       title: "Clases de apoyo escolar ",
-      description: "Una descriptcion un poco mas larga",
+      description: "Mejora tu rendimiento con nuestras clases de apoyo escolar",
     },
   ];
   return (
     <Layout pageTitle="Nuestros Cursos" headTitle="Cursos">
-      <Box px={7}>
+      <Flex flexDir="column" mx={7}>
         <Text fontSize={{ base: 14, sm: 20 }}>
           Explora nuestras capacitaciones en Espacio San Martín. Desde
           Acompañante Terapéutico hasta Barbería, nuestros cursos ofrecen
@@ -92,11 +113,12 @@ const Nosotros = () => {
           {<br />}
           Actualmente contamos con los siguientes <strong>cursos</strong>:
         </Text>
-        <Flex py={10} flexWrap="wrap" gap={5}>
+        <Flex p={4} gap={3} flexWrap="wrap">
           {Cursos.map((c, ind) => {
             return (
               <motion.div
                 key={c.title}
+                style={{ display: "flex", width: noteSize }}
                 variants={variants}
                 initial="initial"
                 animate="enter"
@@ -112,7 +134,7 @@ const Nosotros = () => {
             );
           })}
         </Flex>
-      </Box>
+      </Flex>
     </Layout>
   );
 };
