@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
 
-const Media = ({ dir, size }: mediaType) => {
+const Media = ({ dir, size, colored = false }: mediaType) => {
   const SocialItems = [
     {
       Href: "https://www.facebook.com/profile.php?id=1011500217",
@@ -20,7 +20,7 @@ const Media = ({ dir, size }: mediaType) => {
     },
   ];
   return (
-    <Flex flexDir={dir} gap={6} ml={2} fontSize={25} pt={3}>
+    <Flex flexDir={dir} gap={[1.5, 3, 4.5, 6]} ml={2} fontSize={25} pt={3}>
       {SocialItems.map((item) => {
         const { Href, Title, Icon, Color } = item;
         return (
@@ -31,7 +31,7 @@ const Media = ({ dir, size }: mediaType) => {
               rel="noopnere noreferrer"
               title={Title}
             >
-              <Icon fontSize={size} color={Color} />
+              <Icon fontSize={size} color={colored ? Color : "#6DC6E7"} />
             </Link>
           </Box>
         );

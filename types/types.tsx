@@ -54,6 +54,7 @@ export type NewBoxType = {
 export type mediaType = {
   dir: "row" | "column";
   size: number | undefined;
+  colored?: boolean;
 };
 type locationType = {
   sede: string;

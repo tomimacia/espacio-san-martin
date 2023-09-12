@@ -17,6 +17,8 @@ import Link from "next/link";
 import ColorModeSwitch from "./ColorModeSwitch";
 import { NavLink } from "./NavLink";
 import Media from "./Contaco/Media";
+import { useRouter } from "next/router";
+import { useClickOutside } from "@/hooks/useClickOutside";
 const Links = [
   { title: "Cursos", href: "/Cursos" },
   { title: "Sobre Nosotros", href: "/Nosotros" },
@@ -25,53 +27,56 @@ const Links = [
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
+  const domNode = useClickOutside(() => {
+    onClose();
+  });
   const variants = {
     initial: {
       opacity: 0,
-      y: -10,
+      x: -10,
     },
     enter: {
       opacity: 1,
-      y: 0,
+      x: 0,
     },
     exit: {
       opacity: 0,
-      y: -10,
+      x: -10,
     },
   };
-  const imageNavbarSize = useBreakpointValue([50, 95]);
+  const imageNavbarSize = useBreakpointValue([60, 95]);
   return (
     <Box position="relative" zIndex={10} pos="fixed" as="nav" w="100%">
       <Flex
-        fontSize={[13, 14, 15, 16, 18, 20]}
         align="center"
-        fontWeight="medium"
         h={["4.8rem", "6rem"]}
         bg={useColorModeValue("brandLight", "brandDark")}
         justify="center"
         px={0}
       >
-        <Flex w="100%" maxW="65%" justify="space-around" gap={10}>
+        <Flex
+          align="center"
+          justifyContent="center"
+          w="100%"
+          maxW="65%"
+          justify="space-around"
+          gap={[2, 4, 7, 10]}
+        >
           <Image
+            onClick={() => router.push("/")}
             alt="depierre-logo"
             width={220}
             style={{
               objectFit: "contain",
               borderRadius: "10px",
+              cursor: "pointer",
             }}
             height={220}
             src={BannerNavbar.src}
           />
-          <Flex borderRadius="10px">
-            <Media dir="row" size={25} />
-          </Flex>
-          {/* <Flex minW="50%">
-            <Flex justify="space-around" fontSize={[14,14,15,16,17]} flexDir="column">
-              <Text>Lun a vie de 9:00 a 17:00 Hs.</Text>
-              <Text>Ecocardiograma Vie 13:00 Hs.</Text>
-              <Text>Tel: (+54) 11-3572-0347</Text>
-            </Flex>
-          </Flex> */}
+
+          <Media dir="row" size={25} />
         </Flex>
       </Flex>
       <Box bg="whiteAlpha.400" style={{ backdropFilter: "blur(10px)" }}>
@@ -125,7 +130,6 @@ export default function Navbar() {
             <ColorModeSwitch />
           </Flex>
         </Flex>
-
         <AnimatePresence initial mode="wait">
           {isOpen && (
             <motion.div
@@ -133,7 +137,7 @@ export default function Navbar() {
               initial="initial"
               animate="enter"
               exit="exit"
-              transition={{ type: "tween" }}
+              ref={domNode}
             >
               <Box pl={3} pb={4} display={{ md: "none" }}>
                 <Stack w="50%" as="nav" spacing={4}>

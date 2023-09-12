@@ -19,7 +19,7 @@ const Redes = () => {
       <Heading size={{ base: "sm", sm: "md" }} fontWeight="normal">
         Y enterate de todas nuestras noticias!
       </Heading>
-      <Media dir="row" size={size} />
+      <Media dir="row" size={size} colored />
     </Box>
   );
 };
