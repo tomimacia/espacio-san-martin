@@ -57,7 +57,7 @@ export default function Navbar() {
       >
         <Flex
           align="center"
-          justifyContent="center"
+          justifyContent="space-around"
           w="100%"
           maxW="65%"
           justify="space-around"
