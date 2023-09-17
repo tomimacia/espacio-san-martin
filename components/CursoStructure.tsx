@@ -10,7 +10,7 @@ const CursoStructure = ({ Curso }: Curso) => {
   return (
     <Flex py={10} gap={5} w="100%" flexDir="column">
       <Flex flexDir="column" align="center" justify="center" w="100%">
-        <Heading>{title}</Heading>
+        <Heading textAlign="center">{title}</Heading>
         <Button
           size="xs"
           textDecor="underline"
