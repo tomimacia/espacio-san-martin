@@ -21,6 +21,7 @@ export default function Home() {
         "La reunión va a tomar lugar en el barrio de 9 de abril, y allí estaremos con diferentes actividades recreativas, una olla popular y mucho más. ",
         "Desde las 9hs hasta las 18hs vamos a estar presentes, y esperamos contar con vos!",
       ],
+      route:"Infancias"
     },
   ];
   return (

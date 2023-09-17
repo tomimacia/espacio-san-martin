@@ -10,7 +10,10 @@ import JuanHD from "@/public/JuanPerfil.jpg";
 import { motion } from "framer-motion";
 const Intro = () => {
   const title = "Tu destino para el crecimiento personal y social";
-  const gradientColor = useColorModeValue("brandLight", "brandDark");
+  const gradientColor = useColorModeValue(
+    "rgba(98, 51, 191, 0.55)",
+    "brandDark"
+  );
   return (
     <Flex
       gap={{ base: 7, md: 0 }}
@@ -27,7 +30,7 @@ const Intro = () => {
         w={{ base: "100%", md: "50%" }}
       >
         <Flex p={[5, 6, 8, 10]} mt="5%" gap={[3, 6, 8, 10]} flexDir="column">
-          <Heading as={"h1"} fontWeight={700} fontSize={[23, 28, 33, 38]}>
+          <Heading as={"h1"} fontWeight={700} fontSize={[20, 24, 28, 32]}>
             {title.split(" ").map((word, ind) => {
               return (
                 <motion.span

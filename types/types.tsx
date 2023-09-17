@@ -65,3 +65,22 @@ type locationType = {
 export type mapaType = {
   location: locationType;
 };
+export type CursoType = {
+  img: string;
+  title: string;
+  description: string[];
+  subtitle?:string,
+  route: string;
+};
+export type NoticiaType = {
+  Noticia: {
+    img: string;
+    title: string;
+    subtitle: string;
+    description: string[];
+    route: string;
+  };
+};
+export type Curso = {
+  Curso: CursoType;
+};

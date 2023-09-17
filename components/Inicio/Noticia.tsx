@@ -1,4 +1,5 @@
 import { Button, Divider, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import Link from "next/link";
 type NoticiaType = {
   noticia: Noticia;
 };
@@ -6,6 +7,7 @@ type Noticia = {
   title: string;
   img: string;
   texto: string[];
+  route: string;
 };
 type Noticias = {
   noticias: Noticia[];
@@ -21,20 +23,20 @@ const Noticias = ({ noticias }: Noticias) => {
   );
 };
 const Noticia = ({ noticia }: NoticiaType) => {
-  const { title, img, texto } = noticia;
+  const { title, img, texto, route } = noticia;
   return (
     <Flex
       border="1px solid #C4C4C4"
       borderRadius="10px"
-      p={5}
-      gap={5}
+      p={[1, 2, 3, 4]}
       flexDir="column"
       bg="blackAlpha.200"
+      gap={5}
     >
       <Heading size="lg">{title}</Heading>
-      <Divider py={3} />
+      <Divider  />
       <Flex flexDir={{ base: "column", md: "row" }} gap={3}>
-        <Text p={5} fontSize={18}>
+        <Text fontSize={18}>
           {texto.map((t) => {
             return (
               <>
@@ -46,7 +48,18 @@ const Noticia = ({ noticia }: NoticiaType) => {
         </Text>
         <Image objectFit="contain" w={600} alt="expo" src={img} />
       </Flex>
-      <Button alignSelf="center" bg="blue.300" size="sm">
+      <Button
+        as={Link}
+        href={{
+          pathname: `/Noticias`,
+          query: {
+            data: route,
+          },
+        }}
+        alignSelf="center"
+        size="xs"
+        bg="blue.400"
+      >
         Ver más
       </Button>
     </Flex>
