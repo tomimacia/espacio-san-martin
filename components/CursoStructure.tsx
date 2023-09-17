@@ -18,6 +18,7 @@ const CursoStructure = ({ Curso }: Curso) => {
           _hover={{ color: "blue" }}
           alignSelf="flex-end"
           href="/Cursos"
+          bg="transparent"
         >
           <ArrowBackIcon />
           Volver

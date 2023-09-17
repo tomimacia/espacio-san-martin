@@ -20,6 +20,7 @@ const NoticiaStructure = ({ title, subtitle, description, img }: CursoStr) => {
           _hover={{ color: "blue" }}
           alignSelf="flex-end"
           href="/"
+          bg='transparent'
         >
           <ArrowBackIcon />
           Volver
