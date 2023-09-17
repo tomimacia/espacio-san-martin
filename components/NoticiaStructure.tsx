@@ -1,3 +1,4 @@
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Box, Button, Divider, Flex, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,17 +11,17 @@ type CursoStr = {
 const NoticiaStructure = ({ title, subtitle, description, img }: CursoStr) => {
   return (
     <Flex py={10} gap={5} w="100%" flexDir="column">
-      <Flex  align="center" justify="center" w="100%">
-        <Heading>{title}</Heading>        
+      <Flex flexDir="column" align="center" justify="center" w="100%">
+        <Heading>{title}</Heading>
         <Button
           size="xs"
           textDecor="underline"
           as={Link}
-          pos="absolute"
-          _hover={{color:"blue"}}
-          right={2}
+          _hover={{ color: "blue" }}
+          alignSelf="flex-end"
           href="/"
         >
+          <ArrowBackIcon />
           Volver
         </Button>
       </Flex>

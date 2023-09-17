@@ -3,22 +3,23 @@ import { Box, Button, Divider, Flex, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { CursoForm } from "./CursosForm";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 
 const CursoStructure = ({ Curso }: Curso) => {
   const { title, subtitle, description, img } = Curso;
   return (
     <Flex py={10} gap={5} w="100%" flexDir="column">
-      <Flex align="center" justify="center" w="100%">
+      <Flex flexDir="column" align="center" justify="center" w="100%">
         <Heading>{title}</Heading>
         <Button
           size="xs"
           textDecor="underline"
           as={Link}
-          pos="absolute"
           _hover={{ color: "blue" }}
-          right={2}
+          alignSelf="flex-end"
           href="/Cursos"
         >
+          <ArrowBackIcon />
           Volver
         </Button>
       </Flex>
@@ -52,7 +53,7 @@ const CursoStructure = ({ Curso }: Curso) => {
           })}
         </Text>
       </Flex>
-        <CursoForm />
+      <CursoForm />
     </Flex>
   );
 };

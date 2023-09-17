@@ -91,7 +91,7 @@ export const CursoForm = () => {
                 />
               );
             })}
-            
+
             <Button
               type="submit"
               value="send"
