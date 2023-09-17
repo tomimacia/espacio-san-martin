@@ -1,6 +1,6 @@
 import Layout from "@/components/Layouts/Article";
 import { CursosList } from "@/data/CursosData";
-import { Curso } from "@/types/types";
+import { CursoNoteType } from "@/types/types";
 import {
   Avatar,
   Box,
@@ -17,7 +17,7 @@ import {
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const Note = ({ Curso }: Curso) => {
+const Note = ({ Curso }: CursoNoteType) => {
   const { img, title, description, route } = Curso;
 
   return (

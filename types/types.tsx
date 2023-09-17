@@ -69,8 +69,16 @@ export type CursoType = {
   img: string;
   title: string;
   description: string[];
-  subtitle?:string,
+  subtitle: string;
   route: string;
+};
+export type CursoNoteType = {
+  Curso: {
+    img: string;
+    title: string;
+    description: string;
+    route: string;
+  };
 };
 export type NoticiaType = {
   Noticia: {
