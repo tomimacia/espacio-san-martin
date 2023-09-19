@@ -1,5 +1,5 @@
 import { TextAndInputType } from "@/types/types";
-import { Input, Text } from "@chakra-ui/react";
+import { Box, Input, Text } from "@chakra-ui/react";
 
 export const TextAndInput = ({
   name,
@@ -8,7 +8,7 @@ export const TextAndInput = ({
   type,
 }: TextAndInputType) => {
   return (
-    <>
+    <Box>
       <Text>{title}:</Text>
       <Input
         name={name}
@@ -17,6 +17,6 @@ export const TextAndInput = ({
         type={type}
         required
       />
-    </>
+    </Box>
   );
 };

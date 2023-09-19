@@ -2,7 +2,7 @@ import { EmailIcon, PhoneIcon } from "@chakra-ui/icons";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { LinkAndIcon } from "./Items/LinkAndIcon";
-const ACTIVE_EMAIL = "sanmartinjuancruz@gmail.com.ar";
+const ACTIVE_EMAIL = "sanmartinjuancruz@gmail.com";
 const PHONE_NUMBER = "11-2500-0742"
 const AREA_CODE = "54"
 const WA_LINK = "wa.link/7agy9w"

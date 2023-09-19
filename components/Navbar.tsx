@@ -21,7 +21,8 @@ import { useRouter } from "next/router";
 import { useClickOutside } from "@/hooks/useClickOutside";
 const Links = [
   { title: "Cursos", href: "/Cursos" },
-  { title: "Sobre Nosotros", href: "/Nosotros" },
+  { title: "Nosotros", href: "/Nosotros" },
+  { title: "Sobre Juan", href: "/Bio" },
   { title: "Contacto", href: "/Contacto" },
 ];
 

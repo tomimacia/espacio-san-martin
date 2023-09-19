@@ -54,7 +54,9 @@ const CursoStructure = ({ Curso }: Curso) => {
           })}
         </Text>
       </Flex>
-      <CursoForm />
+      <CursoForm
+      curso={title}
+      />
     </Flex>
   );
 };

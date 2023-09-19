@@ -1,7 +1,14 @@
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MdDirectionsCarFilled, MdLocationOn } from "react-icons/md";
 import { Mapa } from "./Mapa";
+import { useWaitAction } from "@/hooks/useWaitAction";
+type sedeType = {
+  sede: string;
+  direccion: string;
+  localidad: string;
+  iframe: string;
+};
 const Ubicación = () => {
   const [currentLocation, setCurrentLocation] = useState({
     sede: "Mainer",
@@ -10,8 +17,6 @@ const Ubicación = () => {
     iframe:
       "embed?pb=!1m18!1m12!1m3!1d3276.771853412792!2d-58.49442172504!3d-34.786518367173926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd1c72dc86cf7%3A0x4e9178a7df82e60d!2sPresbiterio%20Orencio%20Antonio%20Mainer%2045%2C%20Monte%20Grande%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1694213750406!5m2!1sen!2sar",
   });
-  // const [allow, setAllow] = useState(true);
-  // useEffect(() => {}, []);
   const SEDES = [
     {
       sede: "Mainer",
@@ -67,9 +72,13 @@ const Ubicación = () => {
         "embed?pb=!1m18!1m12!1m3!1d3275.499915067253!2d-58.44401912526405!3d-34.81852130891361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd3935a032a03%3A0x3f5a465ee0ad1b88!2sChacabuco%201573%2C%20B1838ASK%20Luis%20Guillon%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1694214495111!5m2!1sen!2sar",
     },
   ];
-  // const handleClick = (sede) => {
-  //   if (!allow) return;
-  // };
+  const { isAvail, setIsAvail } = useWaitAction();
+  const handleLocation = (sede: sedeType) => {
+    if (isAvail) {
+      setCurrentLocation(sede);
+      setIsAvail(false);
+    }
+  };
   return (
     <Box>
       <Heading
@@ -102,7 +111,7 @@ const Ubicación = () => {
               return (
                 <Button
                   key={sede.sede}
-                  onClick={() => setCurrentLocation(sede)}
+                  onClick={() => handleLocation(sede)}
                   size="sm"
                   bg="brandLight"
                   color="white"

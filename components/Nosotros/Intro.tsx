@@ -1,4 +1,5 @@
-import { Text } from "@chakra-ui/react";
+import { Link, Text, useColorModeValue } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 export const Intro = () => {
   return (
@@ -11,6 +12,18 @@ export const Intro = () => {
       <strong>Zaizar</strong>, <strong>Las Manitos</strong>,{" "}
       <strong>Chacritas</strong> y <strong>Monte Grande</strong>, nos
       enorgullece ser un faro de apoyo y aprendizaje en su comunidad.
+      <br />
+      <br />
+      <strong>Juan Cruz San Martín</strong>, Abogado y Especialista en Salud
+      Mental, lidera nuestro espacio con su profundo compromiso y experiencia.
+      <Link
+        as={NextLink}        
+        href="/Bio"
+        color={useColorModeValue("blue", "blue.200")}
+        _hover={{ textDecor: "underline" }}
+      >
+       {" "} Ver más sobre Juan Cruz
+      </Link>
       <br />
       <br />
       En <strong>Espacio San Martín</strong>, creemos que la educación y el

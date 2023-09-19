@@ -1,5 +1,6 @@
 import FirstSection from "@/components/Inicio/FirstSection";
 import Intro from "@/components/Inicio/Intro";
+import IntroJuan from "@/components/Inicio/IntroJuan";
 import Noticias from "@/components/Inicio/Noticia";
 import Layout from "@/components/Layouts/Article";
 import Infancia from "@/public/infancias.jpg";
@@ -21,7 +22,7 @@ export default function Home() {
         "La reunión va a tomar lugar en el barrio de 9 de abril, y allí estaremos con diferentes actividades recreativas, una olla popular y mucho más. ",
         "Desde las 9hs hasta las 18hs vamos a estar presentes, y esperamos contar con vos!",
       ],
-      route:"Infancias"
+      route: "Infancias",
     },
   ];
   return (
@@ -61,6 +62,7 @@ export default function Home() {
           </Flex>
         </motion.div>
       </Flex>
+      <IntroJuan />
       <Flex p={5} my={[8, 12, 16, 20]}>
         <Noticias noticias={Notas} />
       </Flex>

@@ -11,6 +11,7 @@ export async function getServerSideProps({ query }: any) {
 }
 const Noticias = ({ Noticia }: NoticiaType) => {
   const { title, description, img, route, subtitle } = Noticia;
+  
   return (
     <Layout headTitle={route}>
       <NoticiaStructure

@@ -1,57 +1,12 @@
-import {
-  Button,
-  Flex,
-  Heading,
-  Text,
-  Textarea,
-  useToast,
-} from "@chakra-ui/react";
-import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
+import useEmailJsForm from "@/hooks/emailJS";
+import { Button, Flex, Heading, Input, Text, Textarea } from "@chakra-ui/react";
 import { TextAndInput } from "./Items/TextAndInput";
 
 export const Formulario = () => {
-  const [loadingForm, setLoadingForm] = useState(false);
-  const toast = useToast();
-  const form = useRef<HTMLFormElement>(null);
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
-    setLoadingForm(true);
-    emailjs
-      .sendForm(
-        process.env.NEXT_PUBLIC_SERVICE_ID || "",
-        process.env.NEXT_PUBLIC_TEMPLATE_ID || "",
-        form.current!,
-        process.env.NEXT_PUBLIC_PUBLIC_KEY || ""
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          toast({
-            title: "Enviado correctamente",
-            description: "Nos contactaremos contigo a la brevedad",
-            status: "success",
-            duration: 9000,
-            isClosable: true,
-          });
-          setLoadingForm(false);
-        },
-        (error) => {
-          console.log(error.text);
-          toast({
-            title: "Error inesperado",
-            description: "Intenta nuevamente en un momento o prueba otro medio",
-            status: "error",
-            duration: 9000,
-            isClosable: true,
-          });
-          setLoadingForm(false);
-        }
-      )
-      .finally(() => {
-        form.current?.reset();
-      });
-  };
+  const { onSubmit, loadingForm, form } = useEmailJsForm(() =>
+    console.log("Sent")
+  );
+
   const InputsData = [
     {
       name: "user_email",
@@ -78,7 +33,8 @@ export const Formulario = () => {
         ¿Tenés alguna duda o querés formar parte de nuestro equipo?
       </Heading>
       <Heading size="lg">Contáctanos!</Heading>
-      <form ref={form} onSubmit={() => console.log("onSubmit")}>
+      <form ref={form} onSubmit={onSubmit}>
+        <Input type="hidden" value="Consultas" name="area" />
         <Flex flexDir="column" gap={3}>
           {InputsData.map((data) => {
             const { name, title, placeholder, type } = data;
@@ -102,7 +58,7 @@ export const Formulario = () => {
           <Button
             type="submit"
             value="send"
-            mx={5}
+            mx={"auto"}
             w="50%"
             fontWeight="bold"
             size="sm"

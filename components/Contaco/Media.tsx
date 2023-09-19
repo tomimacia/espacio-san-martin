@@ -28,7 +28,7 @@ const Media = ({ dir, size, colored = false }: mediaType) => {
             <Link
               href={Href}
               target="_blank"
-              rel="noopnere noreferrer"
+              rel="noopener noreferrer"
               title={Title}
             >
               <Icon fontSize={size} color={colored ? Color : "#6DC6E7"} />
