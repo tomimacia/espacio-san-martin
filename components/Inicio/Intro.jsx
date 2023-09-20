@@ -46,7 +46,7 @@ const Intro = () => {
           </Heading>
           <Divider borderColor="gray.500" />
           <Text fontWeight="medium" fontSize={{ base: "md", sm: "md" }}>
-            !Descubrí un espacio de oportunidades donde la educación y el
+            ¡Descubrí un espacio de oportunidades donde la educación y el
             bienestar se unen para guiarte hacia un futuro más brillante y
             satisfactorio!
           </Text>
