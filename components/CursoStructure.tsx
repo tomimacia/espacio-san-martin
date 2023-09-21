@@ -35,6 +35,7 @@ const CursoStructure = ({ Curso }: Curso) => {
               border: "1px solid rgba(175, 175, 175, 0.4)",
               padding: 1,
             }}
+            loading="lazy"
             alt={title}
             src={img}
             height={500}

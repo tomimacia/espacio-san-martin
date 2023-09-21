@@ -17,12 +17,12 @@ export const Intro = () => {
       <strong>Juan Cruz San Martín</strong>, Abogado y Especialista en Salud
       Mental, lidera nuestro espacio con su profundo compromiso y experiencia.{" "}
       <Link
-        as={NextLink}        
+        as={NextLink}
         href="/Bio"
         color={useColorModeValue("blue", "blue.200")}
         _hover={{ textDecor: "underline" }}
       >
-       Ver más sobre Juan Cruz
+        Ver más sobre Juan Cruz
       </Link>
       <br />
       <br />

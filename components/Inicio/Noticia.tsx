@@ -50,9 +50,11 @@ const Noticia = ({ noticia }: NoticiaType) => {
       p={[1, 2, 3, 4]}
       flexDir="column"
       bg="blackAlpha.200"
-      gap={5}
+      gap={3}
     >
-      <Heading size="lg">{title}</Heading>
+      <Heading p={1} size="lg">
+        {title}
+      </Heading>
       <Divider />
       <Flex flexDir={{ base: "column", md: "row" }} gap={3}>
         <Text fontSize={18}>
@@ -75,6 +77,7 @@ const Noticia = ({ noticia }: NoticiaType) => {
             data: route,
           },
         }}
+        shallow={true}
         alignSelf="center"
         size="sm"
         bg="blue.400"

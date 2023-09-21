@@ -44,6 +44,7 @@ const Note = ({ Curso }: CursoNoteType) => {
               data: route,
             },
           }}
+          shallow={true}
           m="auto"
           size="sm"
           bg="blue.300"
