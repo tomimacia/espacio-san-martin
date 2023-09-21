@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.sanmartinjuancruz.com.ar
+
+# Sitemaps
+Sitemap: https://www.sanmartinjuancruz.com.ar/sitemap.xml
