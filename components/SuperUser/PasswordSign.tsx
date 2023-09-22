@@ -37,11 +37,11 @@ const PasswordSign = ({
   };
 
   return (
-    <Flex gap={5} flexDir="column" w="50%" justify="center">
+    <Flex gap={5} flexDir="column" justify="center">
       <Text fontSize={20} fontWeight="bold">
         Contraseña:
       </Text>
-      <InputGroup size="md">
+      <InputGroup maxW="350px" size="md">
         <Input
           borderColor="gray"
           ref={valueRef}
