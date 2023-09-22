@@ -5,6 +5,7 @@ const Footer = () => {
   return (
     <Center
       pos="absolute"
+      id="FooterID"
       bottom={0}
       h="4rem"
       w="100%"

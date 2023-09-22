@@ -25,7 +25,7 @@ export const CursosData = [
   },
   {
     img: BarberiaBanner.src,
-    title: "Barbería ",
+    title: "Barbería",
     description: [
       "¡Domina el Arte de la Barbería en Espacio San Martín!",
       "Te invitamos a sumergirte en el emocionante mundo de la barbería con nuestro curso especializado. Aquí, aprenderás las técnicas y habilidades necesarias para convertirte en un experto en el cuidado de la imagen personal.",
@@ -74,7 +74,7 @@ export const CursosData = [
   },
   {
     img: ApoyoEscolar.src,
-    title: "Clases de apoyo escolar ",
+    title: "Clases de apoyo escolar",
     description: [
       "¡Potencia Tu Éxito Académico con Nuestras Clases de Apoyo Escolar en Espacio San Martín!",
       "Nuestro compromiso es ayudarte a alcanzar tu máximo potencial académico. Con nuestras clases de Apoyo Escolar, recibirás la atención y el apoyo personalizado que necesitas para mejorar tu rendimiento en la escuela.",
@@ -94,7 +94,7 @@ export const CursosList = [
   },
   {
     img: Barberia.src,
-    title: "Barbería ",
+    title: "Barbería",
     description: "Domina el arte de la barbería con nosotros",
     route: "Barberia",
   },
@@ -119,8 +119,42 @@ export const CursosList = [
   },
   {
     img: Libro.src,
-    title: "Clases de apoyo escolar ",
-    description: "Mejora tu rendimiento con nuestras clases de apoyo escolar",    
+    title: "Clases de apoyo escolar",
+    description: "Mejora tu rendimiento con nuestras clases de apoyo escolar",
     route: "ApoyoEscolar",
+  },
+];
+export const CursosSedes = [
+  {
+    title: "Acompañante terapéutico",
+    sedes: [
+      "Zaizar",
+      "Mainer",
+      "Luis Vernet",
+      "Serra de guasayan",
+      "Tres Arroyos",
+      "Córdoba",
+      "Chacabuco",
+    ],
+  },
+  {
+    title: "Barbería",
+    sedes: ["Zaizar"],
+  },
+  {
+    title: "Capacitación post escolar",
+    sedes: ["Zaizar"],
+  },
+  {
+    title: "Teatro",
+    sedes: ["Zaizar"],
+  },
+  {
+    title: "Asesoría legal gratuita",
+    sedes: ["Zaizar"],
+  },
+  {
+    title: "Clases de apoyo escolar",
+    sedes: ["Zaizar"],
   },
 ];

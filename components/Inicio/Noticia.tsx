@@ -1,6 +1,7 @@
 import { Button, Divider, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { Variants, motion } from "framer-motion";
 import Link from "next/link";
+import { Fragment } from "react";
 import { useInView } from "react-intersection-observer";
 type NoticiaType = {
   noticia: Noticia;
@@ -58,12 +59,12 @@ const Noticia = ({ noticia }: NoticiaType) => {
       <Divider />
       <Flex flexDir={{ base: "column", md: "row" }} gap={3}>
         <Text fontSize={18}>
-          {texto.map((t) => {
+          {texto.map((t, ind) => {
             return (
-              <>
+              <Fragment key={ind + "texto"}>
                 {t}
                 <br />
-              </>
+              </Fragment>
             );
           })}
         </Text>

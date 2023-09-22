@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export const useWaitAction = () => {
   const [isAvail, setIsAvail] = useState(true);
   useEffect(() => {
-    if (!isAvail) {      
+    if (!isAvail) {
       setTimeout(() => {
         setIsAvail(true);
       }, 500);

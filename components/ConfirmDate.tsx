@@ -27,12 +27,14 @@ const ConfirmDate: React.FC<ConfirmDateProps> = ({
       }
       textAlign="center"
       cursor="pointer"
+      onChange={()=>console.log("Changed date")}           
       name="user_birth_date"
       borderRadius="10px"
       outline="none"
       bg="blackAlpha.200"
       fontSize="1rem"
       p="1rem 1rem"
+      required
       h="10px"
       className="my-custom-input-class" // Apply your custom CSS class here
     />

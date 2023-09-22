@@ -43,24 +43,26 @@ export const BioText = () => {
         >
           Nuevos Horizontes Echeverrianos.
         </Link>
-        <Box float="right">
-          <Image
-            style={{
-              objectFit: "contain",
-              objectPosition: "center",
-              borderRadius: "10px",
-              border: "1px solid rgba(175, 175, 175, 0.4)",
-              padding: 1,
-            }}
-            alt="Nuevos-Horizontes"
-            src={nhe.src}
-            height={600}
-            width={600}
-          />
-          <Text as={"span"} fontSize={[10, 12, 14, 15]} fontStyle="italic">
-            Ingreso al establecimiento Nuevos Horizontes Echeverrianos
-          </Text>
-        </Box>
+      </Text>
+      <Box float="right">
+        <Image
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+            borderRadius: "10px",
+            border: "1px solid rgba(175, 175, 175, 0.4)",
+            padding: 1,
+          }}
+          alt="Nuevos-Horizontes"
+          src={nhe.src}
+          height={600}
+          width={600}
+        />
+        <Text as={"span"} fontSize={[10, 12, 14, 15]} fontStyle="italic">
+          Ingreso al establecimiento Nuevos Horizontes Echeverrianos
+        </Text>
+      </Box>
+      <Text fontSize={{ base: 14, sm: 20 }}>
         <br />
         <br />
         También, desde 2019 es titular de la cátedra “Política y Legislación
@@ -99,17 +101,19 @@ export const BioText = () => {
         completas (promedio de 350 personas). El merendero presta servicio 3
         veces por semana y está ubicado en Faro Patagonia 600, Monte Grande.
         <br />
-        <Box float="right">
-          <Image
-            alt="Olla-vecinal-popular"
-            src={Vecinal.src}
-            height={600}
-            width={600}
-          />
-          <Text as={"span"} fontSize={[10, 12, 14, 15]} fontStyle="italic">
-            Zaizar, Esteban Echeverría
-          </Text>
-        </Box>
+      </Text>
+      <Box float="right">
+        <Image
+          alt="Olla-vecinal-popular"
+          src={Vecinal.src}
+          height={600}
+          width={600}
+        />
+        <Text as={"span"} fontSize={[10, 12, 14, 15]} fontStyle="italic">
+          Zaizar, Esteban Echeverría
+        </Text>
+      </Box>
+      <Text fontSize={{ base: 14, sm: 20 }}>
         <br />
         Desarrollo del merendero “Las Camelias”, en 2022, que brinda servicio a
         100 personas, 2 veces por semana. Está ubicado en Las Orquídeas esq. Los

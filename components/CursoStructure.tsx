@@ -1,10 +1,17 @@
 import { Curso } from "@/types/types";
-import { Box, Button, Divider, Flex, Heading, Text } from "@chakra-ui/react";
-import Image from "next/image";
-import Link from "next/link";
-import { CursoForm } from "./CursosForm";
 import { ArrowBackIcon } from "@chakra-ui/icons";
-
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Heading,
+  Link,
+  Text
+} from "@chakra-ui/react";
+import Image from "next/image";
+import { Fragment } from "react";
+import { CursoForm } from "./CursosForm";
 const CursoStructure = ({ Curso }: Curso) => {
   const { title, subtitle, description, img } = Curso;
   return (
@@ -44,20 +51,18 @@ const CursoStructure = ({ Curso }: Curso) => {
           <Text fontStyle="italic">{subtitle}</Text>
         </Box>
         <Text fontWeight="bold">
-          {description.map((line) => {
+          {description.map((line, ind) => {
             return (
-              <>
+              <Fragment key={ind + "Description"}>
                 {line}
                 <br />
                 <br />
-              </>
+              </Fragment>
             );
           })}
         </Text>
       </Flex>
-      <CursoForm
-      curso={title}
-      />
+      <CursoForm curso={title} />
     </Flex>
   );
 };
