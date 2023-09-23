@@ -1,3 +1,4 @@
+import ConsultarYContacto from "@/components/ConsultarYContacto";
 import Layout from "@/components/Layouts/Article";
 import { CursosList } from "@/data/CursosData";
 import { CursoNoteType } from "@/types/types";
@@ -103,6 +104,9 @@ const Nosotros = () => {
               </motion.div>
             );
           })}
+        </Flex>
+        <Flex p={5}>
+          <ConsultarYContacto />
         </Flex>
       </Flex>
     </Layout>

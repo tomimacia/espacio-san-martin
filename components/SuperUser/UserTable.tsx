@@ -177,7 +177,7 @@ const UserTable = () => {
       </Flex>
       {inscriptos.length > 0 ? (
         <TableContainer>
-          <Table size="sm" variant="striped" colorScheme="red">
+          <Table size="sm" variant="striped" colorScheme="facebook">
             {filterInscriptos(inscriptos).length === 0 && (
               <TableCaption>No se han encontrado resultados</TableCaption>
             )}

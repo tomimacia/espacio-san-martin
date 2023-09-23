@@ -36,15 +36,15 @@ const ConsultarYContacto = () => {
       opacity: 0,
     },
   };
-  useEffect(() => {
-    if (registryUser != null) {
-      scrollIntoTheView("#FooterID");
-      setTimeout(() => {
-        setRegistryUser(null);
-        setConsulta("");
-      }, 15000);
-    }
-  }, [registryUser]);
+  // useEffect(() => {
+  //   if (registryUser != null) {
+  //     scrollIntoTheView("#FooterID");
+  //     setTimeout(() => {
+  //       setRegistryUser(null);
+  //       setConsulta("");
+  //     }, 15000);
+  //   }
+  // }, [registryUser]);
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (consulta.length < 7) {
@@ -109,7 +109,7 @@ const ConsultarYContacto = () => {
           borderColor="gray"
           name="consulta_DNI"
           borderRadius="5px"
-          maxW='300px'
+          maxW="300px"
           ref={valueRef}
           onKeyDown={useEnter(valueRef, onSubmit)}
           size="sm"
@@ -126,9 +126,14 @@ const ConsultarYContacto = () => {
             animate="enter"
             exit="exit"
             variants={variants}
+            style={{
+              border: "1px dashed gray",
+              borderRadius: "10px",
+              padding: 3,
+            }}
           >
             <TableContainer>
-              <Table variant="simple">
+              <Table variant="striped">
                 <Tbody>
                   <Tr>
                     <Td>Nombre</Td>
