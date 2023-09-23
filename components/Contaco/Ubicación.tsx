@@ -26,18 +26,18 @@ const Ubicación = () => {
         "embed?pb=!1m18!1m12!1m3!1d3276.771853412792!2d-58.49442172504!3d-34.786518367173926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd1c72dc86cf7%3A0x4e9178a7df82e60d!2sPresbiterio%20Orencio%20Antonio%20Mainer%2045%2C%20Monte%20Grande%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1694213750406!5m2!1sen!2sar",
     },
     {
+      sede: "Zaizar",
+      direccion: "Avenida Luis Vernet 4091",
+      localidad: "9 de Abril, Buenos Aires Province",
+      iframe:
+        "embed?pb=!1m18!1m12!1m3!1d3277.058130580385!2d-58.49474962504039!3d-34.77931186679146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd1c4a3de5e2d%3A0x46e877202d7f9f6!2sAv.%20Luis%20Vernet%204091%2C%20B1839IIC%209%20de%20Abril%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1694214172276!5m2!1sen!2sar",
+    },
+    {
       sede: "Dorrego",
       direccion: "Coronel Dorrego 1053",
       localidad: "Monte Grande, Buenos Aires Province",
       iframe:
         "embed?pb=!1m18!1m12!1m3!1d3275.1841280626554!2d-58.4664168250377!3d-34.82646276929461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd158bd632037%3A0x949b21cce4938ff6!2sCnel.%20Dorrego%201053%2C%20B1842AWV%20Monte%20Grande%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1694213954926!5m2!1sen!2sar",
-    },
-    {
-      sede: "Luis Vernet",
-      direccion: "Avenida Luis Vernet 4091",
-      localidad: "9 de Abril, Buenos Aires Province",
-      iframe:
-        "embed?pb=!1m18!1m12!1m3!1d3277.058130580385!2d-58.49474962504039!3d-34.77931186679146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd1c4a3de5e2d%3A0x46e877202d7f9f6!2sAv.%20Luis%20Vernet%204091%2C%20B1839IIC%209%20de%20Abril%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1694214172276!5m2!1sen!2sar",
     },
 
     {

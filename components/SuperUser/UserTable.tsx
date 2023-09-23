@@ -63,7 +63,6 @@ const UserTable = () => {
   const sedes = [
     "Zaizar",
     "Mainer",
-    "Luis Vernet",
     "Serra de guasayan",
     "Tres Arroyos",
     "Córdoba",
@@ -104,19 +103,20 @@ const UserTable = () => {
     setKeyReset((prev) => prev + 1);
   };
   return (
-    <Flex gap={10} flexDir="column">
-      <Flex gap={10}>
+    <Flex gap={[2, 4, 6, 10]} flexDir="column">
+      <Flex gap={[2, 4, 6, 10]}>
         <Heading size="md">Filtros</Heading>
         <Flex
           border="1px solid gray"
-          p={2}
+          p={[0, 2]}
           borderRadius="10px"
           flexDir="column"
-          gap={2}
+          gap={[0, 2]}
         >
           <Text>Curso</Text>
           <Divider />
           <Select
+            size={["sm", "sm", "md"]}
             onChange={(e) =>
               setCurrentFilters((prev) => ({ ...prev, curso: e.target.value }))
             }
@@ -139,6 +139,7 @@ const UserTable = () => {
           <Text>Sede</Text>
           <Divider />
           <Select
+            size={["sm", "sm", "md"]}
             onChange={(e) =>
               setCurrentFilters((prev) => ({ ...prev, sede: e.target.value }))
             }
@@ -159,6 +160,7 @@ const UserTable = () => {
           _hover={{ opacity: 0.8 }}
           color="white"
           onClick={aplicarFiltros}
+          size={["sm", "sm", "md"]}
         >
           Aplicar filtros
         </Button>
@@ -168,6 +170,7 @@ const UserTable = () => {
           _hover={{ opacity: 0.8 }}
           color="white"
           onClick={limpiarFiltros}
+          size={["sm", "sm", "md"]}
         >
           Limpiar Filtros
         </Button>

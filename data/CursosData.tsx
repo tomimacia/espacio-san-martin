@@ -130,7 +130,6 @@ export const CursosSedes = [
     sedes: [
       "Zaizar",
       "Mainer",
-      "Luis Vernet",
       "Serra de guasayan",
       "Tres Arroyos",
       "Córdoba",
