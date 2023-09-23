@@ -10,9 +10,9 @@ const config = {
   useSystemColorMode: true,
 };
 const colors = {
-  brandLight:"#6233BF",
-  brandDark:"#381566"
-}
+  brandLight: "#6233BF",
+  brandDark: "#381566",
+};
 const breakpoints = {
   xs: "24em",
   sm: "40em",
@@ -44,7 +44,7 @@ const overrides = {
   fontWeights,
   fontSizes,
   config,
-  colors
+  colors,
 };
 
 export const customTheme = extendTheme(overrides);

@@ -49,7 +49,7 @@ const LoadingScreen = () => {
               width={500}
               height={500}
               src={BannerNavBar.src}
-              style={{ borderRadius: "10px" }}
+              style={{ borderRadius: "10px", maxWidth: "85%" }}
             />
             <ReactLoading
               type="bubbles"
