@@ -10,7 +10,7 @@ const SuperUser = () => {
   return (
     <Layout headTitle="Admin">
       <Flex p={[2,4,6,8]} flexDir="column">
-        <Heading py={7}>Admin</Heading>
+        <Heading py={7}>Panel de Administración</Heading>
         {password === process.env.NEXT_PUBLIC_SUPERUSER_PWD ? (
           <UserTable />
         ) : (

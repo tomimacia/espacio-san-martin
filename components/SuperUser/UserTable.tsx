@@ -103,15 +103,15 @@ const UserTable = () => {
     setKeyReset((prev) => prev + 1);
   };
   return (
-    <Flex gap={[2, 4, 6, 10]} flexDir="column">
+    <Flex gap={[2, 4, 6, 8]} flexDir="column">
+      <Heading size="md">Filtros</Heading>
       <Flex gap={[2, 4, 6, 10]}>
-        <Heading size="md">Filtros</Heading>
         <Flex
           border="1px solid gray"
-          p={[0, 2]}
-          borderRadius="10px"
+          p={[1, 2]}
+          borderRadius="5px"
           flexDir="column"
-          gap={[0, 2]}
+          gap={[1, 2]}
         >
           <Text>Curso</Text>
           <Divider />
@@ -123,6 +123,7 @@ const UserTable = () => {
             placeholder="Seleccionar un Curso"
             border="1px solid gray"
             key={keyReset}
+            borderRadius="5px"
           >
             {CursosSedes.map((curso) => {
               return <option key={curso.title}>{curso.title}</option>;
@@ -131,10 +132,10 @@ const UserTable = () => {
         </Flex>
         <Flex
           border="1px solid gray"
-          p={2}
-          borderRadius="10px"
+          p={[1, 2]}
+          borderRadius="5px"
           flexDir="column"
-          gap={2}
+          gap={[1, 2]}
         >
           <Text>Sede</Text>
           <Divider />
@@ -146,6 +147,7 @@ const UserTable = () => {
             placeholder="Seleccionar una sede"
             border="1px solid gray"
             key={keyReset * 17}
+            borderRadius="5px"
           >
             {sedes.map((sede) => {
               return <option key={sede}>{sede}</option>;

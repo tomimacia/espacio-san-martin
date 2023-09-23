@@ -127,14 +127,7 @@ export const CursosList = [
 export const CursosSedes = [
   {
     title: "Acompañante terapéutico",
-    sedes: [
-      "Zaizar",
-      "Las Manitos",
-      "Serra de guasayan",
-      "Chacritas",
-      "Córdoba",
-      "Chacabuco",
-    ],
+    sedes: ["Zaizar", "Chacritas", "Córdoba"],
   },
   {
     title: "Barbería",

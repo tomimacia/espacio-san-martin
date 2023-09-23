@@ -48,7 +48,7 @@ export default function Navbar() {
   };
   const imageNavbarSize = useBreakpointValue([55, 60, 65, 95]);
   return (
-    <Box position="relative" zIndex={10} pos="fixed" as="nav" w="100%">
+    <Box id="NavBarID" position="relative" zIndex={10} pos="fixed" as="nav" w="100%">
       <Flex
         align="center"
         h={["4.8rem", "6rem"]}
