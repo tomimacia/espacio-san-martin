@@ -11,7 +11,7 @@ type sedeType = {
 };
 const Ubicación = () => {
   const [currentLocation, setCurrentLocation] = useState({
-    sede: "Mainer",
+    sede: "Las Manitos",
     direccion: "Presbiterio Orencio Antonio Mainer 45",
     localidad: "Monte Grande, Buenos Aires Province",
     iframe:
@@ -19,7 +19,7 @@ const Ubicación = () => {
   });
   const SEDES = [
     {
-      sede: "Mainer",
+      sede: "Las Manitos",
       direccion: "Presbiterio Orencio Antonio Mainer 45",
       localidad: "Monte Grande, Buenos Aires Province",
       iframe:
@@ -49,7 +49,7 @@ const Ubicación = () => {
     },
 
     {
-      sede: "Tres arroyos",
+      sede: "Chacritas",
       direccion: "Tres Arroyos 1880",
       localidad: "Monte Grande, Buenos Aires Province",
       iframe:

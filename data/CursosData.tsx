@@ -129,9 +129,9 @@ export const CursosSedes = [
     title: "Acompañante terapéutico",
     sedes: [
       "Zaizar",
-      "Mainer",
+      "Las Manitos",
       "Serra de guasayan",
-      "Tres Arroyos",
+      "Chacritas",
       "Córdoba",
       "Chacabuco",
     ],

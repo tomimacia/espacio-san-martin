@@ -62,9 +62,9 @@ const UserTable = () => {
   }, []);
   const sedes = [
     "Zaizar",
-    "Mainer",
+    "Las Manitos",
     "Serra de guasayan",
-    "Tres Arroyos",
+    "Chacritas",
     "Córdoba",
     "Chacabuco",
   ];
