@@ -17,17 +17,11 @@ const Layout = ({ children }: MainLayoutType) => {
     >
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          name="description"
-          content="Espacio San Martín"
-        />
+        <meta name="description" content="Espacio San Martín" />
         <meta name="author" content="Tomas Macia" />
-        <meta name="instagram:site" content="@consultoriodoctordepierre" />
+        <meta name="instagram:site" content="@sanmartinjuancruzok" />
         <meta name="instagram:creator" content="@tomimacia" />
-        <meta
-          property="og:site_name"
-          content="Espacio San Martín"
-        />
+        <meta property="og:site_name" content="Espacio San Martín" />
         {/* <meta name="google-site-verification" content="jkvmvPiTSvoqywlN7TQIwB7pYM0r4YRHSLnQcfRVYwQ" /> */}
         <meta name="og:title" content="San Martin Espacio" />
         <meta property="og:type" content="website" />

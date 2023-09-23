@@ -66,7 +66,7 @@ export default function Navbar() {
         >
           <Image
             onClick={() => router.push("/")}
-            alt="depierre-logo"
+            alt="san-martin-logo"
             width={220}
             style={{
               objectFit: "contain",
@@ -100,7 +100,7 @@ export default function Navbar() {
           >
             <Link href="/">
               <Image
-                alt="depierre-logo"
+                alt="espacio-san-martin-logo"
                 width={imageNavbarSize}
                 style={{
                   objectFit: "contain",
