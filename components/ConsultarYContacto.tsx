@@ -36,15 +36,15 @@ const ConsultarYContacto = () => {
       opacity: 0,
     },
   };
-  // useEffect(() => {
-  //   if (registryUser != null) {
-  //     scrollIntoTheView("#FooterID");
-  //     setTimeout(() => {
-  //       setRegistryUser(null);
-  //       setConsulta("");
-  //     }, 15000);
-  //   }
-  // }, [registryUser]);
+  useEffect(() => {
+    if (registryUser != null) {
+      scrollIntoTheView("#FooterID");
+      setTimeout(() => {
+        setRegistryUser(null);
+        setConsulta("");
+      }, 15000);
+    }
+  }, [registryUser]);
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (consulta.length < 7) {
