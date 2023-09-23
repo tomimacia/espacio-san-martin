@@ -99,7 +99,7 @@ const ConsultarYContacto = () => {
           type="submit"
           isLoading={loadingForm}
           size="sm"
-          w="200px"
+          w="180px"
           bg="blue.400"
           onClick={onSubmit}
         >
@@ -109,13 +109,14 @@ const ConsultarYContacto = () => {
           borderColor="gray"
           name="consulta_DNI"
           borderRadius="5px"
+          maxW='300px'
           ref={valueRef}
           onKeyDown={useEnter(valueRef, onSubmit)}
           size="sm"
           type="number"
           value={consulta}
           onChange={(e) => setConsulta(e.target.value)}
-          placeholder="Ingresa tu dni"
+          placeholder="Ingresa tu DNI"
         />
       </Flex>
       <AnimatePresence>
