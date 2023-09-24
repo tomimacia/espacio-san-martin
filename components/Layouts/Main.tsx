@@ -22,9 +22,18 @@ const Layout = ({ children }: MainLayoutType) => {
         <meta name="instagram:site" content="@sanmartinjuancruzok" />
         <meta name="instagram:creator" content="@tomimacia" />
         <meta property="og:site_name" content="Espacio San Martín" />
-        {/* <meta name="google-site-verification" content="jkvmvPiTSvoqywlN7TQIwB7pYM0r4YRHSLnQcfRVYwQ" /> */}
         <meta name="og:title" content="Espacio San Martin" />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Espacio San Martín" />
+        <meta
+          property="og:description"
+          content="Tu destino para el crecimiento personal y social"
+        />
+        <meta
+          property="og:image"
+          content="https://sanmartinjuancruz.com.ar/LogoNavbar.jpg"
+        />
+        <meta property="og:url" content="https://sanmartinjuancruz.com.ar/" />
         <link
           href="https://sanmartinjuancruz.com.ar/favicon.ico"
           rel="apple-touch-icon"
