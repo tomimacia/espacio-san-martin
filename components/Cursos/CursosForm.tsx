@@ -1,6 +1,8 @@
 import { CursosSedes } from "@/data/CursosData";
 import { getSingleDoc } from "@/firebase/services/getSingleDoc";
+import { getProducts } from "@/firebase/services/serviceProducts";
 import { setSingleDoc } from "@/firebase/services/setSingleDoc";
+import { updateSingleDoc } from "@/firebase/services/updateSingleDoc";
 import {
   Button,
   Flex,
@@ -19,15 +21,13 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { DayValue } from "@hassanmojab/react-modern-calendar-datepicker";
+import { where } from "firebase/firestore";
 import { motion } from "framer-motion";
 import { FormEvent, useRef, useState } from "react";
 import { GiPlainArrow } from "react-icons/gi";
+import { TextAndInput } from "../Contaco/Items/TextAndInput";
 import ConfirmDate from "./ConfirmDate";
 import ConsultarYContacto from "./ConsultarYContacto";
-import { TextAndInput } from "../Contaco/Items/TextAndInput";
-import { updateSingleDoc } from "@/firebase/services/updateSingleDoc";
-import { getProducts } from "@/firebase/services/serviceProducts";
-import { limit, where } from "firebase/firestore";
 
 type CursoFormType = {
   curso: string;
@@ -183,7 +183,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
   const fontColor = useColorModeValue("brandLight", "blue.400");
 
   return (
-    <Flex flexDir="column" gap={5} p={5}>
+    <Flex flexDir="column" gap={5} p={[1,2,3,4]}>
       <Heading size="xl">¿Querés participar?</Heading>
       <Flex
         w={["100%", "90%", "80%", "70%"]}

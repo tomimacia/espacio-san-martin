@@ -140,8 +140,8 @@ const ConsultarYContacto = () => {
               <Table variant="striped">
                 <Tbody>
                   <Tr>
-                    <Td>Nombre</Td>
-                    <Td>{registryUser.Nombre}</Td>
+                    <Td w="50%">Nombre</Td>
+                    <Td w="50%">{registryUser.Nombre}</Td>
                   </Tr>
                   <Tr>
                     <Td>Email</Td>
@@ -172,8 +172,8 @@ const ConsultarYContacto = () => {
                   {registryUser.Cursos.map((c: any) => {
                     return (
                       <Tr key={c.titulo + c.sede}>
-                        <Td>{c.titulo}</Td>
-                        <Td>
+                        <Td w="50%">{c.titulo}</Td>
+                        <Td w="50%">
                           Sede <strong>{c.sede}</strong>
                         </Td>
                       </Tr>
