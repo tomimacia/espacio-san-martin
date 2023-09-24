@@ -27,7 +27,6 @@ const Layout = ({ children }: MainLayoutType) => {
         <meta property="og:site_name" content="Espacio San Martín" />
         <meta name="og:title" content="Espacio San Martin" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Espacio San Martín" />
         <meta
           property="og:description"
           content="Espacio para el crecimiento personal y social"
