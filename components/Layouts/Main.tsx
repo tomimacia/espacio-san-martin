@@ -23,7 +23,7 @@ const Layout = ({ children }: MainLayoutType) => {
         <meta name="instagram:creator" content="@tomimacia" />
         <meta property="og:site_name" content="Espacio San Martín" />
         {/* <meta name="google-site-verification" content="jkvmvPiTSvoqywlN7TQIwB7pYM0r4YRHSLnQcfRVYwQ" /> */}
-        <meta name="og:title" content="San Martin Espacio" />
+        <meta name="og:title" content="Espacio San Martin" />
         <meta property="og:type" content="website" />
         <link
           href="https://sanmartinjuancruz.com.ar/favicon.ico"
