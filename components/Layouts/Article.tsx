@@ -34,7 +34,7 @@ const Layout = ({ children, headTitle, pageTitle }: ArticleLayoutType) => {
           <Head>
             <title>{t}</title>
             <meta name="twitter:title" content={t} />
-            <meta property="og:title" content='Espacio San Martín - Inicio' />
+            <meta property="og:title" content="Espacio San Martín" />
           </Head>
         )}
 
