@@ -3,6 +3,7 @@ import { Box, Flex } from "@chakra-ui/layout";
 import Link from "next/link";
 import React from "react";
 import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
+import ShareButton from "../ShareButton";
 
 const Media = ({ dir, size, colored = false }: mediaType) => {
   const SocialItems = [
@@ -20,7 +21,14 @@ const Media = ({ dir, size, colored = false }: mediaType) => {
     },
   ];
   return (
-    <Flex flexDir={dir} gap={[1.5, 3, 4.5, 6]} ml={2} fontSize={25} pt={3}>
+    <Flex
+      flexDir={dir}
+      align="center"
+      gap={[1.5, 3, 4.5, 6]}
+      ml={2}
+      fontSize={25}
+      pt={3}
+    >
       {SocialItems.map((item) => {
         const { Href, Title, Icon, Color } = item;
         return (
@@ -36,6 +44,7 @@ const Media = ({ dir, size, colored = false }: mediaType) => {
           </Box>
         );
       })}
+      <ShareButton />
     </Flex>
   );
 };

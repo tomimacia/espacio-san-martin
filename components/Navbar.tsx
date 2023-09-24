@@ -1,3 +1,4 @@
+import { useClickOutside } from "@/hooks/useClickOutside";
 import BannerNavbar from "@/public/BannerNavbar.jpg";
 import LogoNavbar from "@/public/LogoNavbar.jpg";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
@@ -14,11 +15,10 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import ColorModeSwitch from "./ColorModeSwitch";
-import { NavLink } from "./NavLink";
-import Media from "./Contaco/Media";
 import { useRouter } from "next/router";
-import { useClickOutside } from "@/hooks/useClickOutside";
+import ColorModeSwitch from "./ColorModeSwitch";
+import Media from "./Contaco/Media";
+import { NavLink } from "./NavLink";
 const Links = [
   { title: "Cursos", href: "/Cursos" },
   { title: "Nosotros", href: "/Nosotros" },
@@ -48,7 +48,14 @@ export default function Navbar() {
   };
   const imageNavbarSize = useBreakpointValue([55, 60, 65, 95]);
   return (
-    <Box id="NavBarID" position="relative" zIndex={10} pos="fixed" as="nav" w="100%">
+    <Box
+      id="NavBarID"
+      position="relative"
+      zIndex={10}
+      pos="fixed"
+      as="nav"
+      w="100%"
+    >
       <Flex
         align="center"
         h={["4.8rem", "6rem"]}
