@@ -44,7 +44,7 @@ const Media = ({ dir, size, colored = false }: mediaType) => {
           </Box>
         );
       })}
-      <ShareButton />
+      {!colored && <ShareButton />}
     </Flex>
   );
 };

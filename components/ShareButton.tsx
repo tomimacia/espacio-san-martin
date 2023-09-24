@@ -9,6 +9,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import { BsShareFill } from "react-icons/bs";
@@ -24,7 +25,7 @@ const ShareButton = () => {
         _hover={{ opacity: 0.7 }}
         cursor="pointer"
         fontSize={20}
-        color="white"
+        color={useColorModeValue("lightblue", "white")}
       >
         Open Modal
       </Icon>
