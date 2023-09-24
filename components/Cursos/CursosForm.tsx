@@ -203,7 +203,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
         <Button
           onClick={onOpen}
           width="200px"
-          _hover={{ opacity:0.7 }}
+          _hover={{ opacity: 0.7 }}
           color="white"
           size="sm"
           bg={fontColor}
