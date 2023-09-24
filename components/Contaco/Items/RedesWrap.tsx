@@ -30,7 +30,7 @@ const RedesWrap = ({ size, gap = 1 }: { size?: number; gap?: number }) => {
         const { Icon, Wrapper } = icon;
         return (
           <Flex key={"Icon" + ind} _hover={{ opacity: 0.7 }}>
-            <Wrapper url={URL}>
+            <Wrapper title="Espacio San Martín" url={URL}>
               <Icon
                 style={{ borderRadius: "10px" }}
                 size={size}
