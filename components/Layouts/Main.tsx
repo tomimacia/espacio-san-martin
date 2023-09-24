@@ -17,7 +17,10 @@ const Layout = ({ children }: MainLayoutType) => {
     >
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Espacio San Martín" />
+        <meta
+          name="description"
+          content="Espacio para el crecimiento personal y social"
+        />
         <meta name="author" content="Tomas Macia" />
         <meta name="instagram:site" content="@sanmartinjuancruzok" />
         <meta name="instagram:creator" content="@tomimacia" />
@@ -27,7 +30,7 @@ const Layout = ({ children }: MainLayoutType) => {
         <meta property="og:site_name" content="Espacio San Martín" />
         <meta
           property="og:description"
-          content="Tu destino para el crecimiento personal y social"
+          content="Espacio para el crecimiento personal y social"
         />
         <meta
           property="og:image"
