@@ -26,6 +26,8 @@ import ConfirmDate from "./ConfirmDate";
 import ConsultarYContacto from "./ConsultarYContacto";
 import { TextAndInput } from "../Contaco/Items/TextAndInput";
 import { updateSingleDoc } from "@/firebase/services/updateSingleDoc";
+import { getProducts } from "@/firebase/services/serviceProducts";
+import { limit, where } from "firebase/firestore";
 
 type CursoFormType = {
   curso: string;
@@ -63,7 +65,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
       Domicilio: user_address.value,
       Nacimiento: user_birth_date.value,
     };
-    if (DNI.length < 7) {
+    if (user.DNI.length < 7) {
       toast({
         title: "Error",
         description: "Ingresa un DNI válido",
@@ -73,6 +75,24 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
       });
       setLoadingForm(false);
       return;
+    }
+    const sameEmail = await getProducts("Inscriptos", [
+      where("Email", "==", user.Email),
+      where("DNI", "!=", user.DNI),
+    ]);
+    if (sameEmail.length > 0) {
+      const firstResult = sameEmail[0];
+      if (firstResult && "DNI" in firstResult) {
+        toast({
+          title: `El email ${user.Email} ya se encuentra registrado`,
+          description: `Registrado con el DNI ${firstResult.DNI}, intenta con otro email`,
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+        setLoadingForm(false);
+        return;
+      }
     }
     await getSingleDoc("Inscriptos", user.DNI).then((res) => {
       const registry = res?.data();
@@ -165,7 +185,12 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
   return (
     <Flex flexDir="column" gap={5} p={5}>
       <Heading size="xl">¿Querés participar?</Heading>
-      <Flex w={["100%", "90%", "80%", "70%"]} gap={7} flexDir="column" align="center">
+      <Flex
+        w={["100%", "90%", "80%", "70%"]}
+        gap={7}
+        flexDir="column"
+        align="center"
+      >
         <Heading textDecor="underline" size="lg" color={fontColor}>
           Inscribite!
         </Heading>
@@ -178,7 +203,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
         <Button
           onClick={onOpen}
           width="200px"
-          _hover={{ bg: "blue.200" }}
+          _hover={{ opacity:0.7 }}
           color="white"
           size="sm"
           bg={fontColor}
@@ -246,6 +271,8 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
                   mt={5}
                   bg={fontColor}
                   color="white"
+                  border="1px solid transparent"
+                  _hover={{ opacity: 0.7, border: "1px solid gray" }}
                   isLoading={loadingForm}
                 >
                   Enviar

@@ -7,29 +7,34 @@ import {
   Flex,
   Heading,
   Link,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { Fragment } from "react";
 import { CursoForm } from "./CursosForm";
+const BackButton = () => {
+  return (
+    <Button
+      size="md"
+      textDecor="underline"
+      as={Link}
+      _hover={{ color: "blue" }}
+      alignSelf="flex-end"
+      href="/Cursos"
+      bg="transparent"
+    >
+      <ArrowBackIcon />
+      Volver
+    </Button>
+  );
+};
 const CursoStructure = ({ Curso }: Curso) => {
   const { title, subtitle, description, img } = Curso;
   return (
     <Flex py={10} gap={5} w="100%" flexDir="column">
       <Flex flexDir="column" align="center" justify="center" w="100%">
         <Heading textAlign="center">{title}</Heading>
-        <Button
-          size="xs"
-          textDecor="underline"
-          as={Link}
-          _hover={{ color: "blue" }}
-          alignSelf="flex-end"
-          href="/Cursos"
-          bg="transparent"
-        >
-          <ArrowBackIcon />
-          Volver
-        </Button>
+        <BackButton />
       </Flex>
       <Divider borderColor="gray.500" w="85%" m="auto" />
       <Flex display="block" gap={2} p={3} flexDir="column">
@@ -62,6 +67,7 @@ const CursoStructure = ({ Curso }: Curso) => {
           })}
         </Text>
       </Flex>
+      <BackButton />
       <CursoForm curso={title} />
     </Flex>
   );

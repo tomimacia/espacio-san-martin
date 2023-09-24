@@ -1,13 +1,17 @@
-import { collection, getDocs, query } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  query,
+  QueryConstraint,
+} from "firebase/firestore";
 import { firestore } from "../clientApp";
 
-export const getProducts = async (thisCollection,queryArr) => {
+export const getProducts = async (
+  thisCollection: string,
+  queryArr: QueryConstraint[]
+) => {
   const productsCollectionRef = collection(firestore, thisCollection);
-  const finalQuery = [
-    productsCollectionRef,
-    ...queryArr
-  ];
-  const prevData = await getDocs(query(...finalQuery));
+  const prevData = await getDocs(query(productsCollectionRef, ...queryArr));
   const data = prevData.docs.map((product) => ({
     ...product.data(),
     id: product.id,
