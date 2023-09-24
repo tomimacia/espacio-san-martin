@@ -26,7 +26,7 @@ const RedesWrap = ({ size, gap = 1 }: { size?: number; gap?: number }) => {
     { Icon: TelegramIcon, Wrapper: TelegramShareButton },
   ];
 
-  const URL = "https://www.sanmartinjuancruz.com.ar/";
+  const URL = "https://www.sanmartinjuancruz.com.ar";
   return (
     <Flex flexDir="column" gap={gap}>
       <Flex gap={1} flexWrap="wrap">
