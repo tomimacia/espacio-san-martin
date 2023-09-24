@@ -2,8 +2,8 @@ import Infancias from "@/public/infancias.jpg";
 export const NoticiasData = [
   {
     img: Infancias.src,
-    title: "Dia de las Infancias",
-    subtitle: "En el dia de la fecha se festeja el dia de las infancias",
+    title: "Día de las Infancias",
+    subtitle: "En el día de la fecha se festeja el dia de las infancias",
     description: [
       "¡Celebremos Juntos el Día de las Infancias en el Barrio 9 de Abril el 30 de Junio!",
       "¡Estamos emocionados de anunciar que se acerca el Día de las Infancias en el Barrio 9 de Abril! Esta celebración, dedicada a nuestros pequeños vecinos, promete ser un día lleno de alegría y diversión que no querrás perderte.",

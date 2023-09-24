@@ -27,7 +27,7 @@ const BioJuan = () => {
   const imageSize = useBreakpointValue([100, 150, 200, 250]);
   return (
     <Flex px={5} gap={4} flexDir="column">
-      <Heading alignSelf="center" size="lg">
+      <Heading as="h3" alignSelf="center" size="lg">
         Sobre Juan Cruz
       </Heading>
       <Flex ref={ref} align="center" flexDir={{ base: "column", md: "row" }}>

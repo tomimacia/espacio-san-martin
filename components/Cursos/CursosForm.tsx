@@ -24,7 +24,7 @@ import { FormEvent, useRef, useState } from "react";
 import { GiPlainArrow } from "react-icons/gi";
 import ConfirmDate from "./ConfirmDate";
 import ConsultarYContacto from "./ConsultarYContacto";
-import { TextAndInput } from "./Contaco/Items/TextAndInput";
+import { TextAndInput } from "../Contaco/Items/TextAndInput";
 import { updateSingleDoc } from "@/firebase/services/updateSingleDoc";
 
 type CursoFormType = {

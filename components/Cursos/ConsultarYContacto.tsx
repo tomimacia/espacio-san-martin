@@ -3,7 +3,9 @@ import { scrollIntoTheView } from "@/helpers/scrollIntoTheView";
 import { useEnter } from "@/hooks/eventHooks/useEnter";
 import {
   Button,
+  Divider,
   Flex,
+  Heading,
   Input,
   Link,
   Table,
@@ -129,23 +131,17 @@ const ConsultarYContacto = () => {
             style={{
               border: "1px dashed gray",
               borderRadius: "10px",
-              padding: 3,
             }}
           >
+            <Heading p={3} size="lg">
+              Datos
+            </Heading>
             <TableContainer>
               <Table variant="striped">
                 <Tbody>
                   <Tr>
                     <Td>Nombre</Td>
                     <Td>{registryUser.Nombre}</Td>
-                  </Tr>
-                  <Tr>
-                    <Td>Cursos</Td>
-                    <Td>
-                      {registryUser.Cursos.map((c: any) => {
-                        return `${c.titulo} en Sede "${c.sede}"`;
-                      }).join(", ")}
-                    </Td>
                   </Tr>
                   <Tr>
                     <Td>Email</Td>
@@ -163,6 +159,26 @@ const ConsultarYContacto = () => {
                     <Td>Nacimiento</Td>
                     <Td>{registryUser.Nacimiento}</Td>
                   </Tr>
+                </Tbody>
+              </Table>
+            </TableContainer>
+            <Divider w="95%" m="5px auto" />
+            <Heading p={3} size="lg">
+              Cursos
+            </Heading>
+            <TableContainer>
+              <Table variant="striped">
+                <Tbody>
+                  {registryUser.Cursos.map((c: any) => {
+                    return (
+                      <Tr key={c.titulo + c.sede}>
+                        <Td>{c.titulo}</Td>
+                        <Td>
+                          Sede <strong>{c.sede}</strong>
+                        </Td>
+                      </Tr>
+                    );
+                  })}
                 </Tbody>
               </Table>
             </TableContainer>

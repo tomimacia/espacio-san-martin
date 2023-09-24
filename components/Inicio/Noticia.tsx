@@ -34,7 +34,7 @@ const Noticias = ({ noticias }: Noticias) => {
       transition={{ duration: 2 }}
     >
       <Flex gap={10} flexDir="column" justify="space-around">
-        <Heading>Novedades</Heading>
+        <Heading as="h3">Novedades</Heading>
         {noticias.map((noticia) => {
           return <Noticia key={noticia.title} noticia={noticia} />;
         })}

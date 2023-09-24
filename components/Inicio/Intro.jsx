@@ -30,7 +30,7 @@ const Intro = () => {
         w={{ base: "100%", md: "50%" }}
       >
         <Flex p={[5, 6, 8, 10]} mt="5%" gap={[3, 6, 8, 10]} flexDir="column">
-          <Heading as={"h1"} fontWeight={700} fontSize={[20, 24, 28, 32]}>
+          <Heading as={"h2"} fontWeight={700} fontSize={[20, 24, 28, 32]}>
             {title.split(" ").map((word, ind) => {
               return (
                 <motion.span

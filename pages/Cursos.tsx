@@ -1,4 +1,4 @@
-import ConsultarYContacto from "@/components/ConsultarYContacto";
+import ConsultarYContacto from "@/components/Cursos/ConsultarYContacto";
 import Layout from "@/components/Layouts/Article";
 import { CursosList } from "@/data/CursosData";
 import { CursoNoteType } from "@/types/types";

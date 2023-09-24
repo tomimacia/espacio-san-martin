@@ -27,9 +27,10 @@ const ConfirmDate: React.FC<ConfirmDateProps> = ({
       }
       textAlign="center"
       cursor="pointer"
-      onChange={()=>console.log("Changed date")}           
+      onChange={() => console.log("Changed date")}
       name="user_birth_date"
       borderRadius="10px"
+      autoComplete="off"
       outline="none"
       bg="blackAlpha.200"
       fontSize="1rem"

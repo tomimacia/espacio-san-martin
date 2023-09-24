@@ -1,4 +1,4 @@
-import CursoStructure from "@/components/CursoStructure";
+import CursoStructure from "@/components/Cursos/CursoStructure";
 import Layout from "@/components/Layouts/Article";
 import { CursosData } from "@/data/CursosData";
 import { Curso } from "@/types/types";

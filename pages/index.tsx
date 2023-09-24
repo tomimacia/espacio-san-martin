@@ -15,10 +15,10 @@ export default function Home() {
   const mTop = useBreakpointValue([25, 50]);
   const Notas = [
     {
-      title: "Dia de las infancias",
+      title: "Día de las infancias",
       img: Infancia.src,
       texto: [
-        "Nueva circo social! A realizarse el dia 30/6.",
+        "Nueva circo social! A realizarse el día 30/6.",
         "La reunión va a tomar lugar en el barrio de 9 de abril, y allí estaremos con diferentes actividades recreativas, una olla popular y mucho más. ",
         "Desde las 9hs hasta las 18hs vamos a estar presentes, y esperamos contar con vos!",
       ],

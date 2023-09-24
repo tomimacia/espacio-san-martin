@@ -14,7 +14,7 @@ export const TextAndInput = ({
         name={name}
         placeholder={placeholder}
         border="1px solid gray"
-        type={type}
+        type={type}        
         required
       />
     </Box>
