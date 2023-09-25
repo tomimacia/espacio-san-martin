@@ -73,3 +73,27 @@ export type NoticiaType = {
 export type Curso = {
   Curso: CursoType;
 };
+export type UserDB = {
+  Email: string;
+  Nombre: string;
+  Telefono: number | string;
+  DNI: number | string;
+  Cursos: CursoDB[];
+  Domicilio: string;
+  Nacimiento: string;
+};
+export type UserListed = {
+  Email: string;
+  Nombre: string;
+  Telefono: number | string;
+  DNI: number | string;
+  Curso: string;
+  Sede: string;
+  Domicilio: string;
+  Nacimiento: string;
+};
+
+export type CursoDB = {
+  titulo: string;
+  sede: string;
+};

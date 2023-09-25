@@ -16,6 +16,5 @@ export const getProducts = async (
     ...product.data(),
     id: product.id,
   }));
-  console.log("fetched products");
   return data;
 };

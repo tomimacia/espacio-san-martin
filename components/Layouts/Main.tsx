@@ -35,9 +35,12 @@ const Layout = ({ children }: MainLayoutType) => {
           property="og:image"
           content="https://www.sanmartinjuancruz.com.ar/LogoNavbar.jpg"
         />
-        <meta property="og:url" content="https://www.sanmartinjuancruz.com.ar/" />
+        <meta
+          property="og:url"
+          content="https://www.sanmartinjuancruz.com.ar/"
+        />
         <meta property="og:type" content="website" />
-        <meta property="og:image:type" content="image/jpeg"/>
+        <meta property="og:image:type" content="image/jpeg" />
         <meta
           name="msapplication-TileImage"
           content="https://www.sanmartinjuancruz.com.ar/LogoNavbar.jpg"

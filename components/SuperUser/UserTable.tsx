@@ -1,5 +1,6 @@
 import { CursosSedes } from "@/data/CursosData";
 import { getCollection } from "@/firebase/services/getCollection";
+import { UserListed } from "@/types/types";
 import {
   Button,
   Divider,
@@ -18,9 +19,10 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import DeleteUserModal from "./DeleteUserModal";
 
 const UserTable = () => {
-  const [inscriptos, setInscriptos] = useState<any>([]);
+  const [inscriptos, setInscriptos] = useState<UserListed[]>([]);
   const [cursoFilter, setCursoFilter] = useState("");
   const [sedeFilter, setSedeFilter] = useState("");
   const [currentFilters, setCurrentFilters] = useState({ curso: "", sede: "" });
@@ -102,6 +104,12 @@ const UserTable = () => {
     setSedeFilter("");
     setKeyReset((prev) => prev + 1);
   };
+  const deleteUser = (DNI: string, curso: string) => {
+    const newInscriptos = inscriptos.filter(
+      (user) => user.DNI !== DNI || user.Curso !== curso
+    );
+    setInscriptos(newInscriptos);
+  };
   return (
     <Flex gap={[2, 4, 6, 8]} flexDir="column">
       <Heading size="md">Filtros</Heading>
@@ -177,6 +185,7 @@ const UserTable = () => {
           Limpiar Filtros
         </Button>
       </Flex>
+
       {inscriptos.length > 0 ? (
         <TableContainer>
           <Table size="sm" variant="striped" colorScheme="facebook">
@@ -185,6 +194,7 @@ const UserTable = () => {
             )}
             <Thead>
               <Tr>
+                <Th></Th>
                 {Headers.map((param) => {
                   return (
                     <Th
@@ -201,8 +211,17 @@ const UserTable = () => {
             </Thead>
             <Tbody>
               {filterInscriptos(inscriptos).map((user, ind) => {
+                const { Nombre, Curso, DNI } = user;
                 return (
                   <Tr key={user + ind}>
+                    <Td title="Eliminar">
+                      <DeleteUserModal
+                        username={Nombre}
+                        curso={Curso}
+                        DNI={DNI}
+                        removeUser={() => deleteUser(DNI, Curso)}
+                      />
+                    </Td>
                     {Headers.map((thisKey, i) => {
                       const value = user[thisKey];
                       return <Td key={value + i}>{value}</Td>;
