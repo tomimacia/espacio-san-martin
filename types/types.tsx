@@ -19,7 +19,7 @@ export type TextAndInputType = {
   title: string;
   placeholder: string;
   type: string;
-  yaRegistrado: boolean;
+  yaRegistrado?: boolean;
 };
 export type LinkAndIconType = {
   href: string;
