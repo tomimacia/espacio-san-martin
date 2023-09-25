@@ -9,12 +9,14 @@ import React from "react";
 
 interface ConfirmDateProps {
   selectedDate: DayValue | null;
+  yaRegistrado: boolean;
   setSelectedDate: (date: DayValue | null) => void;
 }
 
 const ConfirmDate: React.FC<ConfirmDateProps> = ({
   selectedDate,
   setSelectedDate,
+  yaRegistrado,
 }) => {
   const renderCustomInput = ({ ref }: RenderInputProps) => (
     <Input
@@ -35,7 +37,8 @@ const ConfirmDate: React.FC<ConfirmDateProps> = ({
       bg="blackAlpha.200"
       fontSize="1rem"
       p="1rem 1rem"
-      required
+      required={!yaRegistrado}
+      disabled={yaRegistrado}
       h="10px"
       className="my-custom-input-class" // Apply your custom CSS class here
     />

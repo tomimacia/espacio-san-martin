@@ -29,16 +29,27 @@ const ShareButton = () => {
       >
         Open Modal
       </Icon>
-      <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+      <Modal
+        size="xs"
+        blockScrollOnMount={false}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader fontSize={35}>
+          <ModalHeader fontSize={25}>
             Comparte en <strong>redes sociales</strong>!
           </ModalHeader>
-          <Divider borderColor="gray" width="90%" m="auto" />
+          <Divider borderColor="gray" width="90%" m="5px auto" />
           <ModalCloseButton />
-          <ModalBody my={5}>
-            <RedesWrap size={50} />
+          <ModalBody
+            m={2}
+            border="1px solid gray"
+            borderRadius="10px"
+            justifySelf="center"
+            p={5}
+          >
+            <RedesWrap size={45} />
           </ModalBody>
 
           <ModalFooter>

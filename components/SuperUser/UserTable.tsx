@@ -1,6 +1,6 @@
-import { CursosSedes } from "@/data/CursosData";
+import { CursosSedes, SoloSedes } from "@/data/CursosData";
 import { getCollection } from "@/firebase/services/getCollection";
-import { UserListed } from "@/types/types";
+import { HeadersType, UserDB, UserListed } from "@/types/types";
 import {
   Button,
   Divider,
@@ -27,7 +27,7 @@ const UserTable = () => {
   const [sedeFilter, setSedeFilter] = useState("");
   const [currentFilters, setCurrentFilters] = useState({ curso: "", sede: "" });
   const [keyReset, setKeyReset] = useState(0);
-  const [filterBy, setFiltberBy] = useState<null | string>(null);
+  const [filterBy, setFiltberBy] = useState<null | HeadersType>(null);
   useEffect(() => {
     const fetchInscriptos = async () => {
       console.log("Fecthed");
@@ -62,28 +62,22 @@ const UserTable = () => {
     };
     fetchInscriptos();
   }, []);
-  const sedes = [
-    "Zaizar",
-    "Las Manitos",
-    "Serra de guasayan",
-    "Chacritas",
-    "Córdoba",
-    "Chacabuco",
-  ];
-  const filterInscriptos = (list: any) => {
+  const filterInscriptos = (list: UserListed[]) => {
     let newList = [...list];
     if (cursoFilter)
-      newList = newList.filter((user: any) => user.Curso === cursoFilter);
+      newList = newList.filter(
+        (user: UserListed) => user.Curso === cursoFilter
+      );
     if (sedeFilter)
-      newList = newList.filter((user: any) => user.Sede === sedeFilter);
+      newList = newList.filter((user: UserListed) => user.Sede === sedeFilter);
     if (filterBy) {
-      newList = newList.sort((a, b) => {
+      newList = newList.sort((a: UserListed, b: UserListed) => {
         return a[filterBy].localeCompare(b[filterBy]);
       });
     }
     return newList;
   };
-  const Headers = [
+  const Headers: (keyof UserListed)[] = [
     "Nombre",
     "Curso",
     "Sede",
@@ -157,7 +151,7 @@ const UserTable = () => {
             key={keyReset * 17}
             borderRadius="5px"
           >
-            {sedes.map((sede) => {
+            {SoloSedes.map((sede) => {
               return <option key={sede}>{sede}</option>;
             })}
           </Select>
@@ -195,7 +189,7 @@ const UserTable = () => {
             <Thead>
               <Tr>
                 <Th></Th>
-                {Headers.map((param) => {
+                {Headers.map((param: HeadersType) => {
                   return (
                     <Th
                       key={param}
@@ -213,7 +207,7 @@ const UserTable = () => {
               {filterInscriptos(inscriptos).map((user, ind) => {
                 const { Nombre, Curso, DNI } = user;
                 return (
-                  <Tr key={user + ind}>
+                  <Tr key={Nombre + Curso}>
                     <Td title="Eliminar">
                       <DeleteUserModal
                         username={Nombre}

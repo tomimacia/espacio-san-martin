@@ -149,3 +149,11 @@ export const CursosSedes = [
     sedes: ["Zaizar"],
   },
 ];
+export const SoloSedes = [
+  "Zaizar",
+  "Las Manitos",
+  "Serra de guasayan",
+  "Chacritas",
+  "Córdoba",
+  "Chacabuco",
+];

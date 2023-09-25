@@ -19,6 +19,7 @@ export type TextAndInputType = {
   title: string;
   placeholder: string;
   type: string;
+  yaRegistrado: boolean;
 };
 export type LinkAndIconType = {
   href: string;
@@ -85,8 +86,8 @@ export type UserDB = {
 export type UserListed = {
   Email: string;
   Nombre: string;
-  Telefono: number | string;
-  DNI: number | string;
+  Telefono: string;
+  DNI: string;
   Curso: string;
   Sede: string;
   Domicilio: string;
@@ -96,4 +97,19 @@ export type UserListed = {
 export type CursoDB = {
   titulo: string;
   sede: string;
+};
+export type HeadersType =
+  | "Nombre"
+  | "Curso"
+  | "Sede"
+  | "Email"
+  | "Nacimiento"
+  | "DNI"
+  | "Telefono"
+  | "Domicilio";
+export type DeleteUserType = {
+  username: string;
+  curso: string;
+  DNI: string;
+  removeUser: () => void;
 };

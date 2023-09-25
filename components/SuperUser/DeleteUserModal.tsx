@@ -1,6 +1,7 @@
 import { deleteSingleDoc } from "@/firebase/services/deleteSingleDoc";
 import { getSingleDoc } from "@/firebase/services/getSingleDoc";
 import { updateSingleDoc } from "@/firebase/services/updateSingleDoc";
+import { DeleteUserType } from "@/types/types";
 import {
   Button,
   Flex,
@@ -19,12 +20,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { MdDelete } from "react-icons/md";
 
-type DeleteUserType = {
-  username: string;
-  curso: string;
-  DNI: string;
-  removeUser: () => void;
-};
 const DeleteUserModal = ({
   username,
   curso,

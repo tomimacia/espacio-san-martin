@@ -5,6 +5,7 @@ import { setSingleDoc } from "@/firebase/services/setSingleDoc";
 import { updateSingleDoc } from "@/firebase/services/updateSingleDoc";
 import {
   Button,
+  Checkbox,
   Flex,
   Heading,
   Icon,
@@ -37,6 +38,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [loadingForm, setLoadingForm] = useState<boolean>(false);
   const [selectedDate, setSelectedDate] = useState<DayValue | null>(null);
+  const [yaRegistrado, setYaRegistrado] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
   const toast = useToast();
   const { sedes } = CursosSedes.find((C) => C.title === curso)!;
@@ -44,7 +46,6 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
     setLoadingForm(true);
     e.preventDefault();
     if (!formRef.current) return;
-
     const {
       user_email,
       user_name,
@@ -55,7 +56,6 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
       user_birth_date,
       sede,
     } = formRef.current;
-
     const user = {
       Email: user_email.value,
       Nombre: user_name.value,
@@ -96,7 +96,17 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
     }
     await getSingleDoc("Inscriptos", user.DNI).then((res) => {
       const registry = res?.data();
-      if (!registry) {
+      if (!registry && yaRegistrado) {
+        toast({
+          title: `El DNI ${user.DNI} no se encuentra inscipto aún!`,
+          description: "Llena el formulario nuevamente o ponte en contácto!",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+        setLoadingForm(false);
+        return;
+      } else if (!registry) {
         setSingleDoc("Inscriptos", user.DNI, user)
           .then(() => {
             setLoadingForm(false);
@@ -113,8 +123,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
             });
           });
         return;
-      }
-      if (registry?.Cursos.some((c: any) => c.titulo === curso)) {
+      } else if (registry?.Cursos.some((c: any) => c.titulo === curso)) {
         toast({
           title: `Ya te encuentras inscripto al curso de ${curso}!`,
           description: "Cualquier inconveniente contácta con nosotros!",
@@ -179,11 +188,10 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
       type: "text",
     },
   ];
-
   const fontColor = useColorModeValue("brandLight", "blue.400");
 
   return (
-    <Flex flexDir="column" gap={5} p={[1,2,3,4]}>
+    <Flex flexDir="column" gap={5} p={[1, 2, 3, 4]}>
       <Heading size="xl">¿Querés participar?</Heading>
       <Flex
         w={["100%", "90%", "80%", "70%"]}
@@ -233,6 +241,19 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
               <Input type="hidden" readOnly value="Cursos" name="area" />
               <Input type="hidden" readOnly value={curso} name="user_curso" />
               <Flex p={5} flexDir="column" gap={3}>
+                <Flex gap={2}>
+                  <Checkbox
+                    borderColor="gray"
+                    onChange={() => setYaRegistrado((prev) => !prev)}
+                  />
+                  <Text fontWeight="bold">
+                    Ya me encuentro registrado en otros cursos
+                  </Text>
+                </Flex>
+                <Text fontStyle="italic" fontSize={15}>
+                  Si estas registrado en otro curso, solamente completá el DNI y
+                  la Sede
+                </Text>
                 {InputsData.map((data) => {
                   const { name, title, placeholder, type } = data;
                   return (
@@ -242,6 +263,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
                       title={title}
                       placeholder={placeholder}
                       type={type}
+                      yaRegistrado={yaRegistrado}
                     />
                   );
                 })}
@@ -259,6 +281,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
                 <ConfirmDate
                   selectedDate={selectedDate}
                   setSelectedDate={setSelectedDate}
+                  yaRegistrado={yaRegistrado}
                 />
 
                 <Button

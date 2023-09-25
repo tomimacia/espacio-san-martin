@@ -6,6 +6,7 @@ export const TextAndInput = ({
   title,
   placeholder,
   type,
+  yaRegistrado,
 }: TextAndInputType) => {
   return (
     <Box>
@@ -14,8 +15,9 @@ export const TextAndInput = ({
         name={name}
         placeholder={placeholder}
         border="1px solid gray"
-        type={type}        
-        required
+        type={type}
+        required={title !== "DNI" && !yaRegistrado}
+        disabled={title !== "DNI" && yaRegistrado}
       />
     </Box>
   );

@@ -28,8 +28,8 @@ const RedesWrap = ({ size, gap = 1 }: { size?: number; gap?: number }) => {
 
   const URL = "https://www.sanmartinjuancruz.com.ar";
   return (
-    <Flex flexDir="column" gap={gap}>
-      <Flex gap={1} flexWrap="wrap">
+    <Flex align="center" flexDir="column" gap={gap}>
+      <Flex gap={gap} w="80%" justify="space-around">
         {MainIcons.map((icon, ind) => {
           const { Icon, Wrapper } = icon;
           return (
@@ -45,7 +45,7 @@ const RedesWrap = ({ size, gap = 1 }: { size?: number; gap?: number }) => {
           );
         })}
       </Flex>
-      <Flex gap={1} flexWrap="wrap">
+      <Flex gap={gap} w="80%" justify="space-around">
         {secondaryIcons.map((icon, ind) => {
           const { Icon, Wrapper } = icon;
           return (
