@@ -12,12 +12,17 @@ import nhe from "@/public/NuevosHorizontes.webp";
 import Vecinal from "@/public/JuanBioCuerpo.jpg";
 import ACaraDePerro from "@/public/ACaraDePerroRadio.jpg";
 export const BioText = () => {
-  const ImageSize = useBreakpointValue([450, 200, 350, 450]);
+  const ImageSize = useBreakpointValue([450, 250, 350, 300]);
   const ImageSizeNHE = useBreakpointValue([500, 250, 410, 600]);
   return (
     <Flex display="block">
       <Text fontSize={{ base: 14, sm: 20 }}>
-        <strong>Abogado - Especiliasta en Salud Mental</strong>
+        <strong>
+          Abogado - Especiliasta en Salud{" "}
+          <Text as={NextLink} cursor="text" href="/SuperUser">
+            Mental
+          </Text>
+        </strong>
         <br />
         <br />
         Juan Cruz San Martín nació el 24 de julio de 1985 en Lomas de Zamora,
@@ -103,15 +108,6 @@ export const BioText = () => {
         Gray, pero POR ALGUN MOTIVO QUE NO SE EXPLICA, no le dieron la
         oportunidad.
         <br />
-        <br />
-        Juan Cruz San Martín también hizo y es todo esto…
-        <br />
-        <br />
-        En 2021 abrió y desarrollo el merendero “Belgrano” que continúa hasta la
-        fecha. El proyecto inició con 10 jóvenes y culminó con 60 familias
-        completas (promedio de 350 personas). El merendero presta servicio 3
-        veces por semana y está ubicado en Faro Patagonia 600, Monte Grande.
-        <br />
       </Text>
       <Box m={1} float="right">
         <Image
@@ -126,6 +122,15 @@ export const BioText = () => {
         </Text>
       </Box>
       <Text fontSize={{ base: 14, sm: 20 }}>
+        <br />
+        Juan Cruz San Martín también hizo y es todo esto…
+        <br />
+        <br />
+        En 2021 abrió y desarrollo el merendero “Belgrano” que continúa hasta la
+        fecha. El proyecto inició con 10 jóvenes y culminó con 60 familias
+        completas (promedio de 350 personas). El merendero presta servicio 3
+        veces por semana y está ubicado en Faro Patagonia 600, Monte Grande.
+        <br />
         <br />
         Desarrollo del merendero “Las Camelias”, en 2022, que brinda servicio a
         100 personas, 2 veces por semana. Está ubicado en Las Orquídeas esq. Los
