@@ -1,14 +1,30 @@
 import { ArrowBackIcon } from "@chakra-ui/icons";
-import { Box, Button, Divider, Flex, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Heading,
+  Link,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 type CursoStr = {
   title: string;
   subtitle: string;
   description: string[];
+  imageFooter: string;
   img: string;
 };
-const NoticiaStructure = ({ title, subtitle, description, img }: CursoStr) => {
+const NoticiaStructure = ({
+  title,
+  subtitle,
+  imageFooter,
+  description,
+  img,
+}: CursoStr) => {
   return (
     <Flex py={10} gap={5} w="100%" flexDir="column">
       <Flex flexDir="column" align="center" justify="center" w="100%">
@@ -16,17 +32,20 @@ const NoticiaStructure = ({ title, subtitle, description, img }: CursoStr) => {
         <Button
           size="xs"
           textDecor="underline"
-          as={Link}
+          as={NextLink}
           _hover={{ color: "blue" }}
           alignSelf="flex-end"
           href="/"
-          bg='transparent'
+          bg="transparent"
         >
           <ArrowBackIcon />
           Volver
         </Button>
       </Flex>
       <Divider borderColor="gray.500" w="85%" m="auto" />
+      <Text alignSelf="center" fontStyle="italic">
+        {subtitle}
+      </Text>
       <Flex display="block" gap={2} p={3} flexDir="column">
         <Box float="right" p={1}>
           <Image
@@ -40,7 +59,7 @@ const NoticiaStructure = ({ title, subtitle, description, img }: CursoStr) => {
             height={500}
             width={500}
           />
-          <Text fontStyle="italic">{subtitle}</Text>
+          <Text fontStyle="italic">{imageFooter}</Text>
         </Box>
         <Text fontWeight="bold">
           {description.map((line) => {
@@ -54,6 +73,19 @@ const NoticiaStructure = ({ title, subtitle, description, img }: CursoStr) => {
           })}
         </Text>
       </Flex>
+      <Text fontStyle="italic" ml={3}>
+        Para más información{" "}
+        {
+          <Link
+            as={NextLink}
+            href="/Contacto"
+            color={useColorModeValue("blue", "blue.200")}
+            _hover={{ textDecor: "underline" }}
+          >
+            Contáctanos!
+          </Link>
+        }
+      </Text>
     </Flex>
   );
 };

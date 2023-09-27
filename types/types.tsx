@@ -68,6 +68,7 @@ export type NoticiaType = {
     title: string;
     subtitle: string;
     description: string[];
+    imageFooter: string;
     route: string;
   };
 };

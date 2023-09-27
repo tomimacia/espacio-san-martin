@@ -1,16 +1,18 @@
-import Infancias from "@/public/infancias.jpg";
+import Vecinal from "@/public/Vecinal.jpg";
 export const NoticiasData = [
   {
-    img: Infancias.src,
-    title: "Día de las Infancias",
-    subtitle: "En el día de la fecha se festeja el dia de las infancias",
+    img: Vecinal.src,
+    title: "Olla popular en El Zaizar",
+    imageFooter: "El Zaiar, Esteban Echeverría",
+    subtitle:
+      "Un Gestor de Solidaridad: Olla Popular en el Espacio San Martín Todos los Viernes",
     description: [
-      "¡Celebremos Juntos el Día de las Infancias en el Barrio 9 de Abril el 30 de Junio!",
-      "¡Estamos emocionados de anunciar que se acerca el Día de las Infancias en el Barrio 9 de Abril! Esta celebración, dedicada a nuestros pequeños vecinos, promete ser un día lleno de alegría y diversión que no querrás perderte.",
-      "El 30 de junio, todos están invitados a unirse a nosotros para celebrar este día especial. Hemos preparado una serie de emocionantes actividades y sorpresas para nuestros niños y sus familias. Desde shows de payasos que harán reír a carcajadas hasta castillos inflables que desafiarán a los pequeños aventureros, habrá algo para todos.",
-      "Además de la diversión, también celebraremos la solidaridad en nuestra comunidad. Estaremos organizando ollas populares para asegurarnos de que todos puedan disfrutar de deliciosas comidas juntos y compartir momentos especiales.",
-      "Así que marca tu calendario y únete a nosotros el 30 de junio en el Barrio 9 de Abril para celebrar el Día de las Infancias. ¡Esperamos verte allí y compartir esta jornada de alegría y unidad en nuestra comunidad!",
+      "El Espacio San Martín se enorgullece en presentar la iniciativa de la 'Olla Popular', que se llevará a cabo todos los viernes a las 12:30 p.m. en la sede del Zaizar, ubicada en la Avenida Luis Vernet 4091.",
+      "La 'Olla Popular' es una manifestación de solidaridad y apoyo, auspiciada por el Espacio San Martín, que busca brindar asistencia alimentaria a quienes lo necesiten. Cada comida está preparada con cuidado y esmero para ofrecer una experiencia nutritiva y un ambiente comunitario enriquecedor.",
+      "Extendemos nuestro agradecimiento a todos los participantes y colaboradores que hacen posible esta valiosa iniciativa. Su compromiso es esencial para que la olla popular continúe cumpliendo su misión.",
+      "Si deseas formar parte de esta iniciativa, te invitamos a unirte a nosotros. Juntos, fortalecemos nuestra comunidad y compartimos el espíritu de solidaridad.",
+      "Te esperamos cada viernes a las 12:30 p.m. en el Espacio San Martín del Zaizar para unirte a esta hermosa manifestación de apoyo comunitario.",
     ],
-    route: "Infancias",
+    route: "Olla",
   },
 ];

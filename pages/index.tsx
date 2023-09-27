@@ -3,7 +3,7 @@ import Intro from "@/components/Inicio/Intro";
 import IntroJuan from "@/components/Inicio/IntroJuan";
 import Noticias from "@/components/Inicio/Noticia";
 import Layout from "@/components/Layouts/Article";
-import Infancia from "@/public/infancias.jpg";
+
 import {
   Flex,
   Heading,
@@ -13,18 +13,7 @@ import {
 import { motion } from "framer-motion";
 export default function Home() {
   const mTop = useBreakpointValue([25, 50]);
-  const Notas = [
-    {
-      title: "Día de las infancias",
-      img: Infancia.src,
-      texto: [
-        "Nueva circo social! A realizarse el día 30/6.",
-        "La reunión va a tomar lugar en el barrio de 9 de abril, y allí estaremos con diferentes actividades recreativas, una olla popular y mucho más. ",
-        "Desde las 9hs hasta las 18hs vamos a estar presentes, y esperamos contar con vos!",
-      ],
-      route: "Infancias",
-    },
-  ];
+  
   return (
     <Layout headTitle="Inicio">
       <Flex flexDir="column">
@@ -64,7 +53,7 @@ export default function Home() {
       </Flex>
       <IntroJuan />
       <Flex p={5} my={[8, 12, 16, 20]}>
-        <Noticias noticias={Notas} />
+        <Noticias />
       </Flex>
     </Layout>
   );

@@ -3,6 +3,7 @@ import { Variants, motion } from "framer-motion";
 import Link from "next/link";
 import { Fragment } from "react";
 import { useInView } from "react-intersection-observer";
+import Infancia from "@/public/infancias.jpg";
 type NoticiaType = {
   noticia: Noticia;
 };
@@ -12,11 +13,8 @@ type Noticia = {
   texto: string[];
   route: string;
 };
-type Noticias = {
-  noticias: Noticia[];
-};
-const Noticias = ({ noticias }: Noticias) => {
-  const { ref, inView } = useInView({ threshold: 0.6, triggerOnce: true });
+const Noticias = () => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const variants: Variants = {
     hidden: {
       opacity: 0,
@@ -25,21 +23,36 @@ const Noticias = ({ noticias }: Noticias) => {
       opacity: 1,
     },
   };
+  const noticias = [
+    {
+      title:
+        "Compromiso Solidario: Olla Popular en el Espacio San Martín todos los Viernes",
+      img: Infancia.src,
+      texto: [
+        "El Espacio San Martín del Zaizar se enorgullece en presentar la 'Olla Popular' todos los viernes a las 12:30 p.m. en la Avenida Luis Vernet 4091.",
+        "Este gesto solidario brinda comidas nutritivas en un ambiente de comunidad.",
+        "Únete y comparte el espíritu de solidaridad.",
+      ],
+      route: "Olla",
+    },
+  ];
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : ""}
-      variants={variants}
-      transition={{ duration: 2 }}
-    >
-      <Flex gap={10} flexDir="column" justify="space-around">
-        <Heading as="h3">Novedades</Heading>
-        {noticias.map((noticia) => {
-          return <Noticia key={noticia.title} noticia={noticia} />;
-        })}
-      </Flex>
-    </motion.div>
+    <Flex ref={ref} gap={10} flexDir="column" justify="space-around">
+      <Heading as="h3">Novedades</Heading>
+      {noticias.map((noticia, ind) => {
+        return (
+          <motion.div
+            initial="hidden"
+            key={noticia.title}
+            animate={inView ? "visible" : ""}
+            variants={variants}
+            transition={{ duration: 2, delay: ind / 4 }}
+          >
+            <Noticia noticia={noticia} />
+          </motion.div>
+        );
+      })}
+    </Flex>
   );
 };
 const Noticia = ({ noticia }: NoticiaType) => {

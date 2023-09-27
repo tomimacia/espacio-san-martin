@@ -1,9 +1,19 @@
-import { Box, Flex, Link, Text, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Link,
+  Text,
+  useBreakpointValue,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import NextLink from "next/link";
 import nhe from "@/public/NuevosHorizontes.webp";
-import Vecinal from "@/public/Vecinal.jpg";
+import Vecinal from "@/public/JuanBioCuerpo.jpg";
+import ACaraDePerro from "@/public/ACaraDePerroRadio.jpg";
 export const BioText = () => {
+  const ImageSize = useBreakpointValue([450, 200, 350, 450]);
+  const ImageSizeNHE = useBreakpointValue([500, 250, 410, 600]);
   return (
     <Flex display="block">
       <Text fontSize={{ base: 14, sm: 20 }}>
@@ -55,11 +65,12 @@ export const BioText = () => {
           }}
           alt="Nuevos-Horizontes"
           src={nhe.src}
-          height={600}
-          width={600}
+          height={ImageSizeNHE}
+          width={ImageSizeNHE}
         />
         <Text as={"span"} fontSize={[10, 12, 14, 15]} fontStyle="italic">
-          Ingreso al establecimiento Nuevos Horizontes Echeverrianos
+          {ImageSizeNHE! > 350 && "Ingreso al establecimiento"} Nuevos
+          Horizontes Echeverrianos
         </Text>
       </Box>
       <Text fontSize={{ base: 14, sm: 20 }}>
@@ -102,15 +113,16 @@ export const BioText = () => {
         veces por semana y está ubicado en Faro Patagonia 600, Monte Grande.
         <br />
       </Text>
-      <Box float="right">
+      <Box m={1} float="right">
         <Image
           alt="Olla-vecinal-popular"
           src={Vecinal.src}
-          height={600}
-          width={600}
+          height={ImageSize}
+          width={ImageSize}
+          style={{ borderRadius: "10px" }}
         />
         <Text as={"span"} fontSize={[10, 12, 14, 15]} fontStyle="italic">
-          Zaizar, Esteban Echeverría
+          Monte Grande, Esteban Echeverría
         </Text>
       </Box>
       <Text fontSize={{ base: 14, sm: 20 }}>
@@ -134,6 +146,20 @@ export const BioText = () => {
         <br />
         También hay tiempo para el debate y la difusión de ideas…
         <br />
+      </Text>
+      <Box m={1} float="right">
+        <Image
+          alt="Olla-vecinal-popular"
+          src={ACaraDePerro.src}
+          height={ImageSize}
+          width={ImageSize}
+          style={{ borderRadius: "10px" }}
+        />
+        <Text as={"span"} fontSize={[10, 12, 14, 15]} fontStyle="italic">
+          Radio A Cara de Perro
+        </Text>
+      </Box>
+      <Text fontSize={{ base: 14, sm: 20 }}>
         <br />
         Entre 2016 y 2022 realizó el programa radial “A Cara de Perro” del que
         fue conductor. En A cara de Perro se daban a conocer noticias y se
