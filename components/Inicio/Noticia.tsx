@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { useInView } from "react-intersection-observer";
 import Infancia from "@/public/infancias.jpg";
+import CamionerosLogo from "@/public/CamionerosLogo.png";
 type NoticiaType = {
   noticia: Noticia;
 };
@@ -24,6 +25,15 @@ const Noticias = () => {
     },
   };
   const noticias = [
+    {
+      title: "Nueva Sede de Espacio San Martín",
+      img: CamionerosLogo.src,
+      texto: [
+        "Hoy celebramos la apertura de la nueva sede de ESPACIO SAN MARTIN en el predio de Ruta 4.",
+        "Este emocionante encuentro representa una colaboración significativa con el Club Camioneros y marca un paso importante hacia un futuro comunitario más sólido y unido.",
+      ],
+      route: "Camioneros",
+    },
     {
       title:
         "Compromiso Solidario: Olla Popular en el Espacio San Martín todos los Viernes",
@@ -81,7 +91,7 @@ const Noticia = ({ noticia }: NoticiaType) => {
             );
           })}
         </Text>
-        <Image objectFit="contain" w={600} alt="expo" src={img} />
+        <Image objectFit="contain" w={300} h={300} alt="expo" src={img} />
       </Flex>
       <Button
         as={Link}

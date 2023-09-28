@@ -43,7 +43,7 @@ const NoticiaStructure = ({
         </Button>
       </Flex>
       <Divider borderColor="gray.500" w="85%" m="auto" />
-      <Text alignSelf="center" fontStyle="italic">
+      <Text textAlign="center" fontStyle="italic">
         {subtitle}
       </Text>
       <Flex display="block" gap={2} p={3} flexDir="column">
@@ -54,7 +54,7 @@ const NoticiaStructure = ({
               objectPosition: "center",
               borderRadius: "10px",
             }}
-            alt={title}
+            alt={imageFooter}
             src={img}
             height={500}
             width={500}

@@ -1,5 +1,20 @@
 import Vecinal from "@/public/Vecinal.jpg";
+import AleColon from "@/public/AleColon.jpg";
 export const NoticiasData = [
+  {
+    img: AleColon.src,
+    title: "Nueva Sede de Espacio San Martín en el Club Camioneros",
+    imageFooter: "Alejandro Colón, Juan Cruz San Martín",
+    subtitle: "Colaborando con el Club Camioneros para un Futuro Comunitario",
+    description: [
+      "Hoy es un día de celebración y colaboración en ESPACIO SAN MARTIN. Nos complace anunciar la apertura de nuestra nueva sede en el predio de Ruta 4, un logro que ha sido posible gracias a la estrecha colaboración con el Club Camioneros.",
+      "Esta nueva sede representa un hito en nuestro compromiso de servir a la comunidad. Estamos emocionados por la oportunidad de expandir nuestras actividades y ofrecer un espacio adicional donde los vecinos puedan encontrar apoyo, capacitación y contención.",
+      "La colaboración con el Club Camioneros es un testimonio de la fuerza de la unidad comunitaria. Juntos, compartimos la visión de construir un futuro más sólido y unido para todos. Agradecemos especialmente a Alejandro Colón, cuyo apoyo y compromiso han sido fundamentales en este emocionante logro.",
+      "Esta nueva sede nos permitirá ampliar nuestros programas y llegar a más personas que necesitan orientación, capacitación y apoyo en su desarrollo personal. Estamos ansiosos por las oportunidades que esta colaboración traerá y por seguir sirviendo a nuestra comunidad de manera más efectiva.",
+      "¡Esperamos que todos se unan a nosotros para celebrar esta nueva etapa en ESPACIO SAN MARTIN y para continuar construyendo juntos un futuro comunitario más brillante y prometedor!",
+    ],
+    route: "Camioneros",
+  },
   {
     img: Vecinal.src,
     title: "Olla popular en El Zaizar",
