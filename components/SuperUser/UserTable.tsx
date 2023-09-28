@@ -22,7 +22,8 @@ import { useEffect, useState } from "react";
 import DeleteUserModal from "./DeleteUserModal";
 
 const UserTable = () => {
-  const [inscriptos, setInscriptos] = useState<UserListed[]>([]);
+  const [inscripciones, setInscripciones] = useState<UserListed[]>([]);
+  const [totalInscriptos, setTotalInscriptos] = useState<any>([]);
   const [cursoFilter, setCursoFilter] = useState("");
   const [sedeFilter, setSedeFilter] = useState("");
   const [currentFilters, setCurrentFilters] = useState({ curso: "", sede: "" });
@@ -32,6 +33,7 @@ const UserTable = () => {
     const fetchInscriptos = async () => {
       console.log("Fecthed");
       const gente = await getCollection("Inscriptos");
+      setTotalInscriptos(gente);
       const splitted = gente
         .map((p: any) => {
           const {
@@ -58,7 +60,7 @@ const UserTable = () => {
           return [...newElement];
         })
         .flat();
-      setInscriptos(splitted);
+      setInscripciones(splitted);
     };
     fetchInscriptos();
   }, []);
@@ -99,10 +101,10 @@ const UserTable = () => {
     setKeyReset((prev) => prev + 1);
   };
   const deleteUser = (DNI: string, curso: string) => {
-    const newInscriptos = inscriptos.filter(
+    const newInscriptos = inscripciones.filter(
       (user) => user.DNI !== DNI || user.Curso !== curso
     );
-    setInscriptos(newInscriptos);
+    setInscripciones(newInscriptos);
   };
   return (
     <Flex gap={[2, 4, 6, 8]} flexDir="column">
@@ -180,52 +182,63 @@ const UserTable = () => {
         </Button>
       </Flex>
 
-      {inscriptos.length > 0 ? (
-        <TableContainer>
-          <Table size="sm" variant="striped" colorScheme="facebook">
-            {filterInscriptos(inscriptos).length === 0 && (
-              <TableCaption>No se han encontrado resultados</TableCaption>
-            )}
-            <Thead>
-              <Tr>
-                <Th></Th>
-                {Headers.map((param: HeadersType) => {
+      {inscripciones.length > 0 ? (
+        <Flex flexDir="column">
+          <Flex flexDir="column" my={2}>
+            <Text>
+              <strong>Total Personas Inscriptas:</strong>{" "}
+              {totalInscriptos.length}
+            </Text>
+            <Text>
+              <strong>Total Inscripciones:</strong> {inscripciones.length}
+            </Text>
+          </Flex>
+          <TableContainer>
+            <Table size="sm" variant="striped" colorScheme="facebook">
+              {filterInscriptos(inscripciones).length === 0 && (
+                <TableCaption>No se han encontrado resultados</TableCaption>
+              )}
+              <Thead>
+                <Tr>
+                  <Th></Th>
+                  {Headers.map((param: HeadersType) => {
+                    return (
+                      <Th
+                        key={param}
+                        cursor="pointer"
+                        _hover={{ textDecor: "underline" }}
+                        onClick={() => setFiltberBy(param)}
+                      >
+                        {param}
+                      </Th>
+                    );
+                  })}
+                </Tr>
+              </Thead>
+              <Tbody>
+                {filterInscriptos(inscripciones).map((user, ind) => {
+                  const { Nombre, Curso, DNI } = user;
                   return (
-                    <Th
-                      key={param}
-                      cursor="pointer"
-                      _hover={{ textDecor: "underline" }}
-                      onClick={() => setFiltberBy(param)}
-                    >
-                      {param}
-                    </Th>
+                    <Tr key={Nombre + Curso}>
+                      <Td title="Eliminar">
+                        <DeleteUserModal
+                          username={Nombre}
+                          curso={Curso}
+                          DNI={DNI}
+                          removeUser={() => deleteUser(DNI, Curso)}
+                        />
+                      </Td>
+                      {Headers.map((thisKey, i) => {
+                        const value = user[thisKey];
+                        return <Td key={value + i}>{value}</Td>;
+                      })}
+                    </Tr>
                   );
                 })}
-              </Tr>
-            </Thead>
-            <Tbody>
-              {filterInscriptos(inscriptos).map((user, ind) => {
-                const { Nombre, Curso, DNI } = user;
-                return (
-                  <Tr key={Nombre + Curso}>
-                    <Td title="Eliminar">
-                      <DeleteUserModal
-                        username={Nombre}
-                        curso={Curso}
-                        DNI={DNI}
-                        removeUser={() => deleteUser(DNI, Curso)}
-                      />
-                    </Td>
-                    {Headers.map((thisKey, i) => {
-                      const value = user[thisKey];
-                      return <Td key={value + i}>{value}</Td>;
-                    })}
-                  </Tr>
-                );
-              })}
-            </Tbody>
-          </Table>
-        </TableContainer>
+              </Tbody>
+            </Table>
+          </TableContainer>
+        </Flex>
       ) : (
         <Progress
           h={2}
