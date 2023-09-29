@@ -93,6 +93,7 @@ export type UserListed = {
   Sede: string;
   Domicilio: string;
   Nacimiento: string;
+  FechaInscripcion: string;
 };
 
 export type CursoDB = {
@@ -107,7 +108,8 @@ export type HeadersType =
   | "Nacimiento"
   | "DNI"
   | "Telefono"
-  | "Domicilio";
+  | "Domicilio"
+  | "FechaInscripcion";
 export type DeleteUserType = {
   username: string;
   curso: string;

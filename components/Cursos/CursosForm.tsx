@@ -61,9 +61,14 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
       Nombre: user_name.value,
       Telefono: user_phone.value,
       DNI: DNI.value,
-      Cursos: [{ titulo: user_curso.value, sede: sede.value }],
+      Cursos: [
+        {
+          titulo: user_curso.value,
+          sede: sede.value,
+          fechaInscripcion: new Date(year, monthIndex, day, hours, minutes),
+        },
+      ],
       Domicilio: user_address.value,
-      Nacimiento: user_birth_date.value,
     };
     if (user.DNI.length < 7) {
       toast({
@@ -277,12 +282,6 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
                     );
                   })}
                 </Select>
-                <Text>Fecha de Nacimiento:</Text>
-                <ConfirmDate
-                  selectedDate={selectedDate}
-                  setSelectedDate={setSelectedDate}
-                  yaRegistrado={yaRegistrado}
-                />
 
                 <Button
                   type="submit"

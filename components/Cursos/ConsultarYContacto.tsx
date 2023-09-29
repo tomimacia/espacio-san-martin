@@ -155,10 +155,6 @@ const ConsultarYContacto = () => {
                     <Td>Domicilio</Td>
                     <Td>{registryUser.Domicilio}</Td>
                   </Tr>
-                  <Tr>
-                    <Td>Nacimiento</Td>
-                    <Td>{registryUser.Nacimiento}</Td>
-                  </Tr>
                 </Tbody>
               </Table>
             </TableContainer>

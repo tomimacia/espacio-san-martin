@@ -20,6 +20,7 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import DeleteUserModal from "./DeleteUserModal";
+import { Timestamp } from "firebase/firestore";
 
 const UserTable = () => {
   const [inscripciones, setInscripciones] = useState<UserListed[]>([]);
@@ -29,6 +30,11 @@ const UserTable = () => {
   const [currentFilters, setCurrentFilters] = useState({ curso: "", sede: "" });
   const [keyReset, setKeyReset] = useState(0);
   const [filterBy, setFiltberBy] = useState<null | HeadersType>(null);
+  const destructureDate = (seconds: number) => {
+    const date = new Date(seconds * 1000);
+    const settedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    return settedDate;
+  };
   useEffect(() => {
     const fetchInscriptos = async () => {
       console.log("Fecthed");
@@ -49,6 +55,9 @@ const UserTable = () => {
             return {
               Curso: c.titulo,
               Sede: c.sede,
+              FechaInscripcion: c.fechaInscripcion
+                ? destructureDate(c.fechaInscripcion.seconds)
+                : "septiembre",
               DNI: DNI,
               Domicilio: Domicilio,
               Email: Email,
@@ -84,10 +93,10 @@ const UserTable = () => {
     "Curso",
     "Sede",
     "Email",
-    "Nacimiento",
     "DNI",
     "Telefono",
     "Domicilio",
+    "FechaInscripcion",
   ];
   const aplicarFiltros = () => {
     setCursoFilter(currentFilters.curso);
@@ -200,7 +209,8 @@ const UserTable = () => {
               )}
               <Thead>
                 <Tr>
-                  <Th></Th>
+                  <Th />
+                  <Th />
                   {Headers.map((param: HeadersType) => {
                     return (
                       <Th
@@ -219,7 +229,7 @@ const UserTable = () => {
                 {filterInscriptos(inscripciones).map((user, ind) => {
                   const { Nombre, Curso, DNI } = user;
                   return (
-                    <Tr key={Nombre + Curso}>
+                    <Tr key={DNI + Curso}>
                       <Td title="Eliminar">
                         <DeleteUserModal
                           username={Nombre}
@@ -228,6 +238,8 @@ const UserTable = () => {
                           removeUser={() => deleteUser(DNI, Curso)}
                         />
                       </Td>
+                      <Td fontWeight="bold">{ind + 1}</Td>
+
                       {Headers.map((thisKey, i) => {
                         const value = user[thisKey];
                         return <Td key={value + i}>{value}</Td>;
