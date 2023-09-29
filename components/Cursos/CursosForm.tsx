@@ -27,7 +27,6 @@ import { motion } from "framer-motion";
 import { FormEvent, useRef, useState } from "react";
 import { GiPlainArrow } from "react-icons/gi";
 import { TextAndInput } from "../Contaco/Items/TextAndInput";
-import ConfirmDate from "./ConfirmDate";
 import ConsultarYContacto from "./ConsultarYContacto";
 
 type CursoFormType = {
@@ -37,7 +36,6 @@ type CursoFormType = {
 export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [loadingForm, setLoadingForm] = useState<boolean>(false);
-  const [selectedDate, setSelectedDate] = useState<DayValue | null>(null);
   const [yaRegistrado, setYaRegistrado] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
   const toast = useToast();
@@ -53,7 +51,6 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
       DNI,
       user_curso,
       user_address,
-      user_birth_date,
       sede,
     } = formRef.current;
     const user = {
@@ -65,7 +62,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
         {
           titulo: user_curso.value,
           sede: sede.value,
-          fechaInscripcion: new Date(year, monthIndex, day, hours, minutes),
+          fechaInscripcion: new Date(),
         },
       ],
       Domicilio: user_address.value,
