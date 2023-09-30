@@ -130,7 +130,7 @@ export const CursosSedes = [
   },
   {
     title: "Barbería",
-    sedes: ["Zaizar","Club Camioneros"],
+    sedes: ["Zaizar", "Club Camioneros"],
   },
   {
     title: "Capacitación post escolar",
@@ -154,6 +154,7 @@ export const SoloSedes = [
   "Las Manitos",
   "Serra de guasayan",
   "Chacritas",
+  "Club Camioneros",
   "Córdoba",
   "Chacabuco",
 ];

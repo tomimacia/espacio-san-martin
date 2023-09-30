@@ -1,6 +1,6 @@
 import { CursosSedes, SoloSedes } from "@/data/CursosData";
 import { getCollection } from "@/firebase/services/getCollection";
-import { HeadersType, UserDB, UserListed } from "@/types/types";
+import { HeadersType, UserListed } from "@/types/types";
 import {
   Button,
   Divider,
@@ -18,10 +18,9 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import DeleteUserModal from "./DeleteUserModal";
-import { Timestamp } from "firebase/firestore";
-
+import { useReactToPrint } from "react-to-print";
 const UserTable = () => {
   const [inscripciones, setInscripciones] = useState<UserListed[]>([]);
   const [totalInscriptos, setTotalInscriptos] = useState<any>([]);
@@ -30,9 +29,17 @@ const UserTable = () => {
   const [currentFilters, setCurrentFilters] = useState({ curso: "", sede: "" });
   const [keyReset, setKeyReset] = useState(0);
   const [filterBy, setFiltberBy] = useState<null | HeadersType>(null);
+  const tableRef = useRef<HTMLDivElement | null>(null);
+
+  const generatePDF = useReactToPrint({
+    content: () => tableRef.current,
+    documentTitle: `Lista de Usuarios ${new Date()}`,
+  });
   const destructureDate = (seconds: number) => {
     const date = new Date(seconds * 1000);
-    const settedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    const settedDate = `${date.getDate()}/${
+      date.getMonth() + 1
+    }/${date.getFullYear()}`;
     return settedDate;
   };
   useEffect(() => {
@@ -189,10 +196,20 @@ const UserTable = () => {
         >
           Limpiar Filtros
         </Button>
+        <Button
+          maxW="200px"
+          bg="brandLight"
+          _hover={{ opacity: 0.8 }}
+          color="white"
+          onClick={generatePDF}
+          size={["sm", "sm", "md"]}
+        >
+          Imprimir/PDF
+        </Button>
       </Flex>
 
       {inscripciones.length > 0 ? (
-        <Flex flexDir="column">
+        <Flex flexDir="column" width="100%">
           <Flex flexDir="column" my={2}>
             <Text>
               <strong>Total Personas Inscriptas:</strong>{" "}
@@ -202,15 +219,40 @@ const UserTable = () => {
               <strong>Total Inscripciones:</strong> {inscripciones.length}
             </Text>
           </Flex>
-          <TableContainer>
-            <Table size="sm" variant="striped" colorScheme="facebook">
+          <TableContainer
+            width="100%"
+            ref={tableRef}
+            // sx={{
+            //   "@media print": {
+            //     transform: "rotate(90deg)",
+            //   },
+            // }}
+          >
+            <Table
+              width="100%"
+              size="sm"
+              variant="striped"
+              colorScheme="facebook"
+            >
               {filterInscriptos(inscripciones).length === 0 && (
                 <TableCaption>No se han encontrado resultados</TableCaption>
               )}
               <Thead>
                 <Tr>
-                  <Th />
-                  <Th />
+                  <Th
+                    sx={{
+                      "@media print": {
+                        display: "none",
+                      },
+                    }}
+                  />
+                  <Th
+                    sx={{
+                      "@media print": {
+                        display: "none",
+                      },
+                    }}
+                  />
                   {Headers.map((param: HeadersType) => {
                     return (
                       <Th
@@ -230,7 +272,14 @@ const UserTable = () => {
                   const { Nombre, Curso, DNI } = user;
                   return (
                     <Tr key={DNI + Curso}>
-                      <Td title="Eliminar">
+                      <Td
+                        title="Eliminar"
+                        sx={{
+                          "@media print": {
+                            display: "none",
+                          },
+                        }}
+                      >
                         <DeleteUserModal
                           username={Nombre}
                           curso={Curso}
@@ -238,11 +287,31 @@ const UserTable = () => {
                           removeUser={() => deleteUser(DNI, Curso)}
                         />
                       </Td>
-                      <Td fontWeight="bold">{ind + 1}</Td>
+                      <Td
+                        fontWeight="bold"
+                        sx={{
+                          "@media print": {
+                            display: "none",
+                          },
+                        }}
+                      >
+                        {ind + 1}
+                      </Td>
 
                       {Headers.map((thisKey, i) => {
                         const value = user[thisKey];
-                        return <Td key={value + i}>{value}</Td>;
+                        return (
+                          <Td
+                            key={value + i}
+                            sx={{
+                              "@media print": {
+                                fontSize: "10px",
+                              },
+                            }}
+                          >
+                            {value}
+                          </Td>
+                        );
                       })}
                     </Tr>
                   );
