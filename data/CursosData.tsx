@@ -9,6 +9,10 @@ import LegalIcon from "@/public/Iconos/legal.png";
 import Libro from "@/public/Iconos/libro.png";
 import Profesor from "@/public/Iconos/profesor.png";
 import Teatro from "@/public/Iconos/teatro.png";
+import Escolar from "@/public/Iconos/escolar.png";
+import Manicuria from "@/public/Iconos/manicura.png";
+import ManicuriaBanner from "@/public/Cursos/Manicuria.jpeg";
+
 export const CursosData = [
   {
     img: Acompañante.src,
@@ -21,6 +25,16 @@ export const CursosData = [
       "Si buscas una carrera en la que puedas marcar la diferencia en la vida de las personas y contribuir a su bienestar, el curso de Acompañante Terapéutico en Espacio San Martín es tu oportunidad. ¡Únete a nosotros y comienza a construir un futuro de apoyo y cuidado!",
     ],
     route: "Acompañante",
+  },
+  {
+    img: ManicuriaBanner.src,
+    title: "Manicuría",
+    description: [
+      "Descubre el arte de la manicuría con nuestro curso especializado. Aprende técnicas avanzadas para el cuidado de uñas y manos. Nuestro programa te proporcionará las habilidades necesarias para convertirte en un profesional de la belleza de manos y uñas.",
+      "Durante el curso, explorarás técnicas de limado, esmaltado, decoración y cuidado de cutículas. Nuestros instructores altamente capacitados te guiarán a través de cada paso, brindándote consejos valiosos y conocimientos prácticos.",
+      "Ya sea que estés interesado en comenzar una nueva carrera en la industria de la belleza o simplemente deseas perfeccionar tus habilidades personales, nuestro curso de manicuría es la elección perfecta. Únete a nosotros y embellece el mundo, una uña a la vez.",
+    ],
+    route: "Manicuria",
   },
   {
     img: BarberiaBanner.src,
@@ -104,6 +118,12 @@ export const CursosList = [
     route: "CapPostEscolar",
   },
   {
+    img: Manicuria.src,
+    title: "Manicuría",
+    description: "Perfecciona tus habilidades en cuidado de uñas y manos",
+    route: "Manicuria",
+  },
+  {
     img: Teatro.src,
     title: "Teatro",
     description: "Explora tu talento en el escenario",
@@ -117,7 +137,7 @@ export const CursosList = [
     route: "Legal",
   },
   {
-    img: Libro.src,
+    img: Escolar.src,
     title: "Clases de apoyo escolar",
     description: "Mejora tu rendimiento con nuestras clases de apoyo escolar",
     route: "ApoyoEscolar",
@@ -131,6 +151,10 @@ export const CursosSedes = [
   {
     title: "Barbería",
     sedes: ["Zaizar", "Club Camioneros"],
+  },
+  {
+    title: "Manicuría",
+    sedes: ["Zaizar"],
   },
   {
     title: "Capacitación post escolar",

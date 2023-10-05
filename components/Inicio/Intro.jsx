@@ -55,7 +55,7 @@ const Intro = () => {
 
       <Flex w={{ base: "100%", md: "50%" }}>
         <Image
-          alt="casa"
+          alt="juan-san-martin-intro"
           objectPosition="center"
           borderRadius="0 0 10px 10px"
           objectFit="cover"

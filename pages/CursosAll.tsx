@@ -11,7 +11,7 @@ export async function getServerSideProps({ query }: any) {
 }
 const CursoDy = ({ Curso }: Curso) => {
   return (
-    <Layout headTitle={Curso.route}>
+    <Layout headTitle={Curso.title}>
       <CursoStructure Curso={Curso} />
     </Layout>
   );

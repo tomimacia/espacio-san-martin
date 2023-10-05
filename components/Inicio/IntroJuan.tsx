@@ -42,7 +42,7 @@ const BioJuan = () => {
             style={{ borderRadius: "10px" }}
             height={imageSize}
             src={JuanIntro.src}
-            alt="Médico-perfil"
+            alt="Juan-cruz-san-martin"
           />
         </motion.div>
         <motion.div

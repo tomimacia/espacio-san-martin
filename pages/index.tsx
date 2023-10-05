@@ -13,7 +13,7 @@ import {
 import { motion } from "framer-motion";
 export default function Home() {
   const mTop = useBreakpointValue([25, 50]);
-  
+
   return (
     <Layout headTitle="Inicio">
       <Flex flexDir="column">

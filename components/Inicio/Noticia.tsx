@@ -91,7 +91,7 @@ const Noticia = ({ noticia }: NoticiaType) => {
             );
           })}
         </Text>
-        <Image objectFit="contain" w={300} h={300} alt="expo" src={img} />
+        <Image objectFit="contain" w={300} h={300} alt={title} src={img} />
       </Flex>
       <Button
         as={Link}

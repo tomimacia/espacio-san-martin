@@ -75,7 +75,7 @@ const Nosotros = () => {
 
   return (
     <Layout pageTitle="Nuestros Cursos" headTitle="Cursos">
-      <Flex flexDir="column" mx={7}>
+      <Flex flexDir="column" mx={[1,2,5,7]}>
         <Text fontSize={{ base: 14, sm: 20 }}>
           Explora nuestras capacitaciones en Espacio San Martín. Desde
           Acompañante Terapéutico hasta Barbería, nuestros cursos ofrecen
