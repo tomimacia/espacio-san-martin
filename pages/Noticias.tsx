@@ -19,6 +19,7 @@ const Noticias = ({ Noticia }: NoticiaType) => {
         subtitle={subtitle}
         description={description}
         imageFooter={imageFooter}
+        route={route}
         img={img}
       />
     </Layout>

@@ -1,8 +1,8 @@
-import Vecinal from "@/public/Vecinal.jpg";
-import AleColon from "@/public/AleColon.jpg";
+import Vecinal from "@/public/Noticias/Olla.jpeg";
+import Camioneros from "@/public/Noticias/Camioneros.jpeg";
 export const NoticiasData = [
   {
-    img: AleColon.src,
+    img: Camioneros.src,
     title: "Nueva Sede de Espacio San Martín en el Club Camioneros",
     imageFooter: "Alejandro Colón, Juan Cruz San Martín",
     subtitle: "Colaborando con el Club Camioneros para un Futuro Comunitario",

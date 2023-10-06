@@ -18,6 +18,7 @@ type CursoStr = {
   description: string[];
   imageFooter: string;
   img: string;
+  route: string;
 };
 const NoticiaStructure = ({
   title,
@@ -25,12 +26,16 @@ const NoticiaStructure = ({
   imageFooter,
   description,
   img,
+  route,
 }: CursoStr) => {
   return (
     <>
       <Head>
         <meta property="og:description" content={title} />
-        <meta property="og:image" content={img} />
+        <meta
+          property="og:image"
+          content={`https://www.sanmartinjuancruz.com.ar/Cursos/${route}.jpeg`}
+        />
       </Head>
       <Flex py={10} gap={5} w="100%" flexDir="column">
         <Flex flexDir="column" align="center" justify="center" w="100%">

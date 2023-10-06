@@ -3,7 +3,7 @@ import { Variants, motion } from "framer-motion";
 import Link from "next/link";
 import { Fragment } from "react";
 import { useInView } from "react-intersection-observer";
-import Infancia from "@/public/infancias.jpg";
+import Infancia from "@/public/Noticias/Olla.jpeg";
 import CamionerosLogo from "@/public/CamionerosLogo.png";
 type NoticiaType = {
   noticia: Noticia;
