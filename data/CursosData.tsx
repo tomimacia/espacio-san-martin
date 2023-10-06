@@ -3,7 +3,7 @@ import ApoyoEscolar from "@/public/Cursos/ApoyoEscolar.jpeg";
 import BarberiaBanner from "@/public/Cursos/BarberiaBanner.jpeg";
 import Capacitacion from "@/public/Cursos/Capacitacion.jpeg";
 import Legal from "@/public/Cursos/Legal.jpeg";
-import TeatroIcon from "@/public/Cursos/Teatro.jpg";
+import TeatroIcon from "@/public/Cursos/Teatro.jpeg";
 import Barberia from "@/public/Iconos/estilista.png";
 import LegalIcon from "@/public/Iconos/legal.png";
 import Libro from "@/public/Iconos/libro.png";
