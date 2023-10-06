@@ -30,10 +30,7 @@ const NoticiaStructure = ({
     <>
       <Head>
         <meta property="og:description" content={title} />
-        <meta
-          property="og:image"
-          content={`https://www.sanmartinjuancruz.com.ar/Cursos/${img}.jpeg`}
-        />
+        <meta property="og:image" content={img} />
       </Head>
       <Flex py={10} gap={5} w="100%" flexDir="column">
         <Flex flexDir="column" align="center" justify="center" w="100%">
