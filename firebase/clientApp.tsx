@@ -1,4 +1,3 @@
-
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -6,18 +5,17 @@ import { getStorage } from "firebase/storage";
 import { getFunctions } from "firebase/functions";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCOOZ8B3w712OjCGkpShlWoW1BiL4AUr4Q",
-  authDomain: "espacio-san-martin-8b73f.firebaseapp.com",
-  projectId: "espacio-san-martin-8b73f",
-  storageBucket: "espacio-san-martin-8b73f.appspot.com",
-  messagingSenderId: "822838822043",
-  appId: "1:822838822043:web:99647b8c4a5af42dc4f23e",
-  measurementId: "G-6WHDZYSV8E"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
 const auth = getAuth(app);
-const storage = getStorage(app)
+const storage = getStorage(app);
 const functions = getFunctions(app);
 export { app, firestore, auth, storage, functions };
-
