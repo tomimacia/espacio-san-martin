@@ -1,6 +1,6 @@
 import Acompañante from "@/public/Cursos/Acompañante.jpeg";
 import ApoyoEscolar from "@/public/Cursos/ApoyoEscolar.jpeg";
-import BarberiaBanner from "@/public/Cursos/BarberiaBanner.jpeg";
+import BarberiaBanner from "@/public/Cursos/Barberia.jpeg";
 import Capacitacion from "@/public/Cursos/Capacitacion.jpeg";
 import Legal from "@/public/Cursos/Legal.jpeg";
 import TeatroIcon from "@/public/Cursos/Teatro.jpeg";
