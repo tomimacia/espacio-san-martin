@@ -1,4 +1,5 @@
 import { Flex } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import {
   EmailIcon,
   EmailShareButton,
@@ -25,8 +26,9 @@ const RedesWrap = ({ size, gap = 1 }: { size?: number; gap?: number }) => {
     { Icon: LinkedinIcon, Wrapper: LinkedinShareButton },
     { Icon: TelegramIcon, Wrapper: TelegramShareButton },
   ];
+  const { asPath } = useRouter();
+  const URL = `https://www.sanmartinjuancruz.com.ar${asPath}`;
 
-  const URL = "https://www.sanmartinjuancruz.com.ar";
   return (
     <Flex align="center" flexDir="column" gap={gap}>
       <Flex gap={gap} w="80%" justify="space-around">
