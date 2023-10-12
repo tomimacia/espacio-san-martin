@@ -24,8 +24,8 @@ const Noticias = () => {
       <Heading as="h3">Novedades</Heading>
       {!loadingNoticias &&
         noticias
-          .sort((a, b) => a.Date.seconds + b.Date.seconds)
-
+          .sort((a, b) => a.Date.seconds - b.Date.seconds)
+          .reverse()
           .map((noticia: any, ind) => {
             const { Card } = noticia;
             return (
