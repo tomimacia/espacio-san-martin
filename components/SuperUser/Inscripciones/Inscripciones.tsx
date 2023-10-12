@@ -21,7 +21,8 @@ import {
 import { useEffect, useRef, useState } from "react";
 import DeleteUserModal from "./DeleteUserModal";
 import { useReactToPrint } from "react-to-print";
-const UserTable = () => {
+import destructureDate from "@/helpers/destructureDate";
+const Inscripciones = () => {
   const [inscripciones, setInscripciones] = useState<UserListed[]>([]);
   const [totalInscriptos, setTotalInscriptos] = useState<any>([]);
   const [cursoFilter, setCursoFilter] = useState("");
@@ -35,13 +36,7 @@ const UserTable = () => {
     content: () => tableRef.current,
     documentTitle: `Lista de Usuarios ${new Date()}`,
   });
-  const destructureDate = (seconds: number) => {
-    const date = new Date(seconds * 1000);
-    const settedDate = `${date.getDate()}/${
-      date.getMonth() + 1
-    }/${date.getFullYear()}`;
-    return settedDate;
-  };
+
   useEffect(() => {
     const fetchInscriptos = async () => {
       console.log("Fecthed");
@@ -182,7 +177,7 @@ const UserTable = () => {
           _hover={{ opacity: 0.8 }}
           color="white"
           onClick={aplicarFiltros}
-          size={["sm", "sm", "md"]}
+          size="sm"
         >
           Aplicar filtros
         </Button>
@@ -192,7 +187,7 @@ const UserTable = () => {
           _hover={{ opacity: 0.8 }}
           color="white"
           onClick={limpiarFiltros}
-          size={["sm", "sm", "md"]}
+          size="sm"
         >
           Limpiar Filtros
         </Button>
@@ -202,7 +197,7 @@ const UserTable = () => {
           _hover={{ opacity: 0.8 }}
           color="white"
           onClick={generatePDF}
-          size={["sm", "sm", "md"]}
+          size="sm"
         >
           Imprimir/PDF
         </Button>
@@ -334,4 +329,4 @@ const UserTable = () => {
   );
 };
 
-export default UserTable;
+export default Inscripciones;

@@ -1,3 +1,4 @@
+import { Timestamp } from "firebase/firestore";
 import { ReactNode } from "react";
 
 export type MainLayoutType = {
@@ -72,6 +73,7 @@ export type NoticiaType = {
     route: string;
   };
 };
+
 export type Curso = {
   Curso: CursoType;
 };
@@ -115,4 +117,61 @@ export type DeleteUserType = {
   curso: string;
   DNI: string;
   removeUser: () => void;
+};
+export type CursoStr = {
+  title: string;
+  subtitle: string;
+  description: string[];
+  imageFooter: string;
+  img: string;
+};
+export type NoticiaStructureType = {
+  title: string;
+  subtitle: string;
+  description: string[];
+  imageFooter: string;
+  img: string;
+  DateSeconds: number;
+};
+export type sedeType = {
+  sede: string;
+  direccion: string;
+  localidad: string;
+  iframe: string;
+};
+export type LinkItemType = {
+  active: boolean;
+  onClick: () => void;
+  title: string;
+};
+type NoticiaIMGType = {
+  downloadURL: string;
+  filePath: string;
+};
+type CardNoticiaType = {
+  CardIMG: NoticiaIMGType;
+  CardIntro: string[];
+  CardTitle: string;
+};
+type MainNoticia = {
+  MainTitle: string;
+  MainIMG: NoticiaIMGType;
+  MainBody: string[];
+  MainSubtitle: string;
+  MainImgFooter: string;
+};
+export type MainNoticiaType = {
+  MainNoticia: MainNoticia;
+  DateSeconds: number;
+};
+export type NoticiaTypeDB = {
+  Card: CardNoticiaType;
+  Date: Timestamp;
+  Main: MainNoticia;
+  id: string;
+};
+export type NoticiaIntroType = {
+  noticia: CardNoticiaType;
+  id?: string;
+  Date?: Timestamp;  
 };

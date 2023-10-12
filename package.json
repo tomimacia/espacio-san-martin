@@ -32,7 +32,8 @@
     "react-share": "^4.4.1",
     "react-to-print": "^2.14.13",
     "typescript": "5.0.4",
-    "typewriter-effect": "^2.20.1"
+    "typewriter-effect": "^2.20.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "next-sitemap": "^4.1.3"

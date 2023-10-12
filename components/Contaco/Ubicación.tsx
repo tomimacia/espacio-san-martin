@@ -3,12 +3,8 @@ import { useState } from "react";
 import { MdDirectionsCarFilled, MdLocationOn } from "react-icons/md";
 import { Mapa } from "./Mapa";
 import { useWaitAction } from "@/hooks/useWaitAction";
-type sedeType = {
-  sede: string;
-  direccion: string;
-  localidad: string;
-  iframe: string;
-};
+import { sedeType } from "@/types/types";
+
 const Ubicación = () => {
   const [currentLocation, setCurrentLocation] = useState({
     sede: "Las Manitos",

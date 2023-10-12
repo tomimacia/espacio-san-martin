@@ -1,3 +1,6 @@
+import dateTexto from "@/helpers/dateTexto";
+import destructureDate from "@/helpers/destructureDate";
+import { CursoStr, NoticiaStructureType } from "@/types/types";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -12,30 +15,20 @@ import {
 import Head from "next/head";
 import Image from "next/image";
 import NextLink from "next/link";
-type CursoStr = {
-  title: string;
-  subtitle: string;
-  description: string[];
-  imageFooter: string;
-  img: string;
-  route: string;
-};
+
 const NoticiaStructure = ({
   title,
   subtitle,
   imageFooter,
   description,
   img,
-  route,
-}: CursoStr) => {
+  DateSeconds,
+}: NoticiaStructureType) => {
   return (
     <>
       <Head>
         <meta property="og:description" content={title} />
-        <meta
-          property="og:image"
-          content={`https://www.sanmartinjuancruz.com.ar/Noticias/${route}.jpeg`}
-        />
+        <meta property="og:image" content={img} />
       </Head>
       <Flex py={10} gap={5} w="100%" flexDir="column">
         <Flex flexDir="column" align="center" justify="center" w="100%">
@@ -53,7 +46,13 @@ const NoticiaStructure = ({
             Volver
           </Button>
         </Flex>
-        <Divider borderColor="gray.500" w="85%" m="auto" />
+        <Flex flexDir="column" w="85%" m="auto">
+          <Text fontStyle="italic" fontSize={14}>
+            {dateTexto(DateSeconds)}
+          </Text>
+          <Divider borderColor="gray.500" />
+        </Flex>
+
         <Text textAlign="center" fontStyle="italic">
           {subtitle}
         </Text>
@@ -67,6 +66,7 @@ const NoticiaStructure = ({
               }}
               alt={imageFooter}
               src={img}
+              priority
               height={500}
               width={500}
             />
@@ -77,7 +77,6 @@ const NoticiaStructure = ({
               return (
                 <>
                   {line}
-                  <br />
                   <br />
                 </>
               );

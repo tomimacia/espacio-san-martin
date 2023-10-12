@@ -7,14 +7,14 @@ export const NavLink = ({ title, href, onClick }: NavLinkType) => (
     px={2}
     py={1}
     fontSize={20}
-    fontWeight="medium"
+    fontWeight="medium"    
     rounded="md"
     _hover={{
       textDecoration: "underline",
       bg: "none",
     }}
     href={href}
-    onClick={onClick}
+    onClick={onClick}    
   >
     {title}
   </Link>
