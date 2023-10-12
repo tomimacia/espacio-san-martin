@@ -23,20 +23,23 @@ const Noticias = () => {
     <Flex ref={ref} gap={10} flexDir="column" justify="space-around">
       <Heading as="h3">Novedades</Heading>
       {!loadingNoticias &&
-        noticias.map((noticia: any, ind) => {
-          const { Card } = noticia;
-          return (
-            <motion.div
-              initial="hidden"
-              key={noticia.Card.CardTitle}
-              animate={inView ? "visible" : ""}
-              variants={variants}
-              transition={{ duration: 2, delay: ind / 4 }}
-            >
-              <Noticia noticia={Card} id={noticia.id} Date={noticia.Date} />
-            </motion.div>
-          );
-        })}
+        noticias
+          .sort((a, b) => a.Date.seconds + b.Date.seconds)
+
+          .map((noticia: any, ind) => {
+            const { Card } = noticia;
+            return (
+              <motion.div
+                initial="hidden"
+                key={noticia.Card.CardTitle}
+                animate={inView ? "visible" : ""}
+                variants={variants}
+                transition={{ duration: 2, delay: ind / 4 }}
+              >
+                <Noticia noticia={Card} id={noticia.id} Date={noticia.Date} />
+              </motion.div>
+            );
+          })}
     </Flex>
   );
 };
