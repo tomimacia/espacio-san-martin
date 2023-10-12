@@ -25,7 +25,7 @@ const dateTexto = (seconds: number) => {
   ];
 
   const settedDate = `${dias[date.getDay()]}, ${date.getDate()} de ${
-    meses[date.getMonth() + 1]
+    meses[date.getMonth()]
   }, ${date.getFullYear()}`;
   return settedDate;
 };
