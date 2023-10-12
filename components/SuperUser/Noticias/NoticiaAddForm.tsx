@@ -1,15 +1,14 @@
 import { addSingleDoc } from "@/firebase/services/addSingleDoc";
 import loadFile from "@/firebase/services/loadFile";
 import { scrollIntoTheView } from "@/helpers/scrollIntoTheView";
+import { useCustomToast } from "@/hooks/useCustomToast";
 import { PlusSquareIcon } from "@chakra-ui/icons";
 import { Button, Flex, FormControl, Heading } from "@chakra-ui/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import AddImages from "../FormFields/AddImage";
 import TextAreaSuper from "../FormFields/TextAreaSuper";
 import TextInputSuper from "../FormFields/TextInputSuper";
-import PreviewComponent from "../PreviewComponent";
-import { useCustomToast } from "@/hooks/useCustomToast";
-import { AnimatePresence, motion } from "framer-motion";
 const NoticiaAddForm = ({ getNoticias }: { getNoticias: () => void }) => {
   const [showForm, setShowForm] = useState(false);
 
