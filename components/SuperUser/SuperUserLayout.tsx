@@ -8,6 +8,7 @@ import Inscripciones from "./Inscripciones/Inscripciones";
 import NoticiasAdmin from "./Noticias/NoticiasAdmin";
 import PasswordSign from "./PasswordSign";
 import SuperUserNav from "./SuperUserNav";
+import SedesAdmin from "./Sedes/SedesAdmin";
 const SuperUserLayout = () => {
   const [password, setPassword] = useSessionStorage("SUPER_USER_PASSWORD", "");
   const [body, setBody] = useState("Inscripciones");
@@ -28,6 +29,7 @@ const SuperUserLayout = () => {
               {body === "Inscripciones" && <Inscripciones />}
               {body === "Cursos" && <CursosAdmin />}
               {body === "Noticias" && <NoticiasAdmin />}
+              {body === "Sedes" && <SedesAdmin />}
             </motion.div>
           </>
         ) : (

@@ -1,16 +1,15 @@
-import useGetNoticias from "@/hooks/dataHandler/useGetNoticias";
+import useGetSedes from "@/hooks/dataHandler/useGetSedes";
 import { Divider, Flex, Progress, Text } from "@chakra-ui/react";
-import NoticiaAddForm from "./NoticiaAddForm";
-import NoticiasList from "./NoticiasList";
-
-const NoticiasAdmin = () => {
-  const { noticias, setNoticias, getNoticias, loadingNoticias } =
-    useGetNoticias();
+import React from "react";
+import SedesList from "./SedesList";
+import SedeAddForm from "./SedeAddForm";
+const SedesAdmin = () => {
+  const { loadingSedes, setSedes, getSedes, sedes } = useGetSedes();
 
   return (
     <Flex flexDir="column">
       <Flex flexDir="column" gap={3}>
-        {loadingNoticias && (
+        {loadingSedes && (
           <Progress
             h={2}
             colorScheme="purple"
@@ -20,17 +19,17 @@ const NoticiasAdmin = () => {
             zIndex={100}
           />
         )}
-        {!loadingNoticias &&
-          (noticias.length > 0 ? (
-            <NoticiasList noticias={noticias} setNoticias={setNoticias} />
+        {!loadingSedes &&
+          (sedes.length > 0 ? (
+            <SedesList sedes={sedes} setSedes={setSedes} />
           ) : (
             <Text fontWeight="bold">No hay noticias para mostrar</Text>
           ))}
       </Flex>
       <Divider borderColor="gray.400" my={6} />
-      <NoticiaAddForm getNoticias={getNoticias} />
+      <SedeAddForm getSedes={getSedes} />
     </Flex>
   );
 };
 
-export default NoticiasAdmin;
+export default SedesAdmin;

@@ -1,7 +1,7 @@
 import { getCollection } from "@/firebase/services/getCollection";
 import { NoticiaTypeDB } from "@/types/types";
 import { useCallback, useEffect, useState } from "react";
-import { useSessionStorage } from "./storageHooks/useSessionStorage";
+import { useSessionStorage } from "../storageHooks/useSessionStorage";
 
 const useGetNoticias = () => {
   const [noticias, setNoticias] = useSessionStorage<NoticiaTypeDB[]>(

@@ -146,7 +146,7 @@ export const CursosList = [
 export const CursosSedes = [
   {
     title: "Acompañante terapéutico",
-    sedes: ["Zaizar", "Chacritas", "Córdoba"],
+    sedes: ["Zaizar", "Chacritas", "Monte Grande"],
   },
   {
     title: "Barbería",
@@ -179,6 +179,6 @@ export const SoloSedes = [
   "Serra de guasayan",
   "Chacritas",
   "Club Camioneros",
-  "Córdoba",
+  "Monte Grande",
   "Chacabuco",
 ];

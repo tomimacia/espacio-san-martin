@@ -216,9 +216,11 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
           color="white"
           size="sm"
           bg={fontColor}
+          isDisabled={curso === "Acompañante terapéutico"}
         >
           Aplicar
         </Button>
+        {curso === "Acompañante terapéutico" && <Text>Inscripciones finalizadas</Text>}
       </Flex>
       <Modal
         size={["xl", "2xl", "3xl", "3xl"]}

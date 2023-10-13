@@ -1,9 +1,9 @@
 import { mapaType } from "@/types/types";
-import { AspectRatio, Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export const Mapa = ({ location }: mapaType) => {
-  const { sede, direccion, localidad, iframe } = location;
+  const { Titulo, Direccion, Localidad, Iframe } = location;
   const variants = {
     initial: {
       opacity: 0,
@@ -26,25 +26,27 @@ export const Mapa = ({ location }: mapaType) => {
         animate="enter"
         exit="exit"
         transition={{ type: "tween", duration: 0.5 }}
-        key={sede}
+        key={Titulo}
       >
         <Flex flexDir="column">
-          <Heading size="lg">Sede {sede}</Heading>
+          <Heading size="lg">Sede {Titulo}</Heading>
           <Flex flexDir="column" gap={2} p={2}>
-            <Text fontFamily="montserrat">{direccion}</Text>
-            <Text fontFamily="montserrat">{localidad}</Text>
+            <Text fontWeight="bold" fontFamily="montserrat">
+              {Direccion}
+            </Text>
+            <Text fontWeight="bold" fontFamily="montserrat">
+              {Localidad}
+            </Text>
           </Flex>
-          <AspectRatio w={["100%", "90%", "80%", "70%"]} ratio={16 / 9}>
+          <Flex w="100%">
             <iframe
-              src={`https://www.google.com/maps/${iframe}`}
-              width="800"
-              height="600"
-              style={{ border: 0 }}
+              src={`https://www.google.com/maps/${Iframe}`}
+              style={{ border: 0, height: "250px", width: "100%" }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </AspectRatio>
+          </Flex>
         </Flex>
       </motion.div>
     </AnimatePresence>

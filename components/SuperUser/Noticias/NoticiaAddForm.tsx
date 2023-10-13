@@ -16,13 +16,7 @@ const NoticiaAddForm = ({ getNoticias }: { getNoticias: () => void }) => {
   const [mainImage, setMainImage] = useState<File | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
   const [loading, setLoading] = useState(false);
-  const CardList = [
-    {
-      name: "CardTitulo",
-      title: "Titulo",
-      helpText: "",
-    },
-  ];
+
   const MainList = [
     {
       name: "MainTitulo",
@@ -178,17 +172,7 @@ const NoticiaAddForm = ({ getNoticias }: { getNoticias: () => void }) => {
                   <Flex flexDir="column">
                     <Heading size="lg">Intro</Heading>
                     <Flex gap={4} p={3} flexDir="column">
-                      {CardList.map((card) => {
-                        const { title, name, helpText } = card;
-                        return (
-                          <TextInputSuper
-                            key={name}
-                            title={title}
-                            name={name}
-                            helpText={helpText}
-                          />
-                        );
-                      })}
+                      <TextInputSuper title={"Titulo"} name={"CardTitulo"} />
                       <TextAreaSuper name="CardIntro" title="Intro" />
                       <AddImages
                         images={cardImage}

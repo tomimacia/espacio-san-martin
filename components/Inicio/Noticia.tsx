@@ -1,5 +1,5 @@
 import destructureDate from "@/helpers/destructureDate";
-import useGetNoticias from "@/hooks/useGetNoticias";
+import useGetNoticias from "@/hooks/dataHandler/useGetNoticias";
 import { NoticiaIntroType } from "@/types/types";
 import { Button, Divider, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { Variants, motion } from "framer-motion";

@@ -39,14 +39,8 @@ export type mediaType = {
   size: number | undefined;
   colored?: boolean;
 };
-type locationType = {
-  sede: string;
-  direccion: string;
-  localidad: string;
-  iframe: string;
-};
 export type mapaType = {
-  location: locationType;
+  location: SedeTypeDB;
 };
 export type CursoType = {
   img: string;
@@ -133,12 +127,6 @@ export type NoticiaStructureType = {
   img: string;
   DateSeconds: number;
 };
-export type sedeType = {
-  sede: string;
-  direccion: string;
-  localidad: string;
-  iframe: string;
-};
 export type LinkItemType = {
   active: boolean;
   onClick: () => void;
@@ -173,5 +161,12 @@ export type NoticiaTypeDB = {
 export type NoticiaIntroType = {
   noticia: CardNoticiaType;
   id?: string;
-  Date?: Timestamp;  
+  Date?: Timestamp;
+};
+export type SedeTypeDB = {
+  Titulo: string;
+  Direccion: string;
+  Localidad: string;
+  Iframe: string;
+  id?: string;
 };

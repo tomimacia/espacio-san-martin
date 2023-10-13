@@ -22,7 +22,7 @@ const NoticiasList = ({ noticias, setNoticias }: NoticiasListType) => {
       await deleteSingleDoc("Noticias", id);
       const newNoticias = noticias.filter((n) => n.id !== id);
       setNoticias(newNoticias);
-      successToast("Noticia elminidad correctamente");
+      successToast("Noticia eliminada correctamente");
     } catch (err: any) {
       console.log("Error deleting noticia", err.message);
       errorToast("Error eliminando la noticia");
