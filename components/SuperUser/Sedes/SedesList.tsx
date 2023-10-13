@@ -61,9 +61,14 @@ const SedesList = ({ sedes, setSedes }: SedesListType) => {
               gap={5}
             >
               <Flex gap={2} flexDir="column">
-                <Heading id={Titulo.replace(" ","%20")} alignSelf="center" size="lg">
+                <Heading
+                  p={3}
+                  id={Titulo.replace(" ", "%20")}
+                  alignSelf="center"
+                >
                   {Titulo}
                 </Heading>
+                <Divider borderColor="gray" w="80%" mx="auto" />
 
                 <Flex gap={3} flexDir="column">
                   <Text p={[0, 1, 2, 3]}>
