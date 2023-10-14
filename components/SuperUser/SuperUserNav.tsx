@@ -7,13 +7,18 @@ type SuperUserNavType = {
 };
 
 const SuperUserNav = ({ setBody, body }: SuperUserNavType) => {
-  const routes = ["Inscripciones", "Cursos", "Noticias","Sedes"];
+  const routes = ["Inscripciones", "Cursos", "Noticias", "Sedes"];
   return (
     <Flex flexDir="column" gap={5} mb={5}>
-      <Flex id="PanelNavID" flexDir="column" gap={5}>
+      <Flex w="100%" id="PanelNavID" flexDir="column" gap={5}>
         <Heading>Panel de Administración</Heading>
-
-        <Flex gap={5} p={2}>
+        <Flex
+          gap={[1, 2, 3, 4]}
+          placeContent="center"
+          justify="space-around"
+          flexWrap="wrap"
+          p={[0, 1, 2, 3]}
+        >
           {routes.map((r) => {
             return (
               <LinkPush

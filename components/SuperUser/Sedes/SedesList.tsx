@@ -32,7 +32,7 @@ const SedesList = ({ sedes, setSedes }: SedesListType) => {
   };
   return (
     <Flex flexDir="column">
-      <Flex py={5} gap={5} flexWrap="wrap">
+      <Flex py={5} gap={[2, 3, 4, 5]} flexWrap="wrap">
         {sedes.map((sede) => {
           return (
             <Link
@@ -41,7 +41,10 @@ const SedesList = ({ sedes, setSedes }: SedesListType) => {
               href={`#${sede.Titulo}`}
               scroll={false}
               fontSize={19}
-              _hover={{ color: "blue", textDecoration: "underline" }}
+              border="1px solid gray"              
+              borderRadius='5px'
+              p={0.5}
+              _hover={{ color: "blue", border: "1px solid blue", fontWeight: "bold" }}
             >
               {sede.Titulo}
             </Link>
