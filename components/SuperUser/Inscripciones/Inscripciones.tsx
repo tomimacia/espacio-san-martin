@@ -1,5 +1,7 @@
-import { CursosSedes, SoloSedes } from "@/data/CursosData";
 import { getCollection } from "@/firebase/services/getCollection";
+import destructureDate from "@/helpers/destructureDate";
+import useGetCursos from "@/hooks/dataHandler/useGetCursos";
+import useGetSedes from "@/hooks/dataHandler/useGetSedes";
 import { HeadersType, UserListed } from "@/types/types";
 import {
   Button,
@@ -19,9 +21,8 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
-import DeleteUserModal from "./DeleteUserModal";
 import { useReactToPrint } from "react-to-print";
-import destructureDate from "@/helpers/destructureDate";
+import DeleteUserModal from "./DeleteUserModal";
 const Inscripciones = () => {
   const [inscripciones, setInscripciones] = useState<UserListed[]>([]);
   const [totalInscriptos, setTotalInscriptos] = useState<any>([]);
@@ -117,6 +118,8 @@ const Inscripciones = () => {
     );
     setInscripciones(newInscriptos);
   };
+  const { cursos } = useGetCursos();
+  const { sedes } = useGetSedes();
   return (
     <Flex gap={[2, 4, 6, 8]} flexDir="column">
       <Heading size="md">Filtros</Heading>
@@ -140,8 +143,9 @@ const Inscripciones = () => {
             key={keyReset}
             borderRadius="5px"
           >
-            {CursosSedes.map((curso) => {
-              return <option key={curso.title}>{curso.title}</option>;
+            {cursos.map((curso) => {
+              const { CardTitle } = curso.Card;
+              return <option key={CardTitle}>{CardTitle}</option>;
             })}
           </Select>
         </Flex>
@@ -164,8 +168,9 @@ const Inscripciones = () => {
             key={keyReset * 17}
             borderRadius="5px"
           >
-            {SoloSedes.map((sede) => {
-              return <option key={sede}>{sede}</option>;
+            {sedes.map((sede) => {
+              const { Titulo } = sede;
+              return <option key={Titulo}>{Titulo}</option>;
             })}
           </Select>
         </Flex>

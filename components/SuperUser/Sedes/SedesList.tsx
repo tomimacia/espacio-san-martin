@@ -1,7 +1,16 @@
+import ConfirmModal from "@/components/ConfirmModal";
 import { deleteSingleDoc } from "@/firebase/services/deleteSingleDoc";
 import { useCustomToast } from "@/hooks/useCustomToast";
 import { SedeTypeDB } from "@/types/types";
-import { Button, Divider, Link, Flex, Heading, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Divider,
+  Link,
+  Flex,
+  Heading,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useState } from "react";
 
@@ -30,6 +39,17 @@ const SedesList = ({ sedes, setSedes }: SedesListType) => {
       setLoading(false);
     }
   };
+  const fontColor = useColorModeValue("brandLight", "blue.400");
+
+  const EliminarSedeButtonProps = {
+    m: 1,
+    size: "sm",
+    color: "white",
+    bg: fontColor,
+    alignSelf: "center",
+    border: "1px solid gray",
+    _hover: { opacity: 0.7 },
+  };
   return (
     <Flex flexDir="column">
       <Flex py={5} gap={[2, 3, 4, 5]} flexWrap="wrap">
@@ -41,10 +61,14 @@ const SedesList = ({ sedes, setSedes }: SedesListType) => {
               href={`#${sede.Titulo}`}
               scroll={false}
               fontSize={19}
-              border="1px solid gray"              
-              borderRadius='5px'
+              border="1px solid gray"
+              borderRadius="5px"
               p={0.5}
-              _hover={{ color: "blue", border: "1px solid blue", fontWeight: "bold" }}
+              _hover={{
+                color: "blue",
+                border: "1px solid blue",
+                fontWeight: "bold",
+              }}
             >
               {sede.Titulo}
             </Link>
@@ -96,18 +120,19 @@ const SedesList = ({ sedes, setSedes }: SedesListType) => {
               </Flex>
 
               <Divider borderColor="gray" />
-              <Flex justify="center">
-                <Button
-                  m={1}
-                  size="sm"
-                  bg="brandLight"
-                  color="white"
-                  _hover={{ opacity: 0.7 }}
-                  onClick={() => deleteSede(id)}
+              <Flex justify="center">                
+                <ConfirmModal
+                  Title="Eiminar Sede"
+                  buttonProps={EliminarSedeButtonProps}
+                  handleClick={() => deleteSede(id)}
                   isLoading={loading}
+                  ButtonText="Eliminar sede"
                 >
-                  Eliminar Sede
-                </Button>
+                  <Text>
+                    Estas seguro que deseas la Sede{" "}
+                    <strong>{Titulo}</strong>?
+                  </Text>
+                </ConfirmModal>
               </Flex>
             </Flex>
           );

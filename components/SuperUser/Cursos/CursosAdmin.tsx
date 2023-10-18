@@ -1,21 +1,33 @@
-import { PlusSquareIcon } from "@chakra-ui/icons";
-import { Button, Flex, Text } from "@chakra-ui/react";
-import React from "react";
+import useGetCursos from "@/hooks/dataHandler/useGetCursos";
+import { Divider, Flex, Progress, Text } from "@chakra-ui/react";
+import CursosAddForm from "./CursosAddForm";
+import CursosList from "./CursosList";
 
 const CursosAdmin = () => {
+  const CursosHook = useGetCursos();
+  const { cursos, setCursos, getCursos, loadingCursos } = CursosHook;
   return (
     <Flex flexDir="column">
-      <Text fontWeight="bold">Proximamente</Text>
-      {/* <Button
-        w="155px"
-        size="sm"
-        display="inline"
-        bg="brandLight"
-        color="white"
-        _hover={{ bg: "purple.200", color: "gray" }}
-      >
-        Agregar Curso <PlusSquareIcon mx={1} fontSize={20} />
-      </Button> */}
+      <Flex flexDir="column" gap={3}>
+        {loadingCursos && (
+          <Progress
+            h={2}
+            colorScheme="purple"
+            bg="transparent"
+            w="100%"
+            isIndeterminate
+            zIndex={100}
+          />
+        )}
+        {!loadingCursos &&
+          (cursos.length > 0 ? (
+            <CursosList CursosHook={CursosHook} />
+          ) : (
+            <Text fontWeight="bold">No hay noticias para mostrar</Text>
+          ))}
+      </Flex>
+      <Divider borderColor="gray.400" my={6} />
+      <CursosAddForm getCursos={getCursos} />
     </Flex>
   );
 };

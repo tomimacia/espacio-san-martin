@@ -132,21 +132,32 @@ export type LinkItemType = {
   onClick: () => void;
   title: string;
 };
-type NoticiaIMGType = {
+type DBIMGType = {
   downloadURL: string;
   filePath: string;
 };
 type CardNoticiaType = {
-  CardIMG: NoticiaIMGType;
+  CardIMG: DBIMGType;
   CardIntro: string[];
   CardTitle: string;
 };
 type MainNoticia = {
   MainTitle: string;
-  MainIMG: NoticiaIMGType;
+  MainIMG: DBIMGType;
   MainBody: string[];
   MainSubtitle: string;
   MainImgFooter: string;
+};
+export type CardCursoType = {
+  CardIcon: DBIMGType;
+  CardIntro: string;
+  CardTitle: string;
+};
+export type MainCursoType = {
+  MainTitle: string;
+  MainIMG: DBIMGType;
+  MainBody: string[];
+  MainSubtitle: string;
 };
 export type MainNoticiaType = {
   MainNoticia: MainNoticia;
@@ -157,6 +168,22 @@ export type NoticiaTypeDB = {
   Date: Timestamp;
   Main: MainNoticia;
   id: string;
+};
+export type CursoTypeDB = {
+  Card: CardCursoType;
+  Date: Timestamp;
+  Main: MainCursoType;
+  id: string;
+  Sedes: CursoSede[];
+};
+
+export type CursoSede = {
+  Titulo: string;
+  Costo: [];
+  FechaInicio: string | null;
+  Duracion: string | null;
+  Grupowhatsapp: string | null;
+  IsAvailable: boolean;
 };
 export type NoticiaIntroType = {
   noticia: CardNoticiaType;
@@ -169,4 +196,10 @@ export type SedeTypeDB = {
   Localidad: string;
   Iframe: string;
   id?: string;
+};
+export type GetCursosHookType = {
+  cursos: CursoTypeDB[];
+  setCursos: (newNoticias: CursoTypeDB[]) => void;
+  getCursos: () => void;
+  loadingCursos: boolean;
 };

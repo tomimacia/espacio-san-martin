@@ -1,10 +1,19 @@
+import ConfirmModal from "@/components/ConfirmModal";
 import { deleteMultipleFiles } from "@/firebase/services/deleteFile";
 import { deleteSingleDoc } from "@/firebase/services/deleteSingleDoc";
 import destructureDate from "@/helpers/destructureDate";
 import { useCustomToast } from "@/hooks/useCustomToast";
 import { NoticiaTypeDB } from "@/types/types";
 import { ArrowDownIcon } from "@chakra-ui/icons";
-import { Button, Divider, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Divider,
+  Flex,
+  Heading,
+  Image,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { useState } from "react";
 
 type NoticiasListType = {
@@ -30,6 +39,17 @@ const NoticiasList = ({ noticias, setNoticias }: NoticiasListType) => {
       setLoading(false);
     }
   };
+  const fontColor = useColorModeValue("brandLight", "blue.400");
+
+  const EliminarNoticiaButtonProps = {
+    m: 1,
+    size: "sm",
+    color: "white",
+    bg: fontColor,
+    alignSelf: "center",
+    border: "1px solid gray",
+    _hover: { opacity: 0.7 },
+  };
   return (
     <>
       {noticias
@@ -41,7 +61,7 @@ const NoticiasList = ({ noticias, setNoticias }: NoticiasListType) => {
             n.Main;
           return (
             <Flex
-              border={"1px solid gray"}
+              border={"2px solid black"}
               p={2}
               borderRadius="10px"
               flexDir="column"
@@ -52,18 +72,16 @@ const NoticiasList = ({ noticias, setNoticias }: NoticiasListType) => {
                 <Heading alignSelf="center" size="md">
                   {CardTitle}
                 </Heading>
-                <Flex>
+                <Flex w="100%" justify="space-between">
                   <Flex flexDir="column" maxW="70%">
                     <Text>{CardIntro[0]}..</Text>
                   </Flex>
-
                   <Image
                     alt="card-alt"
                     src={CardIMG.downloadURL}
                     objectFit="contain"
                     height={100}
                     width={100}
-                    m="auto"
                   />
                 </Flex>
               </Flex>
@@ -79,9 +97,12 @@ const NoticiasList = ({ noticias, setNoticias }: NoticiasListType) => {
                     {destructureDate(n.Date.seconds)} - {MainSubtitle}
                   </Text>
                 </Flex>
-                <Flex>
-                  <Text maxW="70%">{MainBody[0]}..</Text>
-                  <Flex align="center" flexDir="column">
+                <Divider w="50%" mx="auto" borderColor="gray.400" />
+                <Flex w="100%" justify="space-between">
+                  <Text alignSelf="center" maxW="75%">
+                    {MainBody[0]}..
+                  </Text>
+                  <Flex align="flex-end" flexDir="column">
                     <Image
                       alt="card-alt"
                       src={MainIMG.downloadURL}
@@ -96,20 +117,21 @@ const NoticiasList = ({ noticias, setNoticias }: NoticiasListType) => {
                 </Flex>
               </Flex>
               <Divider borderColor="gray" />
-              <Flex justify="center">
-                <Button
-                  m={1}
-                  size="sm"
-                  bg="brandLight"
-                  color="white"
-                  _hover={{ opacity: 0.7 }}
-                  onClick={() =>
+              <Flex justify="center">                
+                <ConfirmModal
+                  Title="Eiminar Noticia"
+                  buttonProps={EliminarNoticiaButtonProps}
+                  handleClick={() =>
                     deleteNoticia(n.id, [CardIMG.filePath, MainIMG.filePath])
                   }
                   isLoading={loading}
+                  ButtonText="Eliminar Noticia"
                 >
-                  Eliminar Noticia
-                </Button>
+                  <Text>
+                    Estas seguro que deseas la Noticia{" "}
+                    <strong>{n.Main.MainTitle}</strong>?
+                  </Text>
+                </ConfirmModal>
               </Flex>
             </Flex>
           );

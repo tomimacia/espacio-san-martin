@@ -1,8 +1,8 @@
-import { CursosSedes } from "@/data/CursosData";
 import { getSingleDoc } from "@/firebase/services/getSingleDoc";
 import { getProducts } from "@/firebase/services/serviceProducts";
 import { setSingleDoc } from "@/firebase/services/setSingleDoc";
 import { updateSingleDoc } from "@/firebase/services/updateSingleDoc";
+import { CursoSede } from "@/types/types";
 import {
   Button,
   Checkbox,
@@ -10,13 +10,14 @@ import {
   Heading,
   Icon,
   Input,
+  ListItem,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
-  Select,
   Text,
+  UnorderedList,
   useColorModeValue,
   useDisclosure,
   useToast,
@@ -30,15 +31,15 @@ import ConsultarYContacto from "./ConsultarYContacto";
 
 type CursoFormType = {
   curso: string;
+  selectedSede: CursoSede;
 };
 
-export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
+export const CursoForm: React.FC<CursoFormType> = ({ curso, selectedSede }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [loadingForm, setLoadingForm] = useState<boolean>(false);
   const [yaRegistrado, setYaRegistrado] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
   const toast = useToast();
-  const { sedes } = CursosSedes.find((C) => C.title === curso)!;
   const onSubmit = async (e: FormEvent) => {
     setLoadingForm(true);
     e.preventDefault();
@@ -190,7 +191,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
     },
   ];
   const fontColor = useColorModeValue("brandLight", "blue.400");
-
+  const { IsAvailable, Titulo, Costo } = selectedSede;
   return (
     <Flex flexDir="column" gap={5} p={[1, 2, 3, 4]}>
       <Heading size="xl">¿Querés participar?</Heading>
@@ -216,11 +217,16 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
           color="white"
           size="sm"
           bg={fontColor}
-          isDisabled={curso === "Acompañante terapéutico"}
+          isDisabled={!IsAvailable}
         >
           Aplicar
         </Button>
-        {curso === "Acompañante terapéutico" && <Text>Inscripciones finalizadas</Text>}
+        {!IsAvailable && (
+          <Flex flexDir="column">
+            <Text>Inscripciones no disponibles</Text>
+            <Text>Intenta en otra Sede</Text>
+          </Flex>
+        )}
       </Flex>
       <Modal
         size={["xl", "2xl", "3xl", "3xl"]}
@@ -237,9 +243,12 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
             bg="blackAlpha.200"
           />
           <ModalBody>
-            <Heading p={3} fontSize="3xl">
-              Completa el formulario
+            <Heading as="h2" p={3} size="lg">
+              {curso}
             </Heading>
+            <Text as="h3" fontSize={20} px={3}>
+              Sede: <strong>{Titulo}</strong>
+            </Text>
             <form ref={formRef} onSubmit={onSubmit}>
               <Input type="hidden" readOnly value="Cursos" name="area" />
               <Input type="hidden" readOnly value={curso} name="user_curso" />
@@ -247,6 +256,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
                 <Flex gap={2}>
                   <Checkbox
                     borderColor="gray"
+                    isChecked={yaRegistrado}
                     onChange={() => setYaRegistrado((prev) => !prev)}
                   />
                   <Text fontWeight="bold">
@@ -270,17 +280,16 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso }) => {
                     />
                   );
                 })}
-                <Text>Sede:</Text>
-                <Select name="sede" required>
-                  {sedes?.map((sede: string) => {
+                <Text>Costo:</Text>
+                <UnorderedList>
+                  {Costo.map((c, ind) => {
                     return (
-                      <option value={sede} key={sede}>
-                        {sede}
-                      </option>
+                      <ListItem key={"CostoList" + ind}>
+                        <strong>{c}</strong>
+                      </ListItem>
                     );
                   })}
-                </Select>
-
+                </UnorderedList>
                 <Button
                   type="submit"
                   mx="auto"

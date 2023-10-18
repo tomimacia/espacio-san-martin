@@ -1,3 +1,4 @@
+import capitalizeFirst from "@/helpers/capitalizeFirst";
 import { Button, Flex, FormLabel, Image, Input, Text } from "@chakra-ui/react";
 import { ChangeEvent, useRef } from "react";
 
@@ -5,9 +6,15 @@ type AddImagesProps = {
   images: File | null;
   setImages: React.Dispatch<React.SetStateAction<any>>;
   id: string;
+  title?: string;
 };
 
-const AddImages: React.FC<AddImagesProps> = ({ images, setImages, id }) => {
+const AddImages: React.FC<AddImagesProps> = ({
+  images,
+  setImages,
+  title = "imagen",
+  id,
+}) => {
   const imageRef = useRef<HTMLInputElement | null>(null);
 
   const onChangeImg = (e: ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +26,7 @@ const AddImages: React.FC<AddImagesProps> = ({ images, setImages, id }) => {
 
   return (
     <Flex gap={2} align="center">
-      <FormLabel>Imagen</FormLabel>
+      <FormLabel>{capitalizeFirst(title)}</FormLabel>
       <Flex display="inline-block" flexDir="column">
         <Flex>
           <FormLabel htmlFor={`file${id}`}>
@@ -31,7 +38,7 @@ const AddImages: React.FC<AddImagesProps> = ({ images, setImages, id }) => {
                 bgColor="gray.300"
                 _hover={{ color: "white", bgColor: "brandLight" }}
               >
-                Elegir imagen
+                {`Elegir ${title}`}
               </Text>
             </Flex>
             <Input
@@ -52,7 +59,7 @@ const AddImages: React.FC<AddImagesProps> = ({ images, setImages, id }) => {
               ml={5}
               bgColor="blue.300"
             >
-              Borrar Imagen
+              {`Borrar ${title}`}
             </Button>
           )}
         </Flex>

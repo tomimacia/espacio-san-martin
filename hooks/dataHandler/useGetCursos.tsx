@@ -1,10 +1,10 @@
 import { getCollection } from "@/firebase/services/getCollection";
-import { NoticiaTypeDB } from "@/types/types";
+import { CursoTypeDB, NoticiaTypeDB } from "@/types/types";
 import { useCallback, useEffect, useState } from "react";
 import { useSessionStorage } from "../storageHooks/useSessionStorage";
 
 const useGetCursos = () => {
-  const [cursos, setCursos] = useSessionStorage<NoticiaTypeDB[]>(
+  const [cursos, setCursos] = useSessionStorage<CursoTypeDB[]>(
     "CURSOS_SESSION_STORAGE",
     []
   );

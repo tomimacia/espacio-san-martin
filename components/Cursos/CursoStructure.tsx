@@ -1,4 +1,4 @@
-import { Curso } from "@/types/types";
+import { CursoSede, MainCursoType } from "@/types/types";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -9,10 +9,11 @@ import {
   Link,
   Text,
 } from "@chakra-ui/react";
-import Image from "next/image";
-import { Fragment } from "react";
-import { CursoForm } from "./CursosForm";
 import Head from "next/head";
+import Image from "next/image";
+import { Fragment, useState } from "react";
+import { CursoForm } from "./CursosForm";
+import SedesDisplayData from "./SedesDisplayData";
 const BackButton = () => {
   return (
     <Button
@@ -29,26 +30,35 @@ const BackButton = () => {
     </Button>
   );
 };
-const CursoStructure = ({ Curso }: Curso) => {
-  const { title, subtitle, description, route, img } = Curso;
+const CursoStructure = ({
+  Curso,
+  Sedes,
+}: {
+  Curso: MainCursoType;
+  Sedes: CursoSede[];
+}) => {
+  const { MainTitle, MainSubtitle, MainBody, MainIMG } = Curso;
+  const { downloadURL } = MainIMG;
+  const [selectedSede, setSelectedSede] = useState<CursoSede>(Sedes[0]);
+
   return (
     <>
       <Head>
         <meta
           property="og:description"
-          content={`Descubre nuestro curso de ${title}`}
+          content={`Descubre nuestro curso de ${MainTitle}`}
         />
-        <meta
-          property="og:image"
-          content={`https://www.sanmartinjuancruz.com.ar/Cursos/${route}.jpeg`}
-        />
+        <meta property="og:image" content={downloadURL} />
       </Head>
       <Flex py={10} gap={5} w="100%" flexDir="column">
         <Flex flexDir="column" align="center" justify="center" w="100%">
-          <Heading textAlign="center">{title}</Heading>
+          <Heading textAlign="center">{MainTitle}</Heading>
           <BackButton />
         </Flex>
         <Divider borderColor="gray.500" w="85%" m="auto" />
+        <Text textAlign="center" fontStyle="italic">
+          {MainSubtitle}
+        </Text>
         <Flex display="block" gap={2} p={3} flexDir="column">
           <Box float="right" p={1}>
             <Image
@@ -60,27 +70,35 @@ const CursoStructure = ({ Curso }: Curso) => {
                 padding: 1,
               }}
               loading="lazy"
-              alt={title}
-              src={img}
+              alt={MainTitle}
+              src={downloadURL}
               height={500}
               width={500}
             />
-            <Text fontStyle="italic">{subtitle}</Text>
           </Box>
           <Text fontWeight="bold">
-            {description.map((line, ind) => {
+            {MainBody.map((line, ind) => {
               return (
                 <Fragment key={ind + "Description"}>
                   {line}
-                  <br />
                   <br />
                 </Fragment>
               );
             })}
           </Text>
         </Flex>
+        <Heading px={5}>Sedes Disponibles</Heading>
+        {Sedes.length > 0 ? (
+          <SedesDisplayData
+            selectedSede={selectedSede}
+            setSelectedSede={setSelectedSede}
+            Sedes={Sedes}
+          />
+        ) : (
+          "No hay sedes"
+        )}
         <BackButton />
-        <CursoForm curso={title} />
+        <CursoForm curso={MainTitle} selectedSede={selectedSede} />
       </Flex>
     </>
   );
