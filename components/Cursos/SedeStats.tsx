@@ -23,7 +23,7 @@ const SedeStats = ({ sede }: { sede: CursoSede }) => {
         <Text>
           Fecha de inicio: <strong>{FechaInicio || "Sin definir"}</strong>
         </Text>
-        {Grupowhatsapp && (
+        {Grupowhatsapp && Grupowhatsapp !== "Sin definir" && (
           <LinkAndIcon
             href={Grupowhatsapp || ""}
             title="Únete al grupo de WhatsApp!"

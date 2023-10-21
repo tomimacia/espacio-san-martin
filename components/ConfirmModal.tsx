@@ -32,11 +32,7 @@ const ConfirmModal = ({
 
   return (
     <Flex>
-      <Button        
-        onClick={onOpen}
-        isLoading={isLoading}
-        {...buttonProps}
-      >
+      <Button onClick={onOpen} isLoading={isLoading} {...buttonProps}>
         {ButtonText}
       </Button>
 
