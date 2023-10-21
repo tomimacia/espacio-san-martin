@@ -1,4 +1,3 @@
-import { deleteSingleDoc } from "@/firebase/services/deleteSingleDoc";
 import { getSingleDoc } from "@/firebase/services/getSingleDoc";
 import { updateSingleDoc } from "@/firebase/services/updateSingleDoc";
 import { useCustomToast } from "@/hooks/useCustomToast";
@@ -15,7 +14,6 @@ import {
   Text,
   useColorModeValue,
   useDisclosure,
-  useToast,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -50,7 +48,7 @@ const ArchivarUserModal = ({
       console.log("Error archivando usuario", err);
       errorToast("Error archivando usuario");
     } finally {
-      onClose();      
+      onClose();
       setLoadingForm(false);
     }
   };

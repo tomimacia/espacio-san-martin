@@ -25,6 +25,7 @@ import { useEffect, useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import ArchivarUserModal from "./ArchivarUser";
 import DeleteUserModal from "./DeleteUserModal";
+import { MdOutlineAssignmentTurnedIn } from "react-icons/md";
 const Inscripciones = () => {
   const [inscripciones, setInscripciones] = useState<UserListed[]>([]);
   const [totalInscriptos, setTotalInscriptos] = useState<any>([]);
@@ -308,12 +309,16 @@ const Inscripciones = () => {
                           },
                         }}
                       >
-                        <ArchivarUserModal
-                          username={Nombre}
-                          curso={Curso}
-                          DNI={DNI}
-                          removeUser={() => archivarUser(DNI, Curso)}
-                        />
+                        {user.archivado ? (
+                          <MdOutlineAssignmentTurnedIn title="archivado" />
+                        ) : (
+                          <ArchivarUserModal
+                            username={Nombre}
+                            curso={Curso}
+                            DNI={DNI}
+                            removeUser={() => archivarUser(DNI, Curso)}
+                          />
+                        )}
                       </Td>
                       <Td
                         title="Eliminar"
