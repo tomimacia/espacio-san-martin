@@ -5,6 +5,7 @@ import useGetSedes from "@/hooks/dataHandler/useGetSedes";
 import { HeadersType, UserListed } from "@/types/types";
 import {
   Button,
+  Checkbox,
   Divider,
   Flex,
   Heading,
@@ -22,12 +23,14 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
+import ArchivarUserModal from "./ArchivarUser";
 import DeleteUserModal from "./DeleteUserModal";
 const Inscripciones = () => {
   const [inscripciones, setInscripciones] = useState<UserListed[]>([]);
   const [totalInscriptos, setTotalInscriptos] = useState<any>([]);
   const [cursoFilter, setCursoFilter] = useState("");
   const [sedeFilter, setSedeFilter] = useState("");
+  const [showArchivados, setShowArchivados] = useState(false);
   const [currentFilters, setCurrentFilters] = useState({ curso: "", sede: "" });
   const [keyReset, setKeyReset] = useState(0);
   const [filterBy, setFiltberBy] = useState<null | HeadersType>(null);
@@ -37,7 +40,6 @@ const Inscripciones = () => {
     content: () => tableRef.current,
     documentTitle: `Lista de Usuarios ${new Date()}`,
   });
-
   useEffect(() => {
     const fetchInscriptos = async () => {
       console.log("Fecthed");
@@ -67,6 +69,7 @@ const Inscripciones = () => {
               Nacimiento: Nacimiento,
               Nombre: Nombre,
               Telefono: Telefono,
+              archivado: c.archivado,
             };
           });
           return [...newElement];
@@ -78,6 +81,9 @@ const Inscripciones = () => {
   }, []);
   const filterInscriptos = (list: UserListed[]) => {
     let newList = [...list];
+    if (!showArchivados) {
+      newList = newList.filter((user: UserListed) => !user.archivado);
+    }
     if (cursoFilter)
       newList = newList.filter(
         (user: UserListed) => user.Curso === cursoFilter
@@ -91,7 +97,7 @@ const Inscripciones = () => {
     }
     return newList;
   };
-  const Headers: (keyof UserListed)[] = [
+  const Headers: (keyof Omit<UserListed, "archivado">)[] = [
     "Nombre",
     "Curso",
     "Sede",
@@ -118,8 +124,17 @@ const Inscripciones = () => {
     );
     setInscripciones(newInscriptos);
   };
+  const archivarUser = (DNI: string, curso: string) => {
+    const newInscriptos = inscripciones.map((u) => {
+      if (u.DNI === DNI && u.Curso === curso) {
+        return { ...u, archivado: true };
+      } else return u;
+    });
+    setInscripciones(newInscriptos);
+  };
   const { cursos } = useGetCursos();
   const { sedes } = useGetSedes();
+
   return (
     <Flex gap={[2, 4, 6, 8]} flexDir="column">
       <Heading size="md">Filtros</Heading>
@@ -207,7 +222,13 @@ const Inscripciones = () => {
           Imprimir/PDF
         </Button>
       </Flex>
-
+      <Checkbox
+        isChecked={showArchivados}
+        onChange={() => setShowArchivados((prev) => !prev)}
+        borderColor="gray"
+      >
+        Mostrar archivados
+      </Checkbox>
       {inscripciones.length > 0 ? (
         <Flex flexDir="column" width="100%">
           <Flex flexDir="column" my={2}>
@@ -253,6 +274,13 @@ const Inscripciones = () => {
                       },
                     }}
                   />
+                  <Th
+                    sx={{
+                      "@media print": {
+                        display: "none",
+                      },
+                    }}
+                  />
                   {Headers.map((param: HeadersType) => {
                     return (
                       <Th
@@ -272,6 +300,21 @@ const Inscripciones = () => {
                   const { Nombre, Curso, DNI } = user;
                   return (
                     <Tr key={DNI + Curso}>
+                      <Td
+                        title="Archivar"
+                        sx={{
+                          "@media print": {
+                            display: "none",
+                          },
+                        }}
+                      >
+                        <ArchivarUserModal
+                          username={Nombre}
+                          curso={Curso}
+                          DNI={DNI}
+                          removeUser={() => archivarUser(DNI, Curso)}
+                        />
+                      </Td>
                       <Td
                         title="Eliminar"
                         sx={{
