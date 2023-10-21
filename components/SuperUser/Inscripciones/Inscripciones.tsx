@@ -310,7 +310,7 @@ const Inscripciones = () => {
                         }}
                       >
                         {user.archivado ? (
-                          <MdOutlineAssignmentTurnedIn title="archivado" />
+                          <MdOutlineAssignmentTurnedIn title="Archivado" />
                         ) : (
                           <ArchivarUserModal
                             username={Nombre}
