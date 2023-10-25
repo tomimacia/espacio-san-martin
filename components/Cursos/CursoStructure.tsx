@@ -9,7 +9,6 @@ import {
   Link,
   Text,
 } from "@chakra-ui/react";
-import Head from "next/head";
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import { CursoForm } from "./CursosForm";
@@ -43,13 +42,6 @@ const CursoStructure = ({
 
   return (
     <>
-      <Head>
-        <meta
-          property="og:description"
-          content={`Descubre nuestro curso de ${MainTitle}`}
-        />
-        <meta property="og:image" content={downloadURL} />
-      </Head>
       <Flex py={10} gap={5} w="100%" flexDir="column">
         <Flex flexDir="column" align="center" justify="center" w="100%">
           <Heading textAlign="center">{MainTitle}</Heading>
