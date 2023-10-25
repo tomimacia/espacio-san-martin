@@ -27,8 +27,11 @@ const NoticiaStructure = ({
   return (
     <>
       <Head>
-        <meta property="og:description" content={title} />
-        <meta property="og:image" content={img} />
+        <meta property="og:description"  content={title} />
+        <meta property="og:image" itemProp="image" content={img} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="500" />
+        <meta property="og:image:height" content="400" />
       </Head>
       <Flex py={10} gap={5} w="100%" flexDir="column">
         <Flex flexDir="column" align="center" justify="center" w="100%">
