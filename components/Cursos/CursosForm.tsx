@@ -28,6 +28,7 @@ import { FormEvent, useRef, useState } from "react";
 import { GiPlainArrow } from "react-icons/gi";
 import { TextAndInput } from "../Contaco/Items/TextAndInput";
 import ConsultarYContacto from "./ConsultarYContacto";
+import { useCustomToast } from "@/hooks/useCustomToast";
 
 type CursoFormType = {
   curso: string;
@@ -40,6 +41,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso, selectedSede }) => {
   const [yaRegistrado, setYaRegistrado] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
   const toast = useToast();
+  const { successToast, errorToast } = useCustomToast();
   const onSubmit = async (e: FormEvent) => {
     setLoadingForm(true);
     e.preventDefault();
@@ -61,7 +63,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso, selectedSede }) => {
       Cursos: [
         {
           titulo: user_curso.value,
-          sede: sede.value,
+          sede: selectedSede.Titulo,
           fechaInscripcion: new Date(),
         },
       ],
@@ -136,23 +138,22 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso, selectedSede }) => {
         setLoadingForm(false);
         return;
       } else {
-        updateSingleDoc("Inscriptos", user.DNI, {
-          Cursos: [...registry.Cursos, ...user.Cursos],
-        })
-          .then(() => {
-            setLoadingForm(false);
-            console.log("Inscripto Satisfactoriamente!");
+        try {
+          updateSingleDoc("Inscriptos", user.DNI, {
+            Cursos: [...registry.Cursos, ...user.Cursos],
           })
-          .finally(() => {
-            onClose();
-            toast({
-              title: "Inscripto Satisfactoriamente!",
-              description: "Nos contactaremos contigo a la brevedad",
-              status: "success",
-              duration: 9000,
-              isClosable: true,
+            .then(() => {
+              setLoadingForm(false);
+              console.log("Inscripto Satisfactoriamente!");
+            })
+            .finally(() => {
+              onClose();
+              successToast("Inscripto Satisfactoriamente!");
             });
-          });
+        } catch (e) {
+          console.log("Error en la inscripción", e);
+          errorToast("Error, intenta nuevamente en un rato o comunícate");
+        }
         return;
       }
     });
