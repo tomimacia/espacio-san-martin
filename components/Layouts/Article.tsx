@@ -39,7 +39,6 @@ const Layout = ({
           <Head>
             <title>{t}</title>
             <meta name="twitter:title" content={t} />
-            <meta property="og:title" content="Espacio San Martín" />
             {hasMetaTags && (
               <>
                 <meta
