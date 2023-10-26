@@ -2,6 +2,7 @@ import { ArticleLayoutType } from "@/types/types";
 import { Box, Divider, Heading, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const variants = {
   hidden: { zIndex: 0, x: 20, opacity: 0 },
@@ -16,6 +17,8 @@ const Layout = ({
 }: ArticleLayoutType) => {
   const t = `${headTitle} - Espacio San Martín`;
   const DivierColor = useColorModeValue("blackAlpha.300", "whiteAlpha.600");
+  const { asPath } = useRouter();
+  const URL = `https://www.sanmartinjuancruz.com.ar${asPath}`;
 
   return (
     <motion.article
@@ -39,6 +42,7 @@ const Layout = ({
           <Head>
             <title>{t}</title>
             <meta name="twitter:title" content={t} />
+            <meta name="og:url" content={URL} />
             {hasMetaTags && (
               <>
                 <meta

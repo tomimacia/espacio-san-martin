@@ -39,8 +39,13 @@ const CursosPage = ({
         <meta
           property="og:image"
           itemProp="image"
-          content={MainIMG.downloadURL}
+          content={
+            MainIMG.downloadURL ||
+            "https://www.sanmartinjuancruz.com.ar/LogoNavbar.jpg"
+          }
         />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
       </Head>
       <CursoStructure Curso={Curso} Sedes={Sedes} />
     </Layout>
