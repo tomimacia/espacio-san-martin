@@ -33,7 +33,7 @@ const CursosPage = ({
 }) => {
   const { MainTitle, MainIMG } = Curso;
   return (
-    <Layout headTitle={MainTitle}>
+    <Layout hasMetaTags={false} headTitle={MainTitle}>
       <Head>
         <meta property="og:description" content={MainTitle} />
         <meta
@@ -41,9 +41,6 @@ const CursosPage = ({
           itemProp="image"
           content={MainIMG.downloadURL}
         />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="500" />
-        <meta property="og:image:height" content="400" />
       </Head>
       <CursoStructure Curso={Curso} Sedes={Sedes} />
     </Layout>

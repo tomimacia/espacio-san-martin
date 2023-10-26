@@ -28,23 +28,16 @@ const Layout = ({ children }: MainLayoutType) => {
         <meta property="og:title" content="Espacio San Martin" />
 
         <meta
-          property="og:description"
-          content="Espacio para el crecimiento personal y social"
-        />
-        <meta
-          property="og:image"
-          content="https://www.sanmartinjuancruz.com.ar/LogoNavbar.jpg"
-        />
-        <meta
           property="og:url"
           content="https://www.sanmartinjuancruz.com.ar/"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image:type" content="image/jpeg" />
         <meta
           name="msapplication-TileImage"
           content="https://www.sanmartinjuancruz.com.ar/LogoNavbar.jpg"
         />
+        <meta property="og:image:type" content="image/jpeg" />
+
         <link
           href="https://www.sanmartinjuancruz.com.ar/favicon.ico"
           rel="apple-touch-icon"

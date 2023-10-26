@@ -14,6 +14,7 @@ export type ArticleLayoutType = {
   children: ReactNode;
   headTitle: string;
   pageTitle?: string;
+  hasMetaTags?: boolean;
 };
 export type TextAndInputType = {
   name: string;

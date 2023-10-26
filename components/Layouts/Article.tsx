@@ -8,7 +8,12 @@ const variants = {
   visible: { zIndex: 0, x: 0, opacity: 1 },
   exit: { zIndex: 1, x: 20, opacity: 0 },
 };
-const Layout = ({ children, headTitle, pageTitle }: ArticleLayoutType) => {
+const Layout = ({
+  children,
+  headTitle,
+  pageTitle,
+  hasMetaTags = true,
+}: ArticleLayoutType) => {
   const t = `${headTitle} - Espacio San Martín`;
   const DivierColor = useColorModeValue("blackAlpha.300", "whiteAlpha.600");
 
@@ -35,6 +40,18 @@ const Layout = ({ children, headTitle, pageTitle }: ArticleLayoutType) => {
             <title>{t}</title>
             <meta name="twitter:title" content={t} />
             <meta property="og:title" content="Espacio San Martín" />
+            {hasMetaTags && (
+              <>
+                <meta
+                  property="og:description"
+                  content="Espacio para el crecimiento personal y social"
+                />
+                <meta
+                  property="og:image"
+                  content="https://www.sanmartinjuancruz.com.ar/LogoNavbar.jpg"
+                />
+              </>
+            )}
           </Head>
         )}
 

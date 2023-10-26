@@ -27,11 +27,10 @@ const NoticiaPage = ({ MainNoticia, DateSeconds }: MainNoticiaType) => {
   const { MainBody, MainIMG, MainImgFooter, MainSubtitle, MainTitle } =
     MainNoticia;
   return (
-    <Layout headTitle={MainTitle}>
+    <Layout hasMetaTags={false} headTitle={MainTitle}>
       <Head>
         <meta property="og:description" content={MainTitle} />
         <meta property="og:image" content={MainIMG.downloadURL} />
-        <meta property="og:image:type" content="image/jpeg" />
       </Head>
       <NoticiaStructure
         title={MainTitle}
