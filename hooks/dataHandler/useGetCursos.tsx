@@ -20,10 +20,11 @@ const useGetCursos = () => {
 
     try {
       getCursos();
+      setLoadingCursos(false);
     } catch (err: any) {
       console.log("Error getting cursos", err);
-    } finally {
       setLoadingCursos(false);
+    } finally {
     }
   }, [cursos, setCursos, getCursos]);
   return { loadingCursos, setCursos, getCursos, cursos };

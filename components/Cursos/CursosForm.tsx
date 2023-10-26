@@ -158,7 +158,7 @@ export const CursoForm: React.FC<CursoFormType> = ({ curso, selectedSede }) => {
       }
     });
   };
-
+  
   const InputsData = [
     {
       name: "user_email",
