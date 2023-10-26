@@ -32,20 +32,17 @@ const CursosPage = ({
   Sedes: CursoSede[];
 }) => {
   const { MainTitle, MainIMG } = Curso;
+  const { downloadURL } = MainIMG;
+  const description = `Descubre nuestro curso de ${MainTitle}`;
   return (
     <Layout hasMetaTags={false} headTitle={MainTitle}>
       <Head>
-        <meta property="og:description" content={MainTitle} />
-        <meta
-          property="og:image"
-          itemProp="image"
-          content={
-            MainIMG.downloadURL ||
-            "https://www.sanmartinjuancruz.com.ar/LogoNavbar.jpg"
-          }
-        />
-        <meta property="og:image:width" content="1280" />
-        <meta property="og:image:height" content="720" />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" itemProp="image" content={downloadURL} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={downloadURL} />
       </Head>
       <CursoStructure Curso={Curso} Sedes={Sedes} />
     </Layout>

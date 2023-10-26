@@ -27,10 +27,6 @@ const Layout = ({ children }: MainLayoutType) => {
         <meta property="og:site_name" content="Espacio San Martín" />
         <meta property="og:title" content="Espacio San Martin" />
 
-        <meta
-          property="og:url"
-          content="https://www.sanmartinjuancruz.com.ar/"
-        />
         <meta property="og:type" content="website" />
         <meta
           name="msapplication-TileImage"

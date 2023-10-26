@@ -18,7 +18,8 @@ const Layout = ({
   const t = `${headTitle} - Espacio San Martín`;
   const DivierColor = useColorModeValue("blackAlpha.300", "whiteAlpha.600");
   const { asPath } = useRouter();
-  const URL = `https://www.sanmartinjuancruz.com.ar${asPath}`;
+  const domain = "sanmartinjuancruz.com.ar";
+  const URL = `https://www.${domain}${asPath}`;
 
   return (
     <motion.article
@@ -43,12 +44,24 @@ const Layout = ({
             <title>{t}</title>
             <meta name="twitter:title" content={t} />
             <meta name="og:url" content={URL} />
+            <meta property="twitter:url" content={URL} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta property="twitter:domain" content={domain} />
             {hasMetaTags && (
               <>
                 <meta
                   property="og:description"
                   content="Espacio para el crecimiento personal y social"
                 />
+                <meta
+                  name="twitter:description"
+                  content="Espacio para el crecimiento personal y social"
+                />
+                <meta
+                  name="twitter:image"
+                  content="https://www.sanmartinjuancruz.com.ar/LogoNavbar.jpg"
+                />
+
                 <meta
                   property="og:image"
                   content="https://www.sanmartinjuancruz.com.ar/LogoNavbar.jpg"

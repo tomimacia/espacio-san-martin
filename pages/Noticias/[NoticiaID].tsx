@@ -26,11 +26,17 @@ export const getServerSideProps = async ({ params }: ServerSideProps) => {
 const NoticiaPage = ({ MainNoticia, DateSeconds }: MainNoticiaType) => {
   const { MainBody, MainIMG, MainImgFooter, MainSubtitle, MainTitle } =
     MainNoticia;
+  const { downloadURL } = MainIMG;
+
   return (
     <Layout hasMetaTags={false} headTitle={MainTitle}>
       <Head>
         <meta property="og:description" content={MainTitle} />
-        <meta property="og:image" content={MainIMG.downloadURL} />
+        <meta property="og:image" content={downloadURL} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:description" content={MainTitle} />
+        <meta name="twitter:image" content={downloadURL} />
       </Head>
       <NoticiaStructure
         title={MainTitle}
@@ -38,7 +44,7 @@ const NoticiaPage = ({ MainNoticia, DateSeconds }: MainNoticiaType) => {
         subtitle={MainSubtitle}
         description={MainBody}
         imageFooter={MainImgFooter}
-        img={MainIMG.downloadURL}
+        img={downloadURL}
       />
     </Layout>
   );
