@@ -192,6 +192,7 @@ export type NoticiaIntroType = {
   noticia: CardNoticiaType;
   id?: string;
   Date?: Timestamp;
+  ind: number;
 };
 export type SedeTypeDB = {
   Titulo: string;

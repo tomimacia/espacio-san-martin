@@ -14,7 +14,7 @@ import {
 import Image from "next/image";
 import NextLink from "next/link";
 import Media from "./Contaco/Media";
-
+import { Fragment } from "react";
 const NoticiaStructure = ({
   title,
   subtitle,
@@ -70,12 +70,12 @@ const NoticiaStructure = ({
             <Text fontStyle="italic">{imageFooter}</Text>
           </Box>
           <Text fontWeight="bold">
-            {description.map((line) => {
+            {description.map((line, ind) => {
               return (
-                <>
+                <Fragment key={"DescriptionLine-"+ind}>
                   {line}
                   <br />
-                </>
+                </Fragment>
               );
             })}
           </Text>
