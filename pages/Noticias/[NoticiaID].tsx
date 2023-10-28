@@ -2,6 +2,7 @@ import Layout from "@/components/Layouts/Article";
 import NoticiaStructure from "@/components/NoticiaStructure";
 import { getSingleDoc } from "@/firebase/services/getSingleDoc";
 import { MainNoticiaType } from "@/types/types";
+import { Flex } from "@chakra-ui/react";
 import Head from "next/head";
 
 type ServerSideProps = {
@@ -45,7 +46,7 @@ const NoticiaPage = ({ MainNoticia, DateSeconds }: MainNoticiaType) => {
         description={MainBody}
         imageFooter={MainImgFooter}
         img={downloadURL}
-      />
+      />      
     </Layout>
   );
 };

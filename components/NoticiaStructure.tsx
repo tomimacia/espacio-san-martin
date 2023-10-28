@@ -1,6 +1,5 @@
 import dateTexto from "@/helpers/dateTexto";
-import destructureDate from "@/helpers/destructureDate";
-import { CursoStr, NoticiaStructureType } from "@/types/types";
+import { NoticiaStructureType } from "@/types/types";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -12,9 +11,9 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Head from "next/head";
 import Image from "next/image";
 import NextLink from "next/link";
+import Media from "./Contaco/Media";
 
 const NoticiaStructure = ({
   title,
@@ -25,10 +24,12 @@ const NoticiaStructure = ({
   DateSeconds,
 }: NoticiaStructureType) => {
   return (
-    <>      
+    <>
       <Flex py={10} gap={5} w="100%" flexDir="column">
         <Flex flexDir="column" align="center" justify="center" w="100%">
-          <Heading textAlign="center">{title}</Heading>
+          <Heading maxW="85%" textAlign="center">
+            {title}
+          </Heading>
           <Button
             size="xs"
             textDecor="underline"
@@ -79,6 +80,12 @@ const NoticiaStructure = ({
             })}
           </Text>
         </Flex>
+        {title === "Espacio San Martín se Expande a YouTube y TikTok" && (
+          <Flex px={4} flexDir="column">
+            <Heading size="md">Siguenos en nuestras redes!</Heading>
+            <Media dir="row" size={30} colored />
+          </Flex>
+        )}
         <Text fontStyle="italic" ml={3}>
           Para más información{" "}
           {

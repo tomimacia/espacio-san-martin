@@ -72,6 +72,7 @@ export const Noticia = ({ noticia, id, Date }: NoticiaIntroType) => {
         </Text>
         <Image
           objectFit="contain"
+          style={{ alignSelf: "center", borderRadius:'10px' }}
           w={200}
           h={200}
           alt={CardTitle}
