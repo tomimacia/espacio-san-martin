@@ -10,12 +10,14 @@ import {
   Flex,
   Heading,
   Image,
+  Link,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import SedesDisplay from "./SedesDisplay";
 import ConfirmModal from "@/components/ConfirmModal";
+import NextLink from "next/link";
 
 const CursosList = ({ CursosHook }: { CursosHook: GetCursosHookType }) => {
   const { errorToast, successToast } = useCustomToast();
@@ -48,7 +50,30 @@ const CursosList = ({ CursosHook }: { CursosHook: GetCursosHookType }) => {
     _hover: { opacity: 0.7 },
   };
   return (
-    <>
+    <Flex flexDir="column">
+      <Flex py={5} gap={[2, 3, 4, 5]} flexWrap="wrap">
+        {cursos.map((c) => {
+          const { MainTitle: title } = c.Main;
+          return (
+            <Link
+              as={NextLink}
+              href={`#${title.split(" ").join("%20")}`}
+              key={"listItem-" + title}
+              fontSize={19}
+              border="1px solid gray"
+              borderRadius="5px"
+              p={0.5}
+              _hover={{
+                color: "blue",
+                border: "1px solid blue",
+                fontWeight: "bold",
+              }}
+            >
+              {title}
+            </Link>
+          );
+        })}
+      </Flex>
       {cursos.map((n, ind) => {
         const { MainTitle, MainSubtitle, MainBody, MainIMG } = n.Main;
         const { Sedes } = n;
@@ -61,7 +86,9 @@ const CursosList = ({ CursosHook }: { CursosHook: GetCursosHookType }) => {
             key={"Noticia" + ind}
             gap={5}
           >
-            <Heading alignSelf="center">{n.Card.CardTitle}</Heading>
+            <Heading id={MainTitle} alignSelf="center">
+              {n.Card.CardTitle}
+            </Heading>
             <CursoNote Curso={n.Card} />
 
             <Flex justify="center">
@@ -75,7 +102,9 @@ const CursosList = ({ CursosHook }: { CursosHook: GetCursosHookType }) => {
                 <Heading size="md">{MainTitle}</Heading>
               </Flex>
               <Divider w="70%" mx="auto" borderColor="gray.400" />
-
+              <Text textAlign="center" fontSize={12} fontStyle="italic">
+                {MainSubtitle}
+              </Text>
               <Flex justify="space-between">
                 <Text alignSelf="center" maxW="75%">
                   {MainBody[0]}..
@@ -120,7 +149,7 @@ const CursosList = ({ CursosHook }: { CursosHook: GetCursosHookType }) => {
           </Flex>
         );
       })}
-    </>
+    </Flex>
   );
 };
 

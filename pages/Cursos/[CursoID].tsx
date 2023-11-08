@@ -1,8 +1,7 @@
 import CursoStructure from "@/components/Cursos/CursoStructure";
 import Layout from "@/components/Layouts/Article";
-import NoticiaStructure from "@/components/NoticiaStructure";
 import { getSingleDoc } from "@/firebase/services/getSingleDoc";
-import { CursoSede, MainCursoType, MainNoticiaType } from "@/types/types";
+import { CursoSede, MainCursoType } from "@/types/types";
 import Head from "next/head";
 
 type ServerSideProps = {

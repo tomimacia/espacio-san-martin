@@ -5,7 +5,7 @@ import CursosList from "./CursosList";
 
 const CursosAdmin = () => {
   const CursosHook = useGetCursos();
-  const { cursos, setCursos, getCursos, loadingCursos } = CursosHook;
+  const { cursos, getCursos, loadingCursos } = CursosHook;
   return (
     <Flex flexDir="column">
       <Flex flexDir="column" gap={3}>
@@ -23,7 +23,7 @@ const CursosAdmin = () => {
           (cursos.length > 0 ? (
             <CursosList CursosHook={CursosHook} />
           ) : (
-            <Text fontWeight="bold">No hay noticias para mostrar</Text>
+            <Text fontWeight="bold">No hay cursos para mostrar</Text>
           ))}
       </Flex>
       <Divider borderColor="gray.400" my={6} />
