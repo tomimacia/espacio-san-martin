@@ -18,7 +18,7 @@ const SedesDisplayData = ({
           const { Titulo } = sede;
           return (
             <Button
-              bg={selectedSede.Titulo === Titulo ? "brandLight" : "blue.400"}
+              bg={selectedSede.Titulo !== Titulo ? "brandLight" : "blue.400"}
               onClick={() => setSelectedSede(sede)}
               key={Titulo}
               _hover={{ opacity: 0.7 }}
