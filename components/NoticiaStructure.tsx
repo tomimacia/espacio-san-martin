@@ -74,13 +74,13 @@ const NoticiaStructure = ({
             {/* YouTube video iframe */}
             <iframe
               style={{
-                borderRadius: "7px",
+                borderRadius: "5px",
                 boxShadow: "3px 3px 3px 3px",
                 position: "absolute",
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                maxWidth: "100vw",
+                maxWidth: "92vw",
               }}
               width="600"
               height="340"
@@ -91,7 +91,7 @@ const NoticiaStructure = ({
             />
           </Flex>
         )}
-        <Flex display="block" gap={2} p={3} flexDir="column">
+        <Flex display="block" gap={2} p={2} flexDir="column">
           <Box float="right" p={1}>
             <Image
               style={{
