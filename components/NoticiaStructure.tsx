@@ -1,5 +1,4 @@
 import dateTexto from "@/helpers/dateTexto";
-import { NoticiaStructureType } from "@/types/types";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -15,20 +14,20 @@ import Image from "next/image";
 import NextLink from "next/link";
 import Media from "./Contaco/Media";
 import { Fragment } from "react";
+import { NoticiaStructureType } from "@/types/types";
 const NoticiaStructure = ({
-  title,
-  subtitle,
-  imageFooter,
-  description,
-  img,
+  MainNoticia,
   DateSeconds,
 }: NoticiaStructureType) => {
+  const { MainBody, MainIMG, Embed, MainImgFooter, MainSubtitle, MainTitle } =
+    MainNoticia;
+  const { downloadURL } = MainIMG;
   return (
     <>
       <Flex py={10} gap={5} w="100%" flexDir="column">
         <Flex flexDir="column" align="center" justify="center" w="100%">
           <Heading maxW="85%" textAlign="center">
-            {title}
+            {MainTitle}
           </Heading>
           <Button
             size="xs"
@@ -51,8 +50,47 @@ const NoticiaStructure = ({
         </Flex>
 
         <Text textAlign="center" fontStyle="italic">
-          {subtitle}
+          {MainSubtitle}
         </Text>
+        {Embed && (
+          <Flex
+            h="351px"
+            flexDir="column"
+            align="center"
+            position="relative"
+            overflow="hidden"
+          >
+            {/* Background with blur filter */}
+            <Box
+              top={0}
+              left={0}
+              pos="absolute"
+              w="100vw"
+              h="100%"
+              filter="blur(4px)"
+              bgGradient="linear(to-b, rgba(56, 21, 102,0.8),rgba(98, 51, 191,0.6))"
+            />
+
+            {/* YouTube video iframe */}
+            <iframe
+              style={{
+                borderRadius: "7px",
+                boxShadow: "3px 3px 3px 3px",
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                maxWidth: "100vw",
+              }}
+              width="600"
+              height="340"
+              src={`https://www.youtube.com/embed/${Embed}`}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </Flex>
+        )}
         <Flex display="block" gap={2} p={3} flexDir="column">
           <Box float="right" p={1}>
             <Image
@@ -61,18 +99,19 @@ const NoticiaStructure = ({
                 objectPosition: "center",
                 borderRadius: "10px",
               }}
-              alt={imageFooter}
-              src={img}
+              alt={MainImgFooter}
+              src={downloadURL}
               priority
               height={500}
               width={500}
             />
-            <Text fontStyle="italic">{imageFooter}</Text>
+            <Text fontStyle="italic">{MainImgFooter}</Text>
           </Box>
+
           <Text fontWeight="bold">
-            {description.map((line, ind) => {
+            {MainBody.map((line, ind) => {
               return (
-                <Fragment key={"DescriptionLine-"+ind}>
+                <Fragment key={"DescriptionLine-" + ind}>
                   {line}
                   <br />
                 </Fragment>
@@ -80,7 +119,7 @@ const NoticiaStructure = ({
             })}
           </Text>
         </Flex>
-        {title === "Espacio San Martín se Expande a YouTube y TikTok" && (
+        {MainTitle === "Espacio San Martín se Expande a YouTube y TikTok" && (
           <Flex px={4} flexDir="column">
             <Heading size="md">Siguenos en nuestras redes!</Heading>
             <Media dir="row" size={30} colored />

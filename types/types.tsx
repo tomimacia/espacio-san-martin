@@ -123,11 +123,7 @@ export type CursoStr = {
   img: string;
 };
 export type NoticiaStructureType = {
-  title: string;
-  subtitle: string;
-  description: string[];
-  imageFooter: string;
-  img: string;
+  MainNoticia: MainNoticia;
   DateSeconds: number;
 };
 export type LinkItemType = {
@@ -150,6 +146,7 @@ type MainNoticia = {
   MainBody: string[];
   MainSubtitle: string;
   MainImgFooter: string;
+  Embed?: string;
 };
 export type CardCursoType = {
   CardIcon: DBIMGType;

@@ -33,6 +33,11 @@ const NoticiaAddForm = ({ getNoticias }: { getNoticias: () => void }) => {
       title: "Pie de foto",
       helpText: "",
     },
+    {
+      name: "MainEmbed",
+      title: "Embed Video",
+      helpText: "Agregar el código del video (solo youtube)",
+    },
   ];
   useEffect(() => {
     if (showForm) scrollIntoTheView("#FormIntroID");
@@ -77,6 +82,9 @@ const NoticiaAddForm = ({ getNoticias }: { getNoticias: () => void }) => {
       const MainTitulo: HTMLInputElement = form.elements.namedItem(
         "MainTitulo"
       ) as HTMLInputElement;
+      const MainEmbed: HTMLInputElement = form.elements.namedItem(
+        "MainEmbed"
+      ) as HTMLInputElement;
       const MainSubtitulo: HTMLInputElement = form.elements.namedItem(
         "MainSubtitulo"
       ) as HTMLInputElement;
@@ -87,6 +95,7 @@ const NoticiaAddForm = ({ getNoticias }: { getNoticias: () => void }) => {
         "ImgFooter"
       ) as HTMLInputElement;
       const CardTitle = CardTitulo.value;
+      const Embed = MainEmbed.value || null;
       const CardIntro = CardIntroHTML.value.split("\n");
       const MainTitle = MainTitulo.value;
       const MainSubtitle = MainSubtitulo.value;
@@ -120,6 +129,7 @@ const NoticiaAddForm = ({ getNoticias }: { getNoticias: () => void }) => {
           MainBody,
           MainImgFooter,
           MainIMG,
+          Embed,
         },
       };
       await addSingleDoc("Noticias", newNoticia);

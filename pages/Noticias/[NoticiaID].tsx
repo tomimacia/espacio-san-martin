@@ -25,8 +25,7 @@ export const getServerSideProps = async ({ params }: ServerSideProps) => {
 };
 
 const NoticiaPage = ({ MainNoticia, DateSeconds }: MainNoticiaType) => {
-  const { MainBody, MainIMG, MainImgFooter, MainSubtitle, MainTitle } =
-    MainNoticia;
+  const { MainIMG, MainTitle } = MainNoticia;
   const { downloadURL } = MainIMG;
 
   return (
@@ -39,14 +38,7 @@ const NoticiaPage = ({ MainNoticia, DateSeconds }: MainNoticiaType) => {
         <meta name="twitter:description" content={MainTitle} />
         <meta name="twitter:image" content={downloadURL} />
       </Head>
-      <NoticiaStructure
-        title={MainTitle}
-        DateSeconds={DateSeconds}
-        subtitle={MainSubtitle}
-        description={MainBody}
-        imageFooter={MainImgFooter}
-        img={downloadURL}
-      />      
+      <NoticiaStructure MainNoticia={MainNoticia} DateSeconds={DateSeconds} />
     </Layout>
   );
 };
