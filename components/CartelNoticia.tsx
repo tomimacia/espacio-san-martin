@@ -29,7 +29,7 @@ const CartelNoticia = ({
   const height = useBreakpointValue(["7rem", "8.5rem"]);
   const router = useRouter();
   const handleClick = () => {
-    router.push("#cooperativistas", undefined, { scroll: false });
+    router.push("/#cooperativistas", undefined, { scroll: false });
     setShowCartel(false);
   };
   return (
