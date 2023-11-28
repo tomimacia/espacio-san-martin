@@ -7,7 +7,7 @@ type SuperUserNavType = {
 };
 
 const SuperUserNav = ({ setBody, body }: SuperUserNavType) => {
-  const routes = ["Inscripciones", "Cursos", "Noticias", "Sedes"];
+  const routes = ["Inscripciones", "Cursos", "Noticias", "Sedes", "Coope"];
   return (
     <Flex flexDir="column" gap={5} mb={5}>
       <Flex w="100%" id="PanelNavID" flexDir="column" gap={5}>

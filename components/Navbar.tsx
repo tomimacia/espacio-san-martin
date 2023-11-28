@@ -19,6 +19,8 @@ import { useRouter } from "next/router";
 import ColorModeSwitch from "./ColorModeSwitch";
 import Media from "./Contaco/Media";
 import { NavLink } from "./NavLink";
+import CartelNoticia from "./CartelNoticia";
+import { useState } from "react";
 const Links = [
   { title: "Cursos", href: "/Cursos" },
   { title: "Nosotros", href: "/Nosotros" },
@@ -27,8 +29,9 @@ const Links = [
 ];
 
 export default function Navbar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [showCartel, setShowCartel] = useState(router.asPath === "/");
   const domNode = useClickOutside(() => {
     onClose();
   });
@@ -56,6 +59,9 @@ export default function Navbar() {
       as="nav"
       w="100%"
     >
+      <AnimatePresence>
+        {showCartel && <CartelNoticia setShowCartel={setShowCartel} />}
+      </AnimatePresence>
       <Flex
         align="center"
         h={["4.8rem", "6rem"]}
@@ -67,7 +73,7 @@ export default function Navbar() {
           align="center"
           justifyContent="space-around"
           w="100%"
-          maxW="65%"
+          maxW="90%"
           justify="space-around"
           gap={[2, 4, 7, 10]}
         >

@@ -60,10 +60,10 @@ const SedesList = ({ sedes, setSedes }: SedesListType) => {
               key={sede.Direccion}
               href={`#${sede.Titulo}`}
               scroll={false}
-              fontSize={19}
+              fontSize={15}
               border="1px solid gray"
               borderRadius="5px"
-              p={0.5}
+              p={1}
               _hover={{
                 color: "blue",
                 border: "1px solid blue",

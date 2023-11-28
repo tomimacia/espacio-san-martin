@@ -92,7 +92,7 @@ const Inscripciones = () => {
     if (sedeFilter)
       newList = newList.filter((user: UserListed) => user.Sede === sedeFilter);
     if (filterBy) {
-      newList = newList.sort((a: UserListed, b: UserListed) => {
+      newList = newList.sort((a: any, b: any) => {
         return a[filterBy].localeCompare(b[filterBy]);
       });
     }
@@ -234,11 +234,17 @@ const Inscripciones = () => {
         <Flex flexDir="column" width="100%">
           <Flex flexDir="column" my={2}>
             <Text>
-              <strong>Total Personas Inscriptas:</strong>{" "}
-              {totalInscriptos.length}
+              <strong>Total Personas:</strong>{" "}
+              {
+                filterInscriptos(inscripciones).filter(
+                  (per, pos, arr) =>
+                    pos === arr.findIndex((p) => p.DNI === per.DNI)
+                ).length
+              }
             </Text>
             <Text>
-              <strong>Total Inscripciones:</strong> {inscripciones.length}
+              <strong>Total Inscripciones:</strong>{" "}
+              {filterInscriptos(inscripciones).length}
             </Text>
           </Flex>
           <TableContainer

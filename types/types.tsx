@@ -93,6 +93,17 @@ export type UserListed = {
   FechaInscripcion: string;
   archivado: boolean;
 };
+export type UserListedCoope = {
+  Email: string;
+  Nombre: string;
+  Telefono: string;
+  DNI: string;
+  Cursos: string;
+  Domicilio: string;
+  FechaInscripcion: number;
+  Turno: "Mañana" | "Tarde";
+  Archivado: boolean;
+};
 
 export type CursoDB = {
   titulo: string;
@@ -107,11 +118,21 @@ export type HeadersType =
   | "DNI"
   | "Telefono"
   | "Domicilio"
-  | "FechaInscripcion";
+  | "FechaInscripcion"
+  | "Turno";
 
+export type HeadersTypeCoope =
+  | "Nombre"
+  | "Cursos"
+  | "Email"
+  | "DNI"
+  | "Telefono"
+  | "Domicilio"
+  | "FechaInscripcion"
+  | "Turno";
 export type DeleteUserType = {
   username: string;
-  curso: string;
+  curso?: string;
   DNI: string;
   removeUser: () => void;
 };
@@ -203,4 +224,8 @@ export type GetCursosHookType = {
   setCursos: (newNoticias: CursoTypeDB[]) => void;
   getCursos: () => void;
   loadingCursos: boolean;
+};
+export type RefSpanType = {
+  id: string;
+  height: string;
 };

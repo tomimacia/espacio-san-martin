@@ -59,10 +59,10 @@ const CursosList = ({ CursosHook }: { CursosHook: GetCursosHookType }) => {
               as={NextLink}
               href={`#${title.split(" ").join("%20")}`}
               key={"listItem-" + title}
-              fontSize={19}
+              fontSize={15}
               border="1px solid gray"
               borderRadius="5px"
-              p={0.5}
+              p={1}
               _hover={{
                 color: "blue",
                 border: "1px solid blue",
