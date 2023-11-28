@@ -7,7 +7,8 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
-
+import { ImArrowDown, ImArrowRight } from "react-icons/im";
+import { motion } from "framer-motion";
 const Cooperativista = () => {
   const breakPointRef = useBreakpointValue([1, 1, 2, 2]);
   return (
@@ -30,8 +31,22 @@ const Cooperativista = () => {
           >
             Sos cooperativista?
           </Heading>
-          {breakPointRef === 2 && <ChevronRightIcon fontSize={35} />}
-          {breakPointRef === 1 && <ChevronDownIcon fontSize={35} />}
+          {breakPointRef === 2 && (
+            <motion.div
+              animate={{ x: [-10, 10, -10] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+            >
+              <Icon as={ImArrowRight} fontSize={80} color="brandLight" />
+            </motion.div>
+          )}
+          {breakPointRef === 1 && (
+            <motion.div
+              animate={{ y: [-10, 10, -10] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+            >
+              <Icon as={ImArrowDown} m={5} fontSize={60} color="brandLight" />
+            </motion.div>
+          )}
           <Button
             as={Link}
             href="/Cooperativistas"
