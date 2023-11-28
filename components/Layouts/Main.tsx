@@ -5,7 +5,7 @@ import Head from "next/head";
 import ScrollToTop from "react-scroll-to-top";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
-
+import { Analytics } from "@vercel/analytics/react";
 const Layout = ({ children }: MainLayoutType) => {
   return (
     <Flex
@@ -52,6 +52,7 @@ const Layout = ({ children }: MainLayoutType) => {
         pt={["6.4rem", "7.6rem"]}
       >
         {children}
+        <Analytics />
       </Flex>
       <Footer />
     </Flex>
