@@ -5,7 +5,7 @@ import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
-
+import CooperativistaImg from "@/public/cooperativa.jpg";
 const Cooperativistas = () => {
   const description =
     "¡Adherite a Espacio San Martín como cooperativista! Colaborá en el espacio y anotate gratis a nuestros cursos";
@@ -13,11 +13,15 @@ const Cooperativistas = () => {
     <Layout pageTitle="Cooperativistas" headTitle="Cooperativistas">
       <Head>
         <meta property="og:description" content={description} />
-        <meta property="og:image" itemProp="image" content="/cooperativa.jpg" />
+        <meta
+          property="og:image"
+          itemProp="image"
+          content={CooperativistaImg.src}
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content="/cooperativa.jpg" />
+        <meta name="twitter:image" content={CooperativistaImg.src} />
       </Head>
       <Box px={3}>
         <Heading as="h2" size="lg">
@@ -35,7 +39,7 @@ const Cooperativistas = () => {
               }}
               loading="lazy"
               alt="Cooperativistas-logo-alt"
-              src="/cooperativa.jpg"
+              src={CooperativistaImg.src}
               height={500}
               width={500}
             />
