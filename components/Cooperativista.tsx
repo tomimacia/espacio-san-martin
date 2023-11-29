@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronRightIcon, Icon } from "@chakra-ui/icons";
+import { Icon } from "@chakra-ui/icons";
 import {
   Button,
   Flex,
@@ -6,9 +6,9 @@ import {
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { ImArrowDown, ImArrowRight } from "react-icons/im";
-import { motion } from "framer-motion";
 const Cooperativista = () => {
   const breakPointRef = useBreakpointValue([1, 1, 2, 2]);
   return (
