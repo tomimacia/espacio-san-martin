@@ -6,6 +6,7 @@ import ScrollToTop from "react-scroll-to-top";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 const Layout = ({ children }: MainLayoutType) => {
   return (
     <Flex
@@ -40,6 +41,18 @@ const Layout = ({ children }: MainLayoutType) => {
         />
         <link rel="icon" href={HeaderLogo.src} />
       </Head>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+      />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
+        `}
+      </Script>
       <Navbar />
       <ScrollToTop title="Ir arriba" style={{ padding: "6px" }} smooth />
       <Flex
