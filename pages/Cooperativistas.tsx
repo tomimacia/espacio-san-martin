@@ -10,7 +10,7 @@ const Cooperativistas = () => {
   const description =
     "¡Adherite a Espacio San Martín como cooperativista! Colaborá en el espacio y anotate gratis a nuestros cursos";
   return (
-    <Layout pageTitle="Cooperativistas" headTitle="Cooperativistas">
+    <Layout hasMetaTags={false} pageTitle="Cooperativistas" headTitle="Cooperativistas">
       <Head>
         <meta property="og:description" content={description} />
         <meta
