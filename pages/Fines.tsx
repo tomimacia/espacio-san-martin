@@ -1,7 +1,7 @@
 import ConsultarFines from "@/components/Fines/ConsultarFines";
 import FinesForm from "@/components/Fines/FinesForm";
 import Layout from "@/components/Layouts/Article";
-import FinesIMG from "@/public/FinesCuerpo.jpg";
+
 import {
   Box,
   Flex,
@@ -19,11 +19,11 @@ const Fines = () => {
     <Layout pageTitle="Fines" headTitle="Fines">
       <Head>
         <meta property="og:description" content={description} />
-        <meta property="og:image" itemProp="image" content={FinesIMG.src} />
+        <meta property="og:image" itemProp="image" content="/FinesCuerpo.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={FinesIMG.src} />
+        <meta name="twitter:image" content="/FinesCuerpo.jpg" />
       </Head>
       <Box px={3}>
         <Heading as="h2" size="lg">
@@ -42,7 +42,7 @@ const Fines = () => {
               }}
               loading="lazy"
               alt="Cooperativistas-logo-alt"
-              src={FinesIMG.src}
+              src="/FinesCuerpo.jpg"
               height={500}
               width={500}
             />
