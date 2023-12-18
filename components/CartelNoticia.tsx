@@ -1,9 +1,11 @@
 import { CloseIcon } from "@chakra-ui/icons";
 import {
   Button,
+  Divider,
   Flex,
   Heading,
   IconButton,
+  Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -28,8 +30,8 @@ const CartelNoticia = ({
   };
   const height = useBreakpointValue(["7rem", "8.5rem"]);
   const router = useRouter();
-  const handleClick = () => {
-    router.push("/#cooperativistas", undefined, { scroll: false });
+  const handleClick = (id: string) => {
+    router.push(`/#${id}`, undefined, { scroll: false });
     setShowCartel(false);
   };
   return (
@@ -52,7 +54,6 @@ const CartelNoticia = ({
     >
       <Flex
         bg="green.300"
-        borderRadius="0 0 10px 10px"
         h={height}
         mx="auto"
         flexDir="column"
@@ -60,14 +61,17 @@ const CartelNoticia = ({
         w={["100%", "100%", "90%", "80%"]}
         pos="relative"
         justify="space-around"
+        borderTopRadius="10px"
       >
         <Heading as="h3" size={["sm", "md", "lg", "xl"]}>
           Sos <strong>COOPERATIVISTA</strong>?
         </Heading>
+        <Divider borderColor="gray" w="95%" mx="auto" />
+
         <Button
           bg="#63B3ED"
           _hover={{ bg: "#6393E2", color: "white" }}
-          onClick={handleClick}
+          onClick={() => handleClick("cooperativistas")}
         >
           Sumate!
         </Button>
@@ -81,6 +85,31 @@ const CartelNoticia = ({
           icon={<CloseIcon />}
           onClick={() => setShowCartel(false)}
         />
+      </Flex>
+      <Flex
+        bg="brandLight"
+        h={height}
+        mx="auto"
+        flexDir="column"
+        align="center"
+        w={["100%", "100%", "90%", "80%"]}
+        pos="relative"
+        justify="space-around"
+        color="white"
+        borderBottomRadius="10px"
+      >
+        <Heading as="h3" size={["sm", "md", "lg", "xl"]}>
+          <strong>Plan Fines</strong>
+        </Heading>
+        <Divider borderColor="white" w="95%" mx="auto" />
+        <Text>Terminá el secundario en Espacio San Martín</Text>
+        <Button
+          bg="#63B3ED"
+          _hover={{ bg: "#6393E2", color: "white" }}
+          onClick={() => handleClick("fines")}
+        >
+          Anotate!
+        </Button>
       </Flex>
     </motion.div>
   );

@@ -13,6 +13,7 @@ export default function Home() {
       <TitleIndex />
       <RefSpan id="cooperativistas" height="120px" />
       <Cooperativista />
+      <RefSpan id="fines" height="120px" />
       <FinesCartel />
       <IntroJuan />
       <Flex p={5} my={[8, 12, 16, 20]}>
