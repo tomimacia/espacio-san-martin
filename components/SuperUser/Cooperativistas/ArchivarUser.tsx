@@ -1,4 +1,6 @@
-import { deleteSingleDoc } from "@/firebase/services/deleteSingleDoc";
+import { getSingleDoc } from "@/firebase/services/getSingleDoc";
+import { updateSingleDoc } from "@/firebase/services/updateSingleDoc";
+import { useCustomToast } from "@/hooks/useCustomToast";
 import { DeleteUserType } from "@/types/types";
 import {
   Button,
@@ -12,41 +14,41 @@ import {
   Text,
   useColorModeValue,
   useDisclosure,
-  useToast,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { MdDelete } from "react-icons/md";
+import { MdAssignmentReturned } from "react-icons/md";
 
-const DeleteUserCop = ({ username, DNI, removeUser }: DeleteUserType) => {
+const ArchivarUser = ({
+  username,
+  DNI,
+  collection,
+  removeUser,
+}: DeleteUserType) => {
   const fontColor = useColorModeValue("brandLight", "blue.400");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [loadingForm, setLoadingForm] = useState<boolean>(false);
-  const toast = useToast();
-
-  const AnularSuscripcion = async () => {
+  const { successToast, errorToast } = useCustomToast();
+  const ArchivarUsuario = async () => {
     setLoadingForm(true);
-    deleteSingleDoc("Cooperativistas", DNI)
-      .then(() => {
-        toast({
-          title: "Usuario elimiando",
-          description: `${username} dado de baja correctamente`,
-          status: "success",
-          duration: 9000,
-          isClosable: true,
-        });
-      })
-      .finally(() => {
-        setLoadingForm(false);
-        onClose();
-        removeUser();
-        return;
+    try {
+      await updateSingleDoc(collection, DNI, {
+        Archivado: true,
       });
+      successToast("Archivado correctamente");
+      removeUser();
+    } catch (err) {
+      console.log("Error archivando usuario", err);
+      errorToast("Error archivando usuario");
+    } finally {
+      onClose();
+      setLoadingForm(false);
+    }
   };
   return (
     <Flex>
       <motion.div whileTap={{ scale: 1.5 }} whileHover={{ scale: 1.15 }}>
-        <MdDelete onClick={onOpen} fontSize={16} cursor="pointer" />
+        <MdAssignmentReturned onClick={onOpen} fontSize={16} cursor="pointer" />
       </motion.div>
       <Modal
         size={["xl", "2xl", "3xl", "3xl"]}
@@ -64,10 +66,10 @@ const DeleteUserCop = ({ username, DNI, removeUser }: DeleteUserType) => {
           />
           <ModalBody>
             <Heading p={3} fontSize="xl">
-              Anular Inscripción
+              Archivar usuario
             </Heading>
             <Text>
-              Eliminar a <strong>{username}</strong>?
+              Archivar a <strong>{username}</strong>?
             </Text>
             <Flex p={5} flexDir="column" gap={3}>
               <Button
@@ -83,7 +85,7 @@ const DeleteUserCop = ({ username, DNI, removeUser }: DeleteUserType) => {
                 border="1px solid transparent"
                 _hover={{ opacity: 0.7, border: "1px solid gray" }}
                 isLoading={loadingForm}
-                onClick={AnularSuscripcion}
+                onClick={ArchivarUsuario}
               >
                 Confirmar
               </Button>
@@ -95,4 +97,4 @@ const DeleteUserCop = ({ username, DNI, removeUser }: DeleteUserType) => {
   );
 };
 
-export default DeleteUserCop;
+export default ArchivarUser;

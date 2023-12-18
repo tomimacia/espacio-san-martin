@@ -30,6 +30,6 @@ export const useRouterEvent = () => {
       Router.events.off("routeChangeError", end);
     };
   }, []);
-
+  // returns boolean "loading" if the page is transitioning
   return { loading };
 };

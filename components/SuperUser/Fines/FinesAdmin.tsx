@@ -1,6 +1,6 @@
 import { getCollection } from "@/firebase/services/getCollection";
 import destructureDate from "@/helpers/destructureDate";
-import { HeadersTypeCoope, UserListedCoope } from "@/types/types";
+import { HeadersTypeFines, UserListedFines } from "@/types/types";
 import {
   Checkbox,
   Flex,
@@ -17,17 +17,17 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { MdOutlineAssignmentTurnedIn } from "react-icons/md";
-import ArchivarUser from "./ArchivarUser";
-import DeleteUser from "./DeleteUser";
-const CooperativistasAdmin = () => {
-  const [totalInscriptos, setTotalInscriptos] = useState<UserListedCoope[]>([]);
+import ArchivarUser from "../Cooperativistas/ArchivarUser";
+import DeleteUser from "../Cooperativistas/DeleteUser";
+const FinesAdmin = () => {
+  const [totalInscriptos, setTotalInscriptos] = useState<UserListedFines[]>([]);
   const [showArchivados, setShowArchivados] = useState(false);
-  const [filterBy, setFiltberBy] = useState<null | HeadersTypeCoope>(null);
+  const [filterBy, setFiltberBy] = useState<null | HeadersTypeFines>(null);
   const tableRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     const fetchInscriptos = async () => {
       console.log("Fecthed");
-      const gente = await getCollection("Cooperativistas");
+      const gente = await getCollection("Fines");
       const final = gente.map((p: any) => {
         return {
           ...p,
@@ -38,38 +38,39 @@ const CooperativistasAdmin = () => {
     };
     fetchInscriptos();
   }, []);
-  const filterInscriptos = (list: UserListedCoope[]) => {
+  const filterInscriptos = (list: UserListedFines[]) => {
     let newList = [...list];
 
     newList = newList.filter(
-      (user: UserListedCoope) => user.Archivado === showArchivados
+      (user: UserListedFines) => user.Archivado === showArchivados
     );
 
     if (filterBy) {
-      newList = newList.sort((a: any, b: UserListedCoope) => {
+      newList = newList.sort((a: any, b: UserListedFines) => {
         return a[filterBy].localeCompare(b[filterBy]);
       });
     }
     return newList;
   };
-  const Headers: (keyof Omit<UserListedCoope, "Archivado">)[] = [
+  const Headers: (keyof Omit<UserListedFines, "Archivado">)[] = [
     "Nombre",
     "Email",
-    "Cursos",
+    "Sede",
     "DNI",
     "Telefono",
     "Domicilio",
     "FechaInscripcion",
-    "Turno",
+    "Genero",
+    "DondeDejaste",
   ];
   const deleteUser = (DNI: string) => {
     const newInscriptos = totalInscriptos.filter(
-      (user: UserListedCoope) => user.DNI !== DNI
+      (user: UserListedFines) => user.DNI !== DNI
     );
     setTotalInscriptos(newInscriptos);
   };
   const archivarUser = (DNI: string) => {
-    const newInscriptos = totalInscriptos.map((u: UserListedCoope) => {
+    const newInscriptos = totalInscriptos.map((u: UserListedFines) => {
       if (u.DNI === DNI) {
         return { ...u, Archivado: true };
       } else return u;
@@ -135,7 +136,7 @@ const CooperativistasAdmin = () => {
                       },
                     }}
                   />
-                  {Headers.map((param: HeadersTypeCoope) => {
+                  {Headers.map((param: HeadersTypeFines) => {
                     return (
                       <Th
                         key={param}
@@ -151,9 +152,9 @@ const CooperativistasAdmin = () => {
               </Thead>
               <Tbody>
                 {filterInscriptos(totalInscriptos).map((user, ind) => {
-                  const { Nombre, Cursos, DNI } = user;
+                  const { Nombre, Sede, DNI } = user;
                   return (
-                    <Tr key={DNI + Cursos}>
+                    <Tr key={DNI + Sede}>
                       <Td
                         title="Archivar"
                         sx={{
@@ -168,7 +169,7 @@ const CooperativistasAdmin = () => {
                           <ArchivarUser
                             username={Nombre}
                             DNI={DNI}
-                            collection="Cooperativistas"
+                            collection="Fines"
                             removeUser={() => archivarUser(DNI)}
                           />
                         )}
@@ -184,7 +185,7 @@ const CooperativistasAdmin = () => {
                         <DeleteUser
                           username={Nombre}
                           DNI={DNI}
-                          collection="Cooperativistas"
+                          collection="Fines"
                           removeUser={() => deleteUser(DNI)}
                         />
                       </Td>
@@ -235,4 +236,4 @@ const CooperativistasAdmin = () => {
   );
 };
 
-export default CooperativistasAdmin;
+export default FinesAdmin;

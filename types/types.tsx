@@ -104,6 +104,22 @@ export type UserListedCoope = {
   Turno: "Mañana" | "Tarde";
   Archivado: boolean;
 };
+export type UserListedFines = {
+  Email: string;
+  Nombre: string;
+  Telefono: string;
+  DNI: string;
+  Sede: string;
+  DondeDejaste: string;
+  CUIL: string;
+  Edad: number;
+  Domicilio: string;
+  TienePC: "Si" | "No";
+  TieneWIFI: "Si" | "No";
+  FechaInscripcion: number;
+  Genero: string;
+  Archivado: boolean;
+};
 
 export type CursoDB = {
   titulo: string;
@@ -130,10 +146,25 @@ export type HeadersTypeCoope =
   | "Domicilio"
   | "FechaInscripcion"
   | "Turno";
+export type HeadersTypeFines =
+  | "Nombre"
+  | "Genero"
+  | "Email"
+  | "DNI"
+  | "Telefono"
+  | "Domicilio"
+  | "FechaInscripcion"
+  | "Sede"
+  | "TienePC"
+  | "TieneWIFI"
+  | "Edad"
+  | "DondeDejaste"
+  | "CUIL"
 export type DeleteUserType = {
   username: string;
   curso?: string;
   DNI: string;
+  collection:string,
   removeUser: () => void;
 };
 export type CursoStr = {

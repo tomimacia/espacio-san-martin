@@ -1,5 +1,5 @@
 import BannerNavBar from "@/public/BannerNavbar.jpg";
-import { Center, Flex, Heading } from "@chakra-ui/react";
+import { Center, Flex } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect } from "react";

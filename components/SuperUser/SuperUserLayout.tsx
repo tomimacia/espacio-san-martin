@@ -10,12 +10,13 @@ import PasswordSign from "./PasswordSign";
 import SuperUserNav from "./SuperUserNav";
 import SedesAdmin from "./Sedes/SedesAdmin";
 import CooperativistasAdmin from "./Cooperativistas/CooperativistasAdmin";
+import FinesAdmin from "./Fines/FinesAdmin";
 const SuperUserLayout = () => {
   const [password, setPassword] = useSessionStorage("SUPER_USER_PASSWORD", "");
   const [body, setBody] = useState("Inscripciones");
   return (
     <Layout headTitle="Admin">
-      <Flex p={[2, 4, 6, 8]} flexDir="column">
+      <Flex p={[2, 4, 6, 8]} flexDir="column" w='100%'>
         {password === process.env.NEXT_PUBLIC_SUPERUSER_PWD ? (
           <>
             <SuperUserNav setBody={setBody} body={body} />
@@ -32,6 +33,7 @@ const SuperUserLayout = () => {
               {body === "Noticias" && <NoticiasAdmin />}
               {body === "Sedes" && <SedesAdmin />}
               {body === "Coope" && <CooperativistasAdmin />}
+              {body === "Fines" && <FinesAdmin />}
             </motion.div>
           </>
         ) : (
