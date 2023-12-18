@@ -24,6 +24,7 @@ const DeleteUserModal = ({
   username,
   curso,
   DNI,
+  collection,
   removeUser,
 }: DeleteUserType) => {
   const fontColor = useColorModeValue("brandLight", "blue.400");
@@ -33,10 +34,10 @@ const DeleteUserModal = ({
 
   const AnularSuscripcion = async () => {
     setLoadingForm(true);
-    await getSingleDoc("Inscriptos", DNI).then((res) => {
+    await getSingleDoc(collection, DNI).then((res) => {
       const user = res?.data();
       if (user?.Cursos.length == 1) {
-        deleteSingleDoc("Inscriptos", DNI).then(() => {
+        deleteSingleDoc(collection, DNI).then(() => {
           toast({
             title: "Usuario elimiando",
             description: `${username} dado de baja correctamente`,
@@ -50,7 +51,7 @@ const DeleteUserModal = ({
           return;
         });
       } else
-        updateSingleDoc("Inscriptos", DNI, {
+        updateSingleDoc(collection, DNI, {
           ...user,
           Cursos: user?.Cursos.filter(
             (c: { titulo: string; sede: string }) => c.titulo != curso

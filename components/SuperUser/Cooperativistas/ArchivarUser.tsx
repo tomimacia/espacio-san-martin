@@ -1,4 +1,3 @@
-import { getSingleDoc } from "@/firebase/services/getSingleDoc";
 import { updateSingleDoc } from "@/firebase/services/updateSingleDoc";
 import { useCustomToast } from "@/hooks/useCustomToast";
 import { DeleteUserType } from "@/types/types";

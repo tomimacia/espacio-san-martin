@@ -23,6 +23,7 @@ const ArchivarUserModal = ({
   username,
   curso,
   DNI,
+  collection,
   removeUser,
 }: DeleteUserType) => {
   const fontColor = useColorModeValue("brandLight", "blue.400");
@@ -32,14 +33,14 @@ const ArchivarUserModal = ({
   const ArchivarUsuario = async () => {
     setLoadingForm(true);
     try {
-      const userData = await getSingleDoc("Inscriptos", DNI);
+      const userData = await getSingleDoc(collection, DNI);
       const cursosData = userData?.data()?.Cursos;
       const newCursos = cursosData.map((c: any) => {
         if (c.titulo === curso) {
           return { ...c, archivado: true };
         } else return c;
       });
-      await updateSingleDoc("Inscriptos", DNI, {
+      await updateSingleDoc(collection, DNI, {
         Cursos: [...newCursos],
       });
       successToast("Archivado correctamente");

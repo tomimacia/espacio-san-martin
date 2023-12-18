@@ -322,6 +322,7 @@ const Inscripciones = () => {
                             username={Nombre}
                             curso={Curso}
                             DNI={DNI}
+                            collection="Inscriptos"
                             removeUser={() => archivarUser(DNI, Curso)}
                           />
                         )}
@@ -338,6 +339,7 @@ const Inscripciones = () => {
                           username={Nombre}
                           curso={Curso}
                           DNI={DNI}
+                          collection="Inscriptos"
                           removeUser={() => deleteUser(DNI, Curso)}
                         />
                       </Td>
