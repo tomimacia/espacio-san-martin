@@ -189,16 +189,7 @@ const FinesForm = () => {
       type: "text",
     },
   ];
-  const SedesList = [
-    "Zaizar",
-    "Club Camioneros",
-    "Chimondegui",
-    "Las Manitos",
-    "Dorrego",
-    "Chacabuco",
-    "Monte Grande",
-    "Chacritas",
-  ];
+  const SedesList = ["Zaizar", "Chimondegui", "Monte Grande", "Chacritas"];
   const fontColor = useColorModeValue("brandLight", "blue.400");
   return (
     <Flex flexDir="column" gap={5} p={[1, 2, 3, 4]}>
