@@ -13,7 +13,6 @@ import Image from "next/image";
 import { Fragment, useState } from "react";
 import { CursoForm } from "./CursosForm";
 import SedesDisplayData from "./SedesDisplayData";
-import { FinesForm } from "../Fines/FinesForm";
 const BackButton = () => {
   return (
     <Button
