@@ -16,7 +16,7 @@ const Fines = () => {
   const description =
     "¡Finalizá tus estudios en Espacio San Martín! Adherite a nuestro plan Fines y terminá tus estudios secundarios";
   return (
-    <Layout pageTitle="Fines" headTitle="Fines">
+    <Layout hasMetaTags={false} pageTitle="Fines" headTitle="Fines">
       <Head>
         <meta property="og:description" content={description} />
         <meta property="og:image" itemProp="image" content="/FinesCuerpo.jpg" />
