@@ -37,6 +37,7 @@ const NoticiaPage = ({ MainNoticia, DateSeconds }: MainNoticiaType) => {
         <meta property="og:image:height" content="630" />
         <meta name="twitter:description" content={MainTitle} />
         <meta name="twitter:image" content={downloadURL} />
+        <meta property="og:image:type" content="image/jpg" />
       </Head>
       <NoticiaStructure MainNoticia={MainNoticia} DateSeconds={DateSeconds} />
     </Layout>

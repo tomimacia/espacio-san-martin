@@ -53,6 +53,8 @@ const Layout = ({
                   property="og:description"
                   content="Espacio para el crecimiento personal y social"
                 />
+                <meta property="og:image:type" content="image/jpg" />
+
                 <meta
                   name="twitter:description"
                   content="Espacio para el crecimiento personal y social"

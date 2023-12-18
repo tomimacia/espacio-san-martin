@@ -10,7 +10,11 @@ const Cooperativistas = () => {
   const description =
     "¡Adherite a Espacio San Martín como cooperativista! Colaborá en el espacio y anotate gratis a nuestros cursos";
   return (
-    <Layout hasMetaTags={false} pageTitle="Cooperativistas" headTitle="Cooperativistas">
+    <Layout
+      hasMetaTags={false}
+      pageTitle="Cooperativistas"
+      headTitle="Cooperativistas"
+    >
       <Head>
         <meta property="og:description" content={description} />
         <meta
@@ -18,6 +22,8 @@ const Cooperativistas = () => {
           itemProp="image"
           content={CooperativistaImg.src}
         />
+        <meta property="og:image:type" content="image/jpg" />
+
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:description" content={description} />

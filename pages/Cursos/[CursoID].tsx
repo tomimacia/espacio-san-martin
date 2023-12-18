@@ -42,6 +42,7 @@ const CursosPage = ({
         <meta property="og:image:height" content="630" />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={downloadURL} />
+        <meta property="og:image:type" content="image/jpg" />
       </Head>
       <CursoStructure Curso={Curso} Sedes={Sedes} />
     </Layout>

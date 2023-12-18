@@ -33,7 +33,6 @@ const Layout = ({ children }: MainLayoutType) => {
           name="msapplication-TileImage"
           content="https://www.sanmartinjuancruz.com.ar/LogoNavbar.jpg"
         />
-        <meta property="og:image:type" content="image/jpeg" />
 
         <link
           href="https://www.sanmartinjuancruz.com.ar/favicon.ico"

@@ -24,6 +24,7 @@ const Fines = () => {
         <meta property="og:image:height" content="630" />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="/FinesCuerpo.jpg" />
+        <meta property="og:image:type" content="image/jpg" />
       </Head>
       <Box px={3}>
         <Heading as="h2" size="lg">
