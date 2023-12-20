@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import Head from "next/head";
 import Image from "next/image";
+import FinesCuerpo from "@/public/FinesCuerpo.jpg";
 const Fines = () => {
   const description =
     "¡Finalizá tus estudios en Espacio San Martín! Adherite a nuestro plan Fines y terminá tus estudios secundarios";
@@ -19,11 +20,11 @@ const Fines = () => {
     <Layout hasMetaTags={false} pageTitle="Fines" headTitle="Fines">
       <Head>
         <meta property="og:description" content={description} />
-        <meta property="og:image" itemProp="image" content="/FinesCuerpo.jpg" />
+        <meta property="og:image" itemProp="image" content={FinesCuerpo.src} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content="/FinesCuerpo.jpg" />
+        <meta name="twitter:image" content={FinesCuerpo.src} />
         <meta property="og:image:type" content="image/jpg" />
       </Head>
       <Box px={3}>
@@ -43,7 +44,7 @@ const Fines = () => {
               }}
               loading="lazy"
               alt="Cooperativistas-logo-alt"
-              src="/FinesCuerpo.jpg"
+              src={FinesCuerpo.src}
               height={500}
               width={500}
             />
