@@ -23,6 +23,7 @@ import CartelNoticia from "./CartelNoticia";
 import { useState } from "react";
 const Links = [
   { title: "Cursos", href: "/Cursos" },
+  { title: "Fines", href: "/Fines" },
   { title: "Nosotros", href: "/Nosotros" },
   { title: "Sobre Juan", href: "/Bio" },
   { title: "Contacto", href: "/Contacto" },
@@ -138,7 +139,7 @@ export default function Navbar() {
             <HStack spacing={8} alignItems="center">
               <HStack
                 as="nav"
-                spacing={6}
+                spacing={3}
                 display={{ base: "none", md: "flex" }}
               >
                 {Links.map((link) => {
