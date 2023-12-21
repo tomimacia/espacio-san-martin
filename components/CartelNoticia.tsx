@@ -28,7 +28,7 @@ const CartelNoticia = ({
       y: -500,
     },
   };
-  const height = useBreakpointValue(["7rem", "8.5rem"]);
+  const height = useBreakpointValue([7, 8.5]) || 7;
   const router = useRouter();
   const handleClick = (id: string) => {
     router.push(`/#${id}`, undefined, { scroll: false });
@@ -38,7 +38,7 @@ const CartelNoticia = ({
     <motion.div
       style={{
         position: "fixed",
-        height: height,
+        height: `${height * 2}rem`,
         width: "100vw",
         zIndex: 1,
         top: 0,
@@ -54,11 +54,11 @@ const CartelNoticia = ({
     >
       <Flex
         bg="green.300"
-        h={height}
+        h={`${height}rem`}
         mx="auto"
         flexDir="column"
         align="center"
-        w={["100%", "100%", "90%", "80%"]}
+        w={["90%", "85%", "80%", "75%"]}
         pos="relative"
         justify="space-around"
         borderTopRadius="10px"
@@ -88,11 +88,11 @@ const CartelNoticia = ({
       </Flex>
       <Flex
         bg="brandLight"
-        h={height}
+        h={`${height}rem`}
         mx="auto"
         flexDir="column"
         align="center"
-        w={["100%", "100%", "90%", "80%"]}
+        w={["90%", "85%", "80%", "75%"]}
         pos="relative"
         justify="space-around"
         color="white"
@@ -102,11 +102,14 @@ const CartelNoticia = ({
           <strong>Plan Fines</strong>
         </Heading>
         <Divider borderColor="white" w="95%" mx="auto" />
-        <Text>Terminá el secundario en Espacio San Martín</Text>
+        <Text fontSize="sm" p={2}>
+          Terminá el secundario en Espacio San Martín
+        </Text>
         <Button
           bg="#63B3ED"
           _hover={{ bg: "#6393E2", color: "white" }}
           onClick={() => handleClick("fines")}
+          m={1}
         >
           Anotate!
         </Button>
