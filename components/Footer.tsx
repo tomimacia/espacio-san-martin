@@ -1,34 +1,53 @@
-import { Center, useColorModeValue } from "@chakra-ui/react";
-import Link from "next/link";
+import { Center, Text, useColorModeValue } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
     <Center
-      pos="absolute"
-      id="FooterID"
+      pos='absolute'
+      id='FooterID'
       bottom={0}
-      h="4rem"
-      w="100%"
+      h='4rem'
+      w='100%'
       opacity={0.7}
-      fontSize={{ base: "xs", sm: "sm" }}
+      fontSize={{ base: 'xs', sm: 'sm' }}
     >
+      <span
+        style={{
+          position: 'absolute',
+          left: 15,
+          bottom: 4,
+          fontWeight: 'bold',
+          color: useColorModeValue('black', 'white'),
+        }}
+      >
+        <Text
+          as={Link}
+          href='/Admin'
+          target='_blank'
+          _hover={{ textDecor: 'underline' }}
+          style={{ color: useColorModeValue('#000075', '#B1D4E0') }}
+        >
+          Admin
+        </Text>
+      </span>
       &copy; {new Date().getFullYear()} Espacio San Martín. Todos los derechos
       reservados.
       <span
         style={{
-          position: "absolute",
+          position: 'absolute',
           right: 15,
           bottom: 4,
-          fontWeight: "bold",
-          color: useColorModeValue("black", "white"),
+          fontWeight: 'bold',
+          color: useColorModeValue('black', 'white'),
         }}
       >
-        Diseño:{"  "}
+        Diseño:{'  '}
         <Link
-          href="https://www.tomasmacia.com.ar"
-          target="_blank"
-          rel="noreferrer noopener"
-          style={{ color: useColorModeValue("#000075", "#B1D4E0") }}
+          href='https://www.tomasmacia.com.ar'
+          target='_blank'
+          rel='noreferrer noopener'
+          style={{ color: useColorModeValue('#000075', '#B1D4E0') }}
         >
           Tomás Macía
         </Link>

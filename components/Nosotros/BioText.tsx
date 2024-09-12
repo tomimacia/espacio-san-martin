@@ -1,3 +1,6 @@
+import ACaraDePerro from '@/public/ACaraDePerroRadio.jpg';
+import Vecinal from '@/public/JuanBioCuerpo.jpg';
+import nhe from '@/public/NuevosHorizontes.webp';
 import {
   Box,
   Flex,
@@ -5,24 +8,16 @@ import {
   Text,
   useBreakpointValue,
   useColorModeValue,
-} from "@chakra-ui/react";
-import Image from "next/image";
-import NextLink from "next/link";
-import nhe from "@/public/NuevosHorizontes.webp";
-import Vecinal from "@/public/JuanBioCuerpo.jpg";
-import ACaraDePerro from "@/public/ACaraDePerroRadio.jpg";
+} from '@chakra-ui/react';
+import Image from 'next/image';
+import NextLink from 'next/link';
 export const BioText = () => {
   const ImageSize = useBreakpointValue([450, 250, 350, 300]);
   const ImageSizeNHE = useBreakpointValue([500, 250, 410, 600]);
   return (
-    <Flex display="block">
+    <Flex display='block'>
       <Text fontSize={{ base: 14, sm: 20 }}>
-        <strong>
-          Abogado - Especiliasta en Salud{" "}
-          <Text as={NextLink} cursor="text" href="/SuperUser">
-            Mental
-          </Text>
-        </strong>
+        <strong>Abogado - Especiliasta en Salud Mental</strong>
         <br />
         <br />
         Juan Cruz San Martín nació el 24 de julio de 1985 en Lomas de Zamora,
@@ -47,34 +42,34 @@ export const BioText = () => {
         <br />
         <br />
         Desde 2011, Juan Cruz es propietario y representante legal de la escuela
-        de educación especial{" "}
+        de educación especial{' '}
         <Link
           as={NextLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://institutonhe.com/"
-          color={useColorModeValue("blue", "blue.200")}
-          _hover={{ textDecor: "underline" }}
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://institutonhe.com/'
+          color={useColorModeValue('blue', 'blue.200')}
+          _hover={{ textDecor: 'underline' }}
         >
           Nuevos Horizontes Echeverrianos.
         </Link>
       </Text>
-      <Box float="right">
+      <Box float='right'>
         <Image
           style={{
-            objectFit: "contain",
-            objectPosition: "center",
-            borderRadius: "10px",
-            border: "1px solid rgba(175, 175, 175, 0.4)",
+            objectFit: 'contain',
+            objectPosition: 'center',
+            borderRadius: '10px',
+            border: '1px solid rgba(175, 175, 175, 0.4)',
             padding: 1,
           }}
-          alt="Nuevos-Horizontes"
+          alt='Nuevos-Horizontes'
           src={nhe.src}
           height={ImageSizeNHE}
           width={ImageSizeNHE}
         />
-        <Text as={"span"} fontSize={[10, 12, 14, 15]} fontStyle="italic">
-          {ImageSizeNHE! > 350 && "Ingreso al establecimiento"} Nuevos
+        <Text as={'span'} fontSize={[10, 12, 14, 15]} fontStyle='italic'>
+          {ImageSizeNHE! > 350 && 'Ingreso al establecimiento'} Nuevos
           Horizontes Echeverrianos
         </Text>
       </Box>
@@ -109,15 +104,15 @@ export const BioText = () => {
         oportunidad.
         <br />
       </Text>
-      <Box m={1} float="right">
+      <Box m={1} float='right'>
         <Image
-          alt="Olla-vecinal-popular"
+          alt='Olla-vecinal-popular'
           src={Vecinal.src}
           height={ImageSize}
           width={ImageSize}
-          style={{ borderRadius: "10px" }}
+          style={{ borderRadius: '10px' }}
         />
-        <Text as={"span"} fontSize={[10, 12, 14, 15]} fontStyle="italic">
+        <Text as={'span'} fontSize={[10, 12, 14, 15]} fontStyle='italic'>
           Monte Grande, Esteban Echeverría
         </Text>
       </Box>
@@ -152,15 +147,15 @@ export const BioText = () => {
         También hay tiempo para el debate y la difusión de ideas…
         <br />
       </Text>
-      <Box m={1} float="right">
+      <Box m={1} float='right'>
         <Image
-          alt="Olla-vecinal-popular"
+          alt='Olla-vecinal-popular'
           src={ACaraDePerro.src}
           height={ImageSize}
           width={ImageSize}
-          style={{ borderRadius: "10px" }}
+          style={{ borderRadius: '10px' }}
         />
-        <Text as={"span"} fontSize={[10, 12, 14, 15]} fontStyle="italic">
+        <Text as={'span'} fontSize={[10, 12, 14, 15]} fontStyle='italic'>
           Radio A Cara de Perro
         </Text>
       </Box>
