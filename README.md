@@ -6,4 +6,4 @@ Variables de entorno:
 
 -EmailJS
 
--Admin password (se puede modificar la funcionalidad praa login con auth de firebase)
+-Admin password (se puede modificar la funcionalidad para login con auth de firebase)
