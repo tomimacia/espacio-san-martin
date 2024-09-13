@@ -3,6 +3,9 @@
 Configurar
 
 Variables de entonrno:
+
 -Firebase
+
 -EmailJS
+
 -Admin password (se puede modificar la funcionalidad praa login con auth de firebase)
