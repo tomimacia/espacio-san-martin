@@ -1,16 +1,17 @@
 import { useSessionStorage } from '@/hooks/storageHooks/useSessionStorage';
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Layout from '../Layouts/Article';
+import CooperativistasAdmin from './Cooperativistas/CooperativistasAdmin';
 import CursosAdmin from './Cursos/CursosAdmin';
+import FinesAdmin from './Fines/FinesAdmin';
 import Inscripciones from './Inscripciones/Inscripciones';
 import NoticiasAdmin from './Noticias/NoticiasAdmin';
 import PasswordSign from './PasswordSign';
-import SuperUserNav from './SuperUserNav';
 import SedesAdmin from './Sedes/SedesAdmin';
-import CooperativistasAdmin from './Cooperativistas/CooperativistasAdmin';
-import FinesAdmin from './Fines/FinesAdmin';
+import SuperUserNav from './SuperUserNav';
+
 const SuperUserLayout = () => {
   const [password, setPassword] = useSessionStorage('SUPER_USER_PASSWORD', '');
   const [body, setBody] = useState('Inscripciones');
