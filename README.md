@@ -1,8 +1,6 @@
 # Espacio San Martín, un lugar para la asistencia, capacitación y desarrollo profesional
 
-Configurar
-
-Variables de entonrno:
+Variables de entorno:
 
 -Firebase
 
